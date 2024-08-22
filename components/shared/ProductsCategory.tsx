@@ -1,5 +1,6 @@
+import { products } from '@/constants/data';
 import React from 'react';
-import { products } from '@/constants';
+
 
 const ProductsCategory = () => {
   return (

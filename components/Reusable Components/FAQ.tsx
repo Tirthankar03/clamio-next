@@ -19,7 +19,7 @@ function FAQ() {
 
       <Accordion type="single" collapsible className="w-full">
         {faqData.map((faqItem) => (
-          <AccordionItem key={faqItem.id} value={faqItem.id} className="border-b border-gray-200">
+          <AccordionItem key={faqItem.id} value={faqItem.id.toString()}  className="border-b border-gray-200">
             <AccordionTrigger className="py-4 px-4 bg-gray-100 text-start  hover:bg-gray-200 cursor-pointer font-semibold">
               {faqItem.question}
             </AccordionTrigger>

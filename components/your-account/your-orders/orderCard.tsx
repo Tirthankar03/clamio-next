@@ -1,7 +1,12 @@
+import { OrderDemo } from '@/lib/types';
 import Link from 'next/link';
 import React from 'react';
 
-const OrderCard = ({ order }) => {
+interface OrderCardProps {
+    order: OrderDemo; // Use the Order interface here
+}
+
+const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
     return (
         <div className="border  border-gray-300 rounded-lg p-4 mb-4 bg-white shadow-lg ">
             <div className="flex gap-10  sm:flex-row sm:justify-between mb-4">

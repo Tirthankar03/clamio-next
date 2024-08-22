@@ -17,7 +17,7 @@ interface CreatorCardProps {
     TopCreatorData: Creator[];
 }
 
-export default function TopCreatorsList({ TopCreatorData }: any) {
+export default function TopCreatorsList({ TopCreatorData }: CreatorCardProps) {
     return (
         <div className="">
             <h1 className="text-2xl font-bold mt-8">Top Creators</h1>

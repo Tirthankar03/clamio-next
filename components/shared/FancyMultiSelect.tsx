@@ -2,8 +2,11 @@
 
 import React from "react";
 import CreatableSelect from "react-select/creatable";
+
+
 import { Badge } from "@/components/ui/badge"; // Adjust path as needed
 import { customStyles } from "@/utils/customStyles"; // Adjust path as needed
+import { ActionMeta, MultiValue } from "react-select";
 
 type Category = {
   value: string;
@@ -14,7 +17,7 @@ interface FancyMultiSelectProps {
   options: Category[];
   initialSelected?: Category[];
   placeholder?: string;
-  onChange?: (selected: Category[]) => void;
+  onChange?: (selected: string[]) => void;  // Change the type to string[]
 }
 
 export function FancyMultiSelect({
@@ -25,11 +28,19 @@ export function FancyMultiSelect({
 }: FancyMultiSelectProps) {
   const [selected, setSelected] = React.useState<Category[]>(initialSelected);
 
-  const handleChange = (newValue: Category[] | null) => {
-    const newSelected = newValue || [];
+  const handleChange = (
+    newValue: MultiValue<Category>, // Updated type
+    actionMeta: ActionMeta<Category>
+  ) => {
+    const newSelected = newValue.map((option) => ({
+      value: option.value,
+      label: option.label,
+    }));
+
     setSelected(newSelected);
     if (onChange) {
-      onChange(newSelected);
+      const selectedValues = newSelected.map((category) => category.value); // Map to an array of strings
+      onChange(selectedValues); // Pass the array of strings to the parent
     }
   };
 
@@ -59,3 +70,4 @@ export function FancyMultiSelect({
     </div>
   );
 }
+

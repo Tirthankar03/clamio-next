@@ -10,41 +10,15 @@ import ProfileSection from '@/components/shared/community-id/ProfileSection';
 import ProductsSection from '@/components/shared/community-id/ProductsSection';
 import TopCreatorsList from '@/components/shared/community-id/TopCreatorsList';
 
-interface Product {
-    id: number;
-    title: string;
-    description: string;
-    price: number;
-    image: string;
-}
-interface Creator {
-    id: number;
-    name: string;
-    products: string;
-    followers: string;
-    description: string;
-}
-interface CommunityCardData {
-    id: number;
-    title: string;
-    members: string;
-    img_url: string;
-    products: {
-        topSellingProducts: Product[];
-    };
-    creators: {
-        TopCreatorData: Creator[];
-    }
-    author: string;
-    ratings: number;
-    numReviews: number;
-}
+import { CommunityCardData, CommunityCardsData } from '@/lib/dummy'; 
 
 const CommunityDetail: React.FC = () => {
     const { id } = useParams();
     const communityId = parseInt(id as string, 10);
 
-    const community: CommunityCardData | undefined = communityCardsData[communityId];
+// Assert the type of communityCardsData
+const communityCards: CommunityCardsData = communityCardsData;
+const community: CommunityCardData | undefined = communityCards[communityId];
 
     if (!community) {
         return <div>Community not found</div>;

@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux';
 import { addToCart } from '@/utils/cartSlice';
 import Link from 'next/link';
 
-const allProducts = [...TopSellingproductData, ...HotNewproductData, ...TopDiscountProduct];
+const allProducts: any = [...TopSellingproductData, ...HotNewproductData, ...TopDiscountProduct];
 
 const ProductInfo = () => {
     const params = useParams();
@@ -16,7 +16,7 @@ const ProductInfo = () => {
     const dispatch = useDispatch();
 
     // Find the product based on the ID from the URL
-    const product = allProducts.find(p => p.id === parseInt(id));
+    const product = allProducts.find((p:any) => p.id === parseInt(id));
 
     if (!product) {
         return <div>Product not found</div>;

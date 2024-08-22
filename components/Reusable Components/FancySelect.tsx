@@ -2,7 +2,7 @@
 "use client";
 
 import React from "react";
-import Select from "react-select";
+import Select, { MultiValue } from "react-select";
 import { Badge } from "@/components/ui/badge"; // Adjust path as needed
 import { customStyles } from "@/utils/customStyles"; // Adjust path as needed
 
@@ -13,9 +13,9 @@ type Category = {
 
 interface FancySelectProps {
   options: Category[];
-  initialSelected?: Category[];
+  initialSelected?: string[];
   placeholder?: string;
-  onChange?: (selected: Category[]) => void;
+  onChange?: (selected: string[]) => void;
 }
 
 export function FancySelect({
@@ -24,10 +24,10 @@ export function FancySelect({
   placeholder = "Select...",
   onChange,
 }: FancySelectProps) {
-  const [selected, setSelected] = React.useState<Category[]>(initialSelected);
+  const [selected, setSelected] = React.useState<string[]>(initialSelected);
 
-  const handleChange = (newValue: Category[] | null) => {
-    const newSelected = newValue || [];
+  const handleChange = (newValue: MultiValue<Category>) => {
+    const newSelected = newValue.map((item) => item.value);
     setSelected(newSelected);
     if (onChange) {
       onChange(newSelected);
@@ -39,7 +39,7 @@ export function FancySelect({
       <div className="flex flex-col gap-2 my-3">
         <Select
           isMulti
-          value={selected}
+          value={options.filter((option) => selected.includes(option.value))}
           onChange={handleChange}
           options={options}
           className="basic-multi-select"
@@ -49,11 +49,14 @@ export function FancySelect({
           styles={customStyles}
         />
         <div className="flex flex-wrap gap-1 my-3">
-          {selected.map((item) => (
-            <Badge key={item.value} variant="default">
-              {item.label}
-            </Badge>
-          ))}
+          {selected.map((value) => {
+            const label = options.find((option) => option.value === value)?.label || value;
+            return (
+              <Badge key={value} variant="default">
+                {label}
+              </Badge>
+            );
+          })}
         </div>
       </div>
     </div>

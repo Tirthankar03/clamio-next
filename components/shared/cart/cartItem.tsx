@@ -3,12 +3,15 @@ import { useDispatch } from 'react-redux';
 import { updateQuantity, removeFromCart } from '@/utils/cartSlice';
 import Image from 'next/image';
 import { toast } from 'sonner';
+import { CartItemProps } from '@/lib/types';
 
-
-function CartItem({ item }) {
+type Props = {
+    item: CartItemProps;
+  };
+  function CartItem({ item }: Props) {
     const dispatch = useDispatch();
 
-    const handleQuantityChange = (amount) => {
+    const handleQuantityChange = (amount: number) => {
         if (item.quantity + amount >= 0) {
             dispatch(updateQuantity({ id: item.id, amount }));
             toast.success(`Quantity ${amount > 0 ? 'increased' : 'decreased'} by ${Math.abs(amount)}`);

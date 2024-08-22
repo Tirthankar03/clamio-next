@@ -1,17 +1,17 @@
 'use client';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { RootState } from '@/Store/store';
 import ProductList from '@/components/shared/products/ProductList';
 import { TopSellingproductData, HotNewproductData, TopDiscountProduct } from '@/constants/data';
 
 const FilteredProductList = () => {
     const searchQuery = useSelector((state: RootState) => state.product.searchQuery);
-    const router = useRouter();
-
+  
+    const pathname = usePathname(); // Get the pathname
     const filterProducts = (products: any) => {
-        if (router.pathname !== '/query') return products; 
+        if (pathname !== '/query') return products; 
         if (!searchQuery) return products;
         return products.filter((product: any) =>
             product.productName.toLowerCase().includes(searchQuery.toLowerCase())

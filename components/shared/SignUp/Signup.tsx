@@ -13,6 +13,7 @@ import { setIsCreatorLoggedIn } from "@/utils/creatorSlice";
 
 import { toggleLoginType } from "@/utils/loginTypeSlice";
 import { Switch } from "@/components/ui/switch";
+import useFormErrors from "@/hooks/useFormErrors"; 
 
 const SignUp = () => {
   const dispatch = useDispatch();
@@ -29,6 +30,10 @@ const SignUp = () => {
     reset,
     watch,
   } = useForm();
+
+  const { getErrorMessage } = useFormErrors(errors);
+
+
   const password = watch("password");
 
   const onSubmit = async (data: FieldValues) => {
@@ -75,8 +80,8 @@ const SignUp = () => {
             className="mb-2 h-12 w-full rounded-lg border-2 border-black px-5 text-sm placeholder-gray-400"
             placeholder="Enter your username"
           />
-          {errors.username && (
-            <p className="text-red-500 text-sm">{errors.username.message}</p>
+          {getErrorMessage("username") && (
+            <p className="text-red-500 text-sm">{getErrorMessage("username")}</p>
           )}
 
           <label className="block text-md py-2 font-semibold">Email*</label>
@@ -86,8 +91,8 @@ const SignUp = () => {
             className="mb-2 h-12 w-full rounded-lg border-2 border-black px-5 text-sm placeholder-gray-400"
             placeholder="Enter your email"
           />
-          {errors.email && (
-            <p className="text-red-500 text-sm">{errors.email.message}</p>
+          {getErrorMessage("email") && (
+            <p className="text-red-500 text-sm">{getErrorMessage("email")}</p>
           )}
 
           <label className="block text-md py-2 font-semibold">Password*</label>
@@ -116,9 +121,11 @@ const SignUp = () => {
               )}
             </button>
           </div>
-          {errors.password && (
-            <p className="text-red-500 text-sm">{errors.password.message}</p>
+          {getErrorMessage("password") && (
+            <p className="text-red-500 text-sm">{getErrorMessage("email")}</p>
           )}
+
+
 
           <label className="block text-md py-2 font-semibold">
             Confirm Password*
@@ -150,11 +157,11 @@ const SignUp = () => {
               )}
             </button>
           </div>
-          {errors.confirmPassword && (
-            <p className="text-red-500 text-sm">
-              {errors.confirmPassword.message}
-            </p>
+          {getErrorMessage("confirmPassword") && (
+            <p className="text-red-500 text-sm">{getErrorMessage("confirmPassword")}</p>
           )}
+
+
 
           <label className="block text-md py-2 font-semibold">
             Do you have a referral code?

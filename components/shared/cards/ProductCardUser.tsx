@@ -3,7 +3,25 @@ import Link from 'next/link';
 import FavoriteButton from '@/components/Reusable Components/FavoriteButton';
 import { FaUserCircle, FaStar, FaShoppingCart } from 'react-icons/fa';
 
-const ProductCardUser = ({ product, idx }: {product: string, idx: number}) => {
+
+interface Product {
+  productLink: string;
+  title: string;
+  creator: {
+    name: string;
+    link: string;
+  };
+  rating: number;
+  reviewsCount: number;
+  price: number;
+}
+
+interface ProductCardUserProps {
+  product: Product;
+  idx: number;
+}
+
+const ProductCardUser: React.FC<ProductCardUserProps> = ({ product, idx }) => {
   return (
     <div key={idx} className="bg-white p-4 shadow-lg rounded-lg relative">
       <Link href={product.productLink} className="w-36">

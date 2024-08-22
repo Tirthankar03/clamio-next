@@ -8,6 +8,8 @@
 "use client";
 
 import { DataTable } from "@/components/shared/Dashboard/DataTable";
+import { ColumnDef } from "@tanstack/react-table";
+
 
 import React from "react";
 import PageTitle from "@/components/shared/Dashboard/PageTitle";

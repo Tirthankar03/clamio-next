@@ -34,7 +34,9 @@
     ".next/types/**/*.ts",
     "app/signup",
     "components/shared/Followers/TopFans.jsx",
-    "components/shared/Followers/Charts.jsx"
+    "components/shared/Followers/Charts.jsx",
+    "app/**/*.tsx",
+    "app/**/*.ts"
   ],
   "exclude": [
     "node_modules"

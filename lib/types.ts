@@ -38,6 +38,8 @@ export type SalesProps = {
    totalSales: string;
    earnings: number;
    bankAccount: BankAccount;
+   img_url?: string;       // Optional if not always present
+   profile_url?: string;   // Optional if not always present
  };
  
  export type Member = {
@@ -135,6 +137,17 @@ export type SalesProps = {
    status: string;
  }; 
 
+ export interface OrderDemo {
+  date: string;
+  total: string;
+  shipTo: string;
+  orderId: string;
+  productName: string;
+  imgUrl: string;
+  status?: string; // Optional because it may be empty
+  type: string;
+}
+
 
  export type Invoice = {
    _id: string;
@@ -228,3 +241,20 @@ export type SalesProps = {
    review_id: string;
    content: string;
  };
+
+ //extra types not compatible with backend
+
+ export type CartItemProps = {
+  id: number;
+  productName: string;
+  name: string;
+  imageUrl: string;
+  quantity: number;
+  price: string; // Assuming price is a string like "$20.00"
+};
+
+
+
+
+
+

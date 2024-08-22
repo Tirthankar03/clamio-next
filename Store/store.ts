@@ -6,16 +6,32 @@ import creatorReducer from '@/utils/creatorSlice';
 import cartReducer from '@/utils/cartSlice';
 import communityReducer from '@/utils/communitySlice';
 import loginTypeReducer from '@/utils/loginTypeSlice';
-import thunk from 'redux-thunk';
+import {thunk} from 'redux-thunk';
 import wishlistReducer from '@/utils/wishlistSlice';
 import addressReducer from '@/utils/addressSlice';
-import storage from 'redux-persist/lib/storage';
+// import storage from 'redux-persist/lib/storage';
 import { persistReducer, persistStore } from 'redux-persist';
+import createWebStorage from 'redux-persist/lib/storage/createWebStorage'
+const createNoopStorage = () => {
+  return {
+    getItem(_key: string) {
+      return Promise.resolve(null)
+    },
+    setItem(_key: string, value: string) {
+      return Promise.resolve(value)
+    },
+    removeItem(_key: string) {
+      return Promise.resolve()
+    },
+  }
+}
+
+const storage = typeof window !== 'undefined' ? createWebStorage('local') : createNoopStorage()
 
 const persistConfig = {
     key: 'root',
     version: 1,
-    storage,
+    storage: storage,
     middleware: [thunk],
     blacklist: ['cart'], // Exclude cart from persistence
 };
@@ -35,6 +51,11 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
   reducer: persistedReducer,
+  middleware: MiddlewareArray =>
+    MiddlewareArray({
+      serializableCheck: false,
+      thunk: true,
+    }),
 });
 
 export const persistor = persistStore(store);

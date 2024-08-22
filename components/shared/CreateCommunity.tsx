@@ -21,11 +21,16 @@ const categoryOptions = [
 const CreateCommunity = () => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
-  const [category, setCategory] = useState([]);
+  const [category, setCategory] = useState<string[]>([]);
   const [goal, setGoal] = useState('');
-  const [fans, setFans] = useState([]);
+  const [fans, setFans] = useState<string[]>([]); 
 
-  const handleSubmit = (e) => {
+  console.log(category);
+  console.log(fans);
+
+  
+
+  const handleSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     // Handle form submission
     console.log({ name, description, category, goal, fans });

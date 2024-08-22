@@ -12,12 +12,7 @@ interface CommunityCardData {
 
 const SimilarCommunities: React.FC = () => {
     // Convert the object into an array
-    const communitiesArray: CommunityCardData[] = Object.values(communityCardsData).map((community) => ({
-        id: community.id,
-        title: community.title,
-        members: community.members,
-        img_url: community.img_url, // Map the img_url field
-    }));
+    const communitiesArray: CommunityCardData[] = Object.values(communityCardsData) as CommunityCardData[];
 
     return (
         <>

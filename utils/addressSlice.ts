@@ -1,6 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {
+// Define the Address type
+interface Address {
+  id: number; // Use the appropriate type for your ID
+  street: string;
+  city: string;
+  state: string;
+  zipCode: string;
+}
+
+// Define the initial state type
+interface AddressState {
+  addresses: Address[];
+  selectedAddressId: number | null;
+}
+
+const initialState: AddressState  = {
   addresses: [], // Start with an empty array
   selectedAddressId: null, // No address selected initially
 };

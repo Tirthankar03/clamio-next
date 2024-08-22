@@ -1,11 +1,12 @@
 
-import Card, { CardProps } from "@/components/shared/Dashboard/Card";
+import Card from "@/components/shared/Dashboard/Card";
 import PageTitle from "@/components/shared/Dashboard/PageTitle";
-import SalesCard, { SalesProps } from "@/components/shared/Dashboard/SalesCard";
+import SalesCard from "@/components/shared/Dashboard/SalesCard";
 import { CardContent } from "@/components/ui/card";
 import { Activity, CreditCard, DollarSign, Users } from "lucide-react";
 import Image from "next/image";
 import BarChart from "./BarChart";
+import { CardProps, SalesProps } from "@/lib/types";
 
 const cardData: CardProps[] = [
   {

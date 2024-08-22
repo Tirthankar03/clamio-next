@@ -5,15 +5,15 @@ import { addToCart } from '@/utils/cartSlice';
 import { HotNewproductData, TopDiscountProduct, TopSellingproductData } from '@/constants/data';
 import ProductCard from '@/components/shared/cards/ProductCard';
 
-const allProducts = [...TopSellingproductData, ...HotNewproductData, ...TopDiscountProduct];
+const allProducts: any = [...TopSellingproductData, ...HotNewproductData, ...TopDiscountProduct];
 
 const Frequent = () => {
     const params = useParams();
     const dispatch = useDispatch();
     const id = Array.isArray(params.id) ? params.id[0] : params.id;
-    const mainProduct = allProducts.find(p => p.id === parseInt(id));
+    const mainProduct = allProducts.find((p:any) => p.id === parseInt(id));
 
-    const frequentlyBoughtProduct = allProducts.find(p => p.id !== parseInt(id));
+    const frequentlyBoughtProduct = allProducts.find((p:any) => p.id !== parseInt(id));
 
     const handleAddBothToCart = () => {
         if (mainProduct && frequentlyBoughtProduct) {

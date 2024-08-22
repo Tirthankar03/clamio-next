@@ -37,8 +37,9 @@ export const chartData = {
 };
 
 //payout chartoptions
+import { ChartOptions } from 'chart.js';
 
-export const chartOptions = {
+export const chartOptions: ChartOptions<'line'> = {
   responsive: true,
   plugins: {
     legend: {
@@ -92,37 +93,37 @@ export const chartOptions = {
 
 
 // communityData.js
-export interface Product {
-  id: number;
-  title: string;
-  description: string;
-  price: number;
-  image: string;
-}
-export interface Creator {
-  id: number
-  name: string
-  followers: string
-  products: string
-  description: string
-  img_url: string
-  profile_url: string
-}
-export interface CommunityCardData {
-  id: number;
-  title: string;
-  members: string;
-  products: {
-    topSellingProducts: Product[];
-  };
-  creators: {
-    TopCreatorData: Creator[];
-  }
-}
+// export interface Product {
+//   id: number;
+//   title: string;
+//   description: string;
+//   price: number;
+//   image: string;
+// }
+// export interface Creator {
+//   id: number
+//   name: string
+//   followers: string
+//   products: string
+//   description: string
+//   img_url: string
+//   profile_url: string
+// }
+// export interface CommunityCardData {
+//   id: number;
+//   title: string;
+//   members: string;
+//   products: {
+//     topSellingProducts: Product[];
+//   };
+//   creators: {
+//     TopCreatorData: Creator[];
+//   }
+// }
 
 // data.ts
 
-export const communityCardsData = {
+export const communityCardsData: CommunityCardsData = {
   1: {
     id: 1,
     title: "Gaming Legends",
@@ -141,7 +142,10 @@ export const communityCardsData = {
         { id: 2, name: 'EliteGamer', followers: '15k followers', products: '2k Products', description: 'Top-tier gamer and content creator.', img_url: 'https://images.unsplash.com/photo-1583621908511-e082803e3aa2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8eWVsbG93JTIwYmFja2dyb3VuZHxlbnwwfDB8MHx8fDA%3D', profile_url: '/assets/creator-id-img/profile.png' },
         { id: 3, name: 'GameMaster', followers: '20k followers', products: '3k Products', description: 'Master of various game genres.', img_url: 'https://images.unsplash.com/photo-1583621908511-e082803e3aa2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8eWVsbG93JTIwYmFja2dyb3VuZHxlbnwwfDB8MHx8fDA%3D', profile_url: '/assets/creator-id-img/profile.png' },
       ]
-    }
+    },
+    author: "Community Leader",
+    ratings: 4.7,
+    numReviews: 50,
   },
   2: {
     id: 2,
@@ -161,7 +165,10 @@ export const communityCardsData = {
         { id: 2, name: 'Wanderlust', followers: '15k followers', products: '2k Products', description: 'Avid traveler and travel blogger.', img_url: 'https://images.unsplash.com/photo-1583621908511-e082803e3aa2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8eWVsbG93JTIwYmFja2dyb3VuZHxlbnwwfDB8MHx8fDA%3D', profile_url: "/assets/creator-id-img/profile.png" },
         { id: 3, name: 'GlobeTrotter', followers: '20k followers', products: '3k Products', description: 'Exploring the world one place at a time.', img_url: 'https://images.unsplash.com/photo-1583621908511-e082803e3aa2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8eWVsbG93JTIwYmFja2dyb3VuZHxlbnwwfDB8MHx8fDA%3D', profile_url: "/assets/creator-id-img/profile.png" },
       ]
-    }
+    },
+    author: "Travel Expert",
+    ratings: 4.8,
+    numReviews: 70,
   },
   3: {
     id: 3,
@@ -181,7 +188,10 @@ export const communityCardsData = {
         { id: 2, name: 'FitChef', followers: '15k followers', products: '2k Products', description: 'Combining fitness and healthy eating.', img_url: 'https://images.unsplash.com/photo-1583621908511-e082803e3aa2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8eWVsbG93JTIwYmFja2dyb3VuZHxlbnwwfDB8MHx8fDA%3D', profile_url: '/assets/creator-id-img/profile.png' },
         { id: 3, name: 'VeganQueen', followers: '20k followers', products: '3k Products', description: 'Expert in vegan and plant-based diets.', img_url: 'https://images.unsplash.com/photo-1583621908511-e082803e3aa2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8eWVsbG93JTIwYmFja2dyb3VuZHxlbnwwfDB8MHx8fDA%3D', profile_url: '/assets/creator-id-img/profile.png' },
       ]
-    }
+    },
+    author: "Recipe Expert",
+    ratings: 4.8,
+    numReviews: 60,
   },
   4: {
     id: 4,
@@ -201,10 +211,14 @@ export const communityCardsData = {
         { id: 2, name: 'PixelPainter', followers: '15k followers', products: '2k Products', description: 'Master of digital painting techniques.', img_url: 'https://images.unsplash.com/photo-1583621908511-e082803e3aa2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8eWVsbG93JTIwYmFja2dyb3VuZHxlbnwwfDB8MHx8fDA%3D', profile_url: '/assets/creator-id-img/profile.png' },
         { id: 3, name: 'SketchArtist', followers: '20k followers', products: '3k Products', description: 'Expert in digital sketching and illustrations.', img_url: 'https://images.unsplash.com/photo-1583621908511-e082803e3aa2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8eWVsbG93JTIwYmFja2dyb3VuZHxlbnwwfDB8MHx8fDA%3D', profile_url: '/assets/creator-id-img/profile.png' },
       ]
-    }
+    },
+    author: "Art Curator",
+    ratings: 4.9,
+    numReviews: 40,
   },
   // Add more communities here
 };
+
 
 
 // categoryData.js
@@ -549,6 +563,7 @@ export const faqData = [
 ];
 
 export default faqData;
+
 
 //product-cards all category
 
@@ -1012,6 +1027,7 @@ export const productListings = [
 
 
 import { User, CreditCard, Users, LifeBuoy, Settings, Keyboard, Plus, Coins, ListOrdered, MapPin, Contact2, Gift, Wallet, ClipboardList, Star, AlertCircle, Heart, CoinsIcon } from 'lucide-react';
+import { CommunityCardsData } from '@/lib/dummy';
 export const headerLinks = [
   {
     label: 'Community',

@@ -24,7 +24,7 @@ import { cn } from "@/lib/utils"; // Assuming this function is used for conditio
 const Sidebar = () => {
   const pathName = usePathname();
 
-  const isActive = (href) => pathName === href;
+  const isActive = (href: string) => pathName === href;
 
   return (
     <div className="hidden border-r bg-white mt-8 md:block">

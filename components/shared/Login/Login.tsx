@@ -12,6 +12,8 @@ import { toggleLoginType } from "@/utils/loginTypeSlice";
 import { setIsCreatorLoggedIn } from "@/utils/creatorSlice";
 import { RootState } from "@/Store/store";
 import { Switch } from "@/components/ui/switch";
+import useFormErrors from "@/hooks/useFormErrors"; 
+
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -26,6 +28,8 @@ const Login = () => {
     formState: { errors, isSubmitting },
     reset,
   } = useForm();
+
+  const { getErrorMessage } = useFormErrors(errors);
 
   const onSubmit = async (data: FieldValues) => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -73,8 +77,8 @@ const Login = () => {
             className="mb-2 h-12 w-full rounded-lg border-2 border-black px-5 text-sm placeholder-gray-400"
             placeholder="Enter your email"
           />
-          {errors.email && (
-            <p className="text-red-500 text-sm">{errors.email.message}</p>
+          {getErrorMessage("email") && (
+            <p className="text-red-500 text-sm">{getErrorMessage("email")}</p>
           )}
 
           <label className="block text-md py-2 font-semibold">Password*</label>
@@ -103,8 +107,8 @@ const Login = () => {
               )}
             </button>
           </div>
-          {errors.password && (
-            <p className="text-red-500 text-sm">{errors.password.message}</p>
+          {getErrorMessage("password") && (
+            <p className="text-red-500 text-sm">{getErrorMessage("password")}</p>
           )}
 
           <p className="cursor-pointer text-xs text-gray-400 underline text-right">

@@ -12,7 +12,7 @@ const ProductDetail = () => {
       <ProductInfo />
       <ProductHighlights />
       <Reviews />
-      <Frequent />
+      {/* <Frequent /> */}
       <SimilarProducts />
     </div>
   );

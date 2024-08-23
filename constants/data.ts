@@ -1030,6 +1030,10 @@ import { User, CreditCard, Users, LifeBuoy, Settings, Keyboard, Plus, Coins, Lis
 import { CommunityCardsData } from '@/lib/dummy';
 export const headerLinks = [
   {
+    label: 'My Account',
+    route: '/your-account',
+  },
+  {
     label: 'Community',
     route: '/community',
   },
@@ -1088,7 +1092,7 @@ export const headerLinksThree = [
   },
   {
     label: 'Wishlist',
-    route: '/wishlist',
+    route: '/favourite',
   },
   {
     label: 'Cart',

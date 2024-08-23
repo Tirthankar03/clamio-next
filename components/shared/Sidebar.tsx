@@ -49,7 +49,7 @@ const Sidebar = () => {
         <div className="flex-1 overflow-y-auto">
           <nav className="px-4 py-6 space-y-2">
             <Link
-              href="/your-account/my-orders"
+              href="/your-account"
               className={cn(
                 "flex items-center gap-3 rounded-lg px-4 py-2 transition-all text-gray-700",
                 isActive("/your-account/my-orders") ? "bg-yellow-300" : "hover:bg-yellow-300"

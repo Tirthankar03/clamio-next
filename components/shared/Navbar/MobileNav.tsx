@@ -24,6 +24,7 @@ const MobileNav = () => {
   const router = useRouter();
   const isLoggedIn = useSelector((store: RootState) => store.user.isLoggedIn);
   const isCreatorLogin = useSelector((store: RootState) => store.creator.isCreatorLoggedIn);
+  const cartItemCount = useSelector((state: RootState) => state.cart.items.length);
 
   const handleLogout = () => {
     if (isLoggedIn) {
@@ -41,7 +42,7 @@ const MobileNav = () => {
   return (
     <nav className="md:hidden">
       <Sheet>
-        <SheetTrigger className="align-middle">
+        <SheetTrigger className="align-middle relative">
           <Image
             src="/assets/icons/menu.svg"
             alt="menu"
@@ -49,6 +50,11 @@ const MobileNav = () => {
             height={24}
             className="cursor-pointer"
           />
+          {cartItemCount > 0 && (
+            <span className="absolute left-4 bottom-3 right-0 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
+              {cartItemCount}
+            </span>
+          )}
         </SheetTrigger>
         <SheetContent className="bg-white md:hidden p-0">
           {!isLoggedIn && (

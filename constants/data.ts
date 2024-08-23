@@ -1072,7 +1072,7 @@ export const headerLinksThree = [
   },
   {
     label: 'Wishlist',
-    route: '/wishlist',
+    route: '/favourite',
   },
   {
     label: 'Cart',

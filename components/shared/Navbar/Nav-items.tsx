@@ -4,7 +4,7 @@ import { headerLinksThree } from '@/constants/data';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useSelector } from 'react-redux';
-import { RootState } from '@/Store/store'; // Make sure this path is correct
+import { RootState } from '@/Store/store';
 
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
@@ -17,6 +17,11 @@ const NavItems = () => {
     return (
         <ul className="md:flex-between flex w-full flex-col items-start gap-5 md:flex-row">
             {headerLinksThree.map((link) => {
+                // Conditionally render the "My Account" link
+                if (link.label === 'My Account' && !isLoggedIn) {
+                    return null;
+                }
+
                 const isActive = pathname === link.route;
 
                 return (
@@ -44,7 +49,7 @@ const NavItems = () => {
                 </ul>
             )}
         </ul>
-    )
+    );
 }
 
 export default NavItems;

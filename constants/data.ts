@@ -1014,6 +1014,10 @@ export const productListings = [
 import { User, CreditCard, Users, LifeBuoy, Settings, Keyboard, Plus, Coins, ListOrdered, MapPin, Contact2, Gift, Wallet, ClipboardList, Star, AlertCircle, Heart, CoinsIcon } from 'lucide-react';
 export const headerLinks = [
   {
+    label: 'My Account',
+    route: '/your-account',
+  },
+  {
     label: 'Community',
     route: '/community',
   },
@@ -1066,6 +1070,10 @@ export const headerLinkstwo = [
   }
 ]
 export const headerLinksThree = [
+  {
+    label: 'My Account',
+    route: '/your-account',
+  },
   {
     label: 'Sell Your Product',
     route: '/explore',

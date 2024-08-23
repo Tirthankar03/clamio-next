@@ -6,7 +6,6 @@ import { headerLinks } from "@/constants/data";
 import { RootState } from "@/Store/store";
 import { Button } from "../ui/button";
 import { setIsLoggedIn } from "@/utils/authSlice";
-import DropDown from "../Reusable Components/DropDownMenu";
 import DropDownMenu from "../Reusable Components/DropDown";
 
 const NavItems = () => {
@@ -18,7 +17,11 @@ const NavItems = () => {
   return (
     <ul className="md:flex-between flex w-full flex-col items-start gap-5 md:mr-10 md:flex-row">
       {headerLinks.map((link) => {
-         if (link.label === "Dashboard" && !isCreatorLogin) {
+        // Conditionally render the "My Account" link
+        if (link.label === "My Account" && !(isLoggedIn || isCreatorLogin)) {
+          return null;
+        }
+        if (link.label === "Dashboard" && !isCreatorLogin) {
           return null;
         }
         return (
@@ -32,13 +35,13 @@ const NavItems = () => {
           </li>
         );
       })}
-     {(isLoggedIn || isCreatorLogin) && (
+      {(isLoggedIn || isCreatorLogin) && (
         <li className="hidden md:block">
           <DropDownMenu /> {/* Render your dropdown menu component */}
         </li>
       )}
-      {!isLoggedIn && !isCreatorLogin &&(
-        <ul className=" flex gap-2">
+      {!isLoggedIn && !isCreatorLogin && (
+        <ul className="flex gap-2">
           <li>
             <Button className="font-semibold hover:bg-yellow-400 px-4 py-2 rounded-md shadow-md">
               <Link href="/login">Login</Link>

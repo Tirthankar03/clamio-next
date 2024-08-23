@@ -18,10 +18,9 @@ const NavItems = () => {
         <ul className="md:flex-between flex w-full flex-col items-start gap-5 md:flex-row">
             {headerLinksThree.map((link) => {
                 // Conditionally render the "My Account" link
-                if (link.label === 'My Account' && !isLoggedIn) {
+                if (link.label === "My Account" && !(isLoggedIn || isCreatorLogin)) {
                     return null;
-                }
-
+                  }
                 const isActive = pathname === link.route;
 
                 return (

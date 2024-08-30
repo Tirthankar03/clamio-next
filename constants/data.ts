@@ -1087,6 +1087,10 @@ export const headerLinkstwo = [
 ]
 export const headerLinksThree = [
   {
+    label: 'My Account',
+    route: '/your-account',
+  },
+  {
     label: 'Sell Your Product',
     route: '/explore',
   },
@@ -1097,6 +1101,18 @@ export const headerLinksThree = [
   {
     label: 'Cart',
     route: '/cart',
+  },
+  {
+    label: 'Community',
+    route: '/community',
+  },
+  {
+    label: 'Creators',
+    route: '/creator',
+  },
+  {
+    label: 'Dashboard',
+    route: '/dashboard',
   },
 ]
 export const eventDefaultValues = {

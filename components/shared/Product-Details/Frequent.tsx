@@ -32,19 +32,18 @@ const Frequent = () => {
     ).toLocaleString();
 
     return (
-        <div className="py-8">
+        <div className="py-8 px-4 md:px-8 lg:px-16">
             <h1 className="text-2xl font-semibold mb-6">Frequently bought together</h1>
-            <div className="grid grid-cols-4 gap-4 items-start">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-start">
                 <div className="col-span-1">
                     <ProductCard {...mainProduct} />
                 </div>
                 <div className="col-span-1">
                     <ProductCard {...frequentlyBoughtProduct} />
                 </div>
-                <div className="col-span-1">
+                <div className="col-span-1 lg:block hidden">
                     <ProductCard {...frequentlyBoughtProduct} />
                 </div>
-
                 <div className="col-span-1 flex flex-col justify-between h-full">
                     <div className="flex-grow"></div>
                     <div className="text-xl font-semibold mb-2">

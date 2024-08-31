@@ -36,7 +36,7 @@ const Hero = ({ onButtonClick, showCreateButtons }: any) => {
                     ) : (
                         <>
                             <button onClick={onButtonClick} className="font-bold bg-primary text-secondary px-4 py-2 rounded transition-colors duration-300">Create Your Product</button>
-                            <button className="font-bold bg-primary text-secondary px-4 py-2 rounded hover:bg-yellow-600 transition-colors duration-300">BUTTON</button>
+                            {/* <button className="font-bold bg-primary text-secondary px-4 py-2 rounded hover:bg-yellow-600 transition-colors duration-300">BUTTON</button> */}
                         </>
                     )}
                 </div>

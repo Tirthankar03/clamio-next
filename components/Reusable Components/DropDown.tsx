@@ -7,7 +7,7 @@ import { RootState } from '@/Store/store';
 import { setIsLoggedIn } from '@/utils/authSlice';
 import { setIsCreatorLoggedIn } from '@/utils/creatorSlice';
 import { deleteCookie } from 'cookies-next';
-import { LogOut, UserRound, ListOrdered, User } from 'lucide-react';
+import { LogOut, UserRound, ListOrdered, User, BadgePlus, NotebookTabs, HandHeart, UsersRound } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 const DropDownMenu = () => {
@@ -45,7 +45,17 @@ const DropDownMenu = () => {
       label: 'Dashboard',
       route: '/dashboard',
       icon: <User className="h-4 w-4" />,
-    }
+    },
+    {
+      label: "Community",
+      route: "/community",
+      icon: <HandHeart  className="h-6 w-6" />,
+    },
+    {
+      label: "creators",
+      route: "/creator",
+      icon: <UsersRound  className="h-6 w-6" />,
+    },
   ]
 
 

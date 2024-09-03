@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Add from '@/public/assets/creator-login-img/Add.png';
 import Vec from '@/public/assets/creator-login-img/imgone.png';
+import { DialogUploaderDemo } from '../uploader/DialogUploader';
 
 const Hero = ({ onButtonClick, showCreateButtons }: any) => {
     return (
@@ -39,6 +40,7 @@ const Hero = ({ onButtonClick, showCreateButtons }: any) => {
                             {/* <button className="font-bold bg-primary text-secondary px-4 py-2 rounded hover:bg-yellow-600 transition-colors duration-300">BUTTON</button> */}
                         </>
                     )}
+                    <DialogUploaderDemo />
                 </div>
             </div>
         </div>

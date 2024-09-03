@@ -11,11 +11,10 @@ const OrderList: React.FC<OrderListProps> = ({ value }) => {
     return (
         <main>
             {filteredOrders.map((order, index) => (
-                <OrderCard key={index} order={order} />
+                <OrderCard key={index} order={order} activeTab={value} />
             ))}
         </main>
     );
 }
 
 export default OrderList;
-

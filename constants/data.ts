@@ -1463,7 +1463,7 @@ export const orders = [
     orderId: "407-7808997-3858710",
     productName: "Paris Travel Guide",
     imgUrl: "/assets/product-img/imgone.png",
-    status: "",
+    status: "Processing",
     type: "buy-again"
   },
   {
@@ -1471,11 +1471,12 @@ export const orders = [
     total: "₹299.00",
     shipTo: "Anish Aich",
     orderId: "407-6579730-3719549",
-    productName: "Italian Pasta Recipes",
+    productName: "Weight Gain",
     imgUrl: "/assets/product-img/imgone.png",
-    status: "Return window closed on 16-Mar-2023",
-    type: "not-yet-shipped"
-  }, {
+    // status: "Return window closed on 16-Mar-2023",
+    type: "my-bookings" // Updated from "not-yet-shipped" to "my-bookings"
+  },
+  {
     date: "7 March 2023",
     total: "₹545.00",
     shipTo: "Anish",
@@ -1489,42 +1490,13 @@ export const orders = [
     date: "25 February 2023",
     total: "₹799.00",
     shipTo: "Anish Aich",
-    orderId: "407-7808997-3858710",
+    orderId: "407-7808997-3858711",
     productName: "Paris Travel Guide",
     imgUrl: "/assets/product-img/imgone.png",
-    status: "",
-    type: "buy-again"
-  },
-  {
-    date: "25 February 2023",
-    total: "₹299.00",
-    shipTo: "Anish Aich",
-    orderId: "407-6579730-3719549",
-    productName: "Italian Pasta Recipes",
-    imgUrl: "/assets/product-img/imgone.png",
-    status: "Return window closed on 16-Mar-2023",
-    type: "not-yet-shipped"
-  }, {
-    date: "7 March 2023",
-    total: "₹545.00",
-    shipTo: "Anish",
-    orderId: "407-2287782-8446435",
-    productName: "Mystic Tarot Reading",
-    imgUrl: "/assets/product-img/imgone.png",
-    status: "Return complete",
+    status: "Shipped",
     type: "cancelled"
   },
-  {
-    date: "25 February 2023",
-    total: "₹799.00",
-    shipTo: "Anish Aich",
-    orderId: "407-7808997-3858710",
-    productName: "Paris Travel Guide",
-    imgUrl: "/assets/product-img/imgone.png",
-    status: "",
-    type: "cancelled"
-  },
-  // Add more orders here with the appropriate type
+  // Add more diverse orders as needed
 ];
 
 // constants.ts

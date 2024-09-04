@@ -9,6 +9,7 @@ import loginTypeReducer from '@/utils/loginTypeSlice';
 import {thunk} from 'redux-thunk';
 import wishlistReducer from '@/utils/wishlistSlice';
 import addressReducer from '@/utils/addressSlice';
+import userInfoReducer from '@/utils/userInfoSlice'
 // import storage from 'redux-persist/lib/storage';
 import { persistReducer, persistStore } from 'redux-persist';
 import createWebStorage from 'redux-persist/lib/storage/createWebStorage'
@@ -45,6 +46,7 @@ const rootReducer = combineReducers({
     creator: creatorReducer,
     loginType: loginTypeReducer,
     address: addressReducer,
+    userInfo: userInfoReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

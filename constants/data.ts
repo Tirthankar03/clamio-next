@@ -1463,7 +1463,7 @@ export const orders = [
     orderId: "407-7808997-3858710",
     productName: "Paris Travel Guide",
     imgUrl: "/assets/product-img/imgone.png",
-    status: "Processing",
+    // status: "Processing",
     type: "buy-again"
   },
   {
@@ -1483,7 +1483,7 @@ export const orders = [
     orderId: "407-2287782-8446435",
     productName: "Mystic Tarot Reading",
     imgUrl: "/assets/product-img/imgone.png",
-    status: "Return complete",
+    // status: "Return complete",
     type: "orders"
   },
   {
@@ -1493,7 +1493,7 @@ export const orders = [
     orderId: "407-7808997-3858711",
     productName: "Paris Travel Guide",
     imgUrl: "/assets/product-img/imgone.png",
-    status: "Shipped",
+    // status: "Shipped",
     type: "cancelled"
   },
   // Add more diverse orders as needed
@@ -1630,4 +1630,51 @@ export const brandPacks = [
     validity: "Valid for 15 days",
     imageUrl: "/assets/product-img/imgone.png",
   },
+];
+
+
+// src/lib/dummyUserData.ts
+interface UserInfo {
+  userId: string;
+  name: string;
+  weight: string;
+  height: string;
+  age: string;
+  allergyHistory: string;
+  purpose: string;
+  description: string;
+}
+
+export const dummyUserData: UserInfo[] = [
+  {
+    userId: "user001",
+    name: "John Doe",
+    weight: "75kg",
+    height: "180cm",
+    age: "28",
+    allergyHistory: "None",
+    purpose: "General health",
+    description: "No specific conditions."
+  },
+  {
+    userId: "user002",
+    name: "Jane Smith",
+    weight: "62kg",
+    height: "165cm",
+    age: "34",
+    allergyHistory: "Peanuts",
+    purpose: "Weight loss",
+    description: "Allergic to peanuts."
+  },
+  {
+    userId: "user003",
+    name: "Alice Johnson",
+    weight: "68kg",
+    height: "170cm",
+    age: "30",
+    allergyHistory: "None",
+    purpose: "Muscle gain",
+    description: "Works out regularly."
+  },
+  // Add more users as needed
 ];

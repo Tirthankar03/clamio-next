@@ -7,7 +7,7 @@ import { FaSearch } from 'react-icons/fa';
 export default function YourOrder() {
     const [activeTab, setActiveTab] = useState("orders");
 
-    const handleTabChange = (tabValue) => {
+    const handleTabChange = (tabValue:any) => {
         setActiveTab(tabValue);
     };
 

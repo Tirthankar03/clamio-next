@@ -5,7 +5,9 @@ import { DataTable } from "@/components/shared/Dashboard/DataTable";
 import { ColumnDef } from "@tanstack/react-table";
 import PageTitle from "@/components/shared/Dashboard/PageTitle";
 import { cn } from "@/lib/utils";
-import UserInfoPage from "../UserInfoDisplay";
+
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 type Payment = {
   userId: string; // Changed from order to userId
@@ -52,12 +54,14 @@ const columns: ColumnDef<Payment>[] = [
       const userId = row.original.userId; // Updated to use userId
 
       return (
-        <button
-          onClick={() => router.push(`/bookings/${userId}`)} // Updated URL path
-          className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
-        >
-          View User Info
-        </button>
+        <Link href={'bookings/user-info'}>
+           <Button 
+            className="px-3 py-1 text-sm rounded-md bg-secondary text-white hover:bg-gray-800 sm:px-4 sm:py-2 sm:text-base"
+          >
+            View User Info
+          </Button>
+        </Link>
+       
       );
     }
   }
@@ -65,91 +69,91 @@ const columns: ColumnDef<Payment>[] = [
 
 const data: Payment[] = [
     {
-      userId: "USER001", // Changed from order to userId
+      userId: "1", // Changed from order to userId
       status: "Pending",
       lastOrder: "2023-01-15",
       method: "Credit Card"
     },
     {
-      userId: "USER002",
+      userId: "2",
       status: "Processing",
       lastOrder: "2023-02-20",
       method: "PayPal"
     },
     {
-      userId: "USER003",
+      userId: "3",
       status: "Completed",
       lastOrder: "2023-03-10",
       method: "Stripe"
     },
     {
-      userId: "USER004",
+      userId: "4",
       status: "Pending",
       lastOrder: "2023-04-05",
       method: "Venmo"
     },
     {
-      userId: "USER005",
+      userId: "5",
       status: "Completed",
       lastOrder: "2023-05-12",
       method: "Bank Transfer"
     },
     {
-      userId: "USER006",
+      userId: "6",
       status: "Processing",
       lastOrder: "2023-06-18",
       method: "Apple Pay"
     },
     {
-      userId: "USER007",
+      userId: "7",
       status: "Completed",
       lastOrder: "2023-07-22",
       method: "Google Pay"
     },
     {
-      userId: "USER008",
+      userId: "8",
       status: "Pending",
       lastOrder: "2023-08-30",
       method: "Cryptocurrency"
     },
     {
-      userId: "USER009",
+      userId: "9",
       status: "Processing",
       lastOrder: "2023-09-05",
       method: "Alipay"
     },
     {
-      userId: "USER010",
+      userId: "10",
       status: "Completed",
       lastOrder: "2023-10-18",
       method: "WeChat Pay"
     },
     {
-      userId: "USER011",
+      userId: "11",
       status: "Pending",
       lastOrder: "2023-11-25",
       method: "Square Cash"
     },
     {
-      userId: "USER012",
+      userId: "12",
       status: "Completed",
       lastOrder: "2023-12-08",
       method: "Zelle"
     },
     {
-      userId: "USER013",
+      userId: "13",
       status: "Processing",
       lastOrder: "2024-01-15",
       method: "Stripe"
     },
     {
-      userId: "USER014",
+      userId: "14",
       status: "Completed",
       lastOrder: "2024-02-20",
       method: "PayPal"
     },
     {
-      userId: "USER015",
+      userId: "15",
       status: "Pending",
       lastOrder: "2024-03-30",
       method: "Credit Card"
@@ -159,10 +163,11 @@ const data: Payment[] = [
 export default function BookingPage() {
 
   return (
-    <div className="flex flex-col gap-5 w-full">
-      <PageTitle title="Bookings" />
+    <div className="flex flex-col gap-5 w-full p-4 sm:p-6 lg:p-8">
+    <PageTitle title="Bookings" />
+    <div className="overflow-x-auto">
       <DataTable columns={columns} data={data} />
-      <UserInfoPage/>
     </div>
+  </div>
   );
 }

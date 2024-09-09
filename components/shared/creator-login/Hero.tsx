@@ -40,7 +40,7 @@ const Hero = ({ onButtonClick, showCreateButtons }: any) => {
                             {/* <button className="font-bold bg-primary text-secondary px-4 py-2 rounded hover:bg-yellow-600 transition-colors duration-300">BUTTON</button> */}
                         </>
                     )}
-                    <DialogUploaderDemo />
+                
                 </div>
             </div>
         </div>

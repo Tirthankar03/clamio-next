@@ -107,6 +107,12 @@ export default function SideNavbar({}: Props) {
       icon: BadgePlus,
       variant: "ghost",
     },
+    {
+      title: "Service",
+      href: "/dashboard/service",
+      icon: BadgePlus,
+      variant: "ghost",
+    },
   ]}
 />
       </div>

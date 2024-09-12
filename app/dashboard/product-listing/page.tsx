@@ -1,4 +1,5 @@
-import ProductListingPage from "@/components/shared/productListing/productListingList"
+import ProductListingPage from "@/components/shared/productListing/productListingList";
+
 export default function page() {
     return (
         <main>

@@ -922,105 +922,99 @@ export const payoutData = [
 
 // Product Lisitng
 
-export const productListings = [
+export const listings = [
+  // Product Listings
   {
+    id: 1,
+    type: "product",
     name: "Product A",
     stars: "★★★★★",
     reviews: 4.7,
     noReviews: "1k",
     description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
-    imageUrl: "/assets/product-img/imgone.png"
+    imageUrl: "/assets/product-img/imgone.png",
+    price: "$49.99"
   },
   {
-    name: "Product A",
-    stars: "★★★★★",
-    reviews: 4.7,
-    noReviews: "1k",
-    description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
-    imageUrl: "/assets/product-img/imgone.png"
+    id: 2,
+    type: "product",
+    name: "Product B",
+    stars: "★★★★☆",
+    reviews: 4.3,
+    noReviews: "800",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    imageUrl: "/assets/product-img/imgone.png",
+    price: "$39.99"
   },
   {
-    name: "Product A",
+    id: 3,
+    type: "product",
+    name: "Product C",
     stars: "★★★★★",
-    reviews: 4.7,
-    noReviews: "1k",
-    description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
-    imageUrl: "/assets/product-img/imgone.png"
+    reviews: 4.9,
+    noReviews: "2k",
+    description: "High-performance product with advanced features",
+    imageUrl: "/assets/product-img/imgone.png",
+    price: "$79.99"
   },
   {
-    name: "Product A",
+    id: 4,
+    type: "product",
+    name: "Product D",
+    stars: "★★★★☆",
+    reviews: 4.5,
+    noReviews: "500",
+    description: "Budget-friendly product with reliable quality",
+    imageUrl: "/assets/product-img/imgone.png",
+    price: "$29.99"
+  },
+  // Service Listings
+  {
+    id: 5,
+    type: "service",
+    name: "Service A",
     stars: "★★★★★",
-    reviews: 4.7,
-    noReviews: "1k",
-    description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
-    imageUrl: "/assets/product-img/imgone.png"
+    reviews: 4.9,
+    noReviews: "1.2k",
+    description: "Offering high-quality service in home maintenance",
+    imageUrl: "/assets/product-img/imgone.png",
+    price: "$99.99"
   },
   {
-    name: "Product A",
-    stars: "★★★★★",
-    reviews: 4.7,
-    noReviews: "1k",
-    description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
-    imageUrl: "/assets/product-img/imgone.png"
+    id: 6,
+    type: "service",
+    name: "Service B",
+    stars: "★★★★☆",
+    reviews: 4.5,
+    noReviews: "500",
+    description: "Expert consultations for your business needs",
+    imageUrl: "/assets/product-img/imgone.png",
+    price: "$199.99"
   },
   {
-    name: "Product A",
+    id: 7,
+    type: "service",
+    name: "Service C",
     stars: "★★★★★",
-    reviews: 4.7,
-    noReviews: "1k",
-    description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
-    imageUrl: "/assets/product-img/imgone.png"
+    reviews: 4.8,
+    noReviews: "900",
+    description: "Top-notch IT services for small businesses",
+    imageUrl: "/assets/product-img/imgone.png",
+    price: "$299.99"
   },
   {
-    name: "Product A",
-    stars: "★★★★★",
-    reviews: 4.7,
-    noReviews: "1k",
-    description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
-    imageUrl: "/assets/product-img/imgone.png"
-  },
-  {
-    name: "Product A",
-    stars: "★★★★★",
-    reviews: 4.7,
-    noReviews: "1k",
-    description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
-    imageUrl: "/assets/product-img/imgone.png"
-  },
-  {
-    name: "Product A",
-    stars: "★★★★★",
-    reviews: 4.7,
-    noReviews: "1k",
-    description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
-    imageUrl: "/assets/product-img/imgone.png"
-  },
-  {
-    name: "Product A",
-    stars: "★★★★★",
-    reviews: 4.7,
-    noReviews: "1k",
-    description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
-    imageUrl: "/assets/product-img/imgone.png"
-  },
-  {
-    name: "Product A",
-    stars: "★★★★★",
-    reviews: 4.7,
-    noReviews: "1k",
-    description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
-    imageUrl: "/assets/product-img/imgone.png"
-  },
-  {
-    name: "Product A",
-    stars: "★★★★★",
-    reviews: 4.7,
-    noReviews: "1k",
-    description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
-    imageUrl: "/assets/product-img/imgone.png"
+    id: 8,
+    type: "service",
+    name: "Service D",
+    stars: "★★★★☆",
+    reviews: 4.2,
+    noReviews: "600",
+    description: "Affordable consulting for startups",
+    imageUrl: "/assets/product-img/imgone.png",
+    price: "$149.99"
   }
+];
 
-]
 
 
 

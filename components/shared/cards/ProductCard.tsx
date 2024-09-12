@@ -1,3 +1,4 @@
+// src/components/shared/cards/ProductCard.tsx
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
@@ -21,7 +22,7 @@ const ProductCard = ({ id, productName, name, stars, price, imageUrl }: ProductC
 
   const handleAddToCart = () => {
     dispatch(addToCart({ id, productName, name, stars, price, imageUrl, quantity: 1 }));
-    toast.success('item added to the cart')
+    toast.success('item added to the cart');
   };
 
   const product = { id, productName, name, stars, price, imageUrl };
@@ -29,7 +30,7 @@ const ProductCard = ({ id, productName, name, stars, price, imageUrl }: ProductC
   return (
     <div className="relative bg-white border border-gray-300 rounded-lg overflow-hidden text-black w-full shadow-lg h-108 flex flex-col justify-between">
       <div className="absolute top-6 right-6">
-        <LikeBtn product={product} />  {/* Pass product details to LikeBtn */}
+        <LikeBtn product={product} />
       </div>
       <Link href={`/product/${id}`}>
         <Image

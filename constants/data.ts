@@ -922,6 +922,106 @@ export const payoutData = [
 
 // Product Lisitng
 
+export const productListings = [
+  {
+    name: "Product A",
+    stars: "★★★★★",
+    reviews: 4.7,
+    noReviews: "1k",
+    description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
+    imageUrl: "/assets/product-img/imgone.png"
+  },
+  {
+    name: "Product A",
+    stars: "★★★★★",
+    reviews: 4.7,
+    noReviews: "1k",
+    description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
+    imageUrl: "/assets/product-img/imgone.png"
+  },
+  {
+    name: "Product A",
+    stars: "★★★★★",
+    reviews: 4.7,
+    noReviews: "1k",
+    description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
+    imageUrl: "/assets/product-img/imgone.png"
+  },
+  {
+    name: "Product A",
+    stars: "★★★★★",
+    reviews: 4.7,
+    noReviews: "1k",
+    description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
+    imageUrl: "/assets/product-img/imgone.png"
+  },
+  {
+    name: "Product A",
+    stars: "★★★★★",
+    reviews: 4.7,
+    noReviews: "1k",
+    description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
+    imageUrl: "/assets/product-img/imgone.png"
+  },
+  {
+    name: "Product A",
+    stars: "★★★★★",
+    reviews: 4.7,
+    noReviews: "1k",
+    description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
+    imageUrl: "/assets/product-img/imgone.png"
+  },
+  {
+    name: "Product A",
+    stars: "★★★★★",
+    reviews: 4.7,
+    noReviews: "1k",
+    description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
+    imageUrl: "/assets/product-img/imgone.png"
+  },
+  {
+    name: "Product A",
+    stars: "★★★★★",
+    reviews: 4.7,
+    noReviews: "1k",
+    description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
+    imageUrl: "/assets/product-img/imgone.png"
+  },
+  {
+    name: "Product A",
+    stars: "★★★★★",
+    reviews: 4.7,
+    noReviews: "1k",
+    description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
+    imageUrl: "/assets/product-img/imgone.png"
+  },
+  {
+    name: "Product A",
+    stars: "★★★★★",
+    reviews: 4.7,
+    noReviews: "1k",
+    description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
+    imageUrl: "/assets/product-img/imgone.png"
+  },
+  {
+    name: "Product A",
+    stars: "★★★★★",
+    reviews: 4.7,
+    noReviews: "1k",
+    description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
+    imageUrl: "/assets/product-img/imgone.png"
+  },
+  {
+    name: "Product A",
+    stars: "★★★★★",
+    reviews: 4.7,
+    noReviews: "1k",
+    description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
+    imageUrl: "/assets/product-img/imgone.png"
+  }
+
+]
+
 export const listings = [
   // Product Listings
   {

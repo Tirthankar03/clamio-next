@@ -919,12 +919,92 @@ export const payoutData = [
   }
 ]
 
+//Service Listing
+
+// servicesData.ts
+export const services = [
+  {
+    id: 1,
+    title: "Tarot Reading",
+    description: "Tarot will give you insights about every situation in your life...",
+    price: 1299,
+    imageUrl: "/jen-theodore-Yu5fd5paLlc-unsplash.jpg", // Example image path
+    plans: ["Basic Plan", "Premium Plan", "Advanced Plan"],
+    schedules: ["12:00 PM", "2:00 PM", "4:00 PM"],
+    highlights: [
+      "Trusted creator",
+      "Popular Appointment",
+      "Good feedback"
+    ],
+    creator: {
+      name: "The Tarot Girl",
+      description: "Helping you grow and attract truly magical life!",
+      followers: {
+        instagram: "0.1M",
+        linkedin: "1K"
+      },
+      socialLinks: {
+        instagram: "#",
+        linkedin: "#"
+      }
+    },
+    faqs: [
+      { question: "Do you teach how to manifest?", answer: "Yes, manifestation is a key part of this service." },
+      { question: "Will I know my future in tarot?", answer: "No, tarot is for guidance, not fortune telling." },
+    ],
+  },
+  {
+    id: 2,
+    title: "Astrology Consultation",
+    description: "Get insights into your life with a detailed astrology consultation...",
+    price: 1599,
+    imageUrl: "/images/astrology.jpg",
+    plans: ["Basic Astrology", "Advanced Astrology"],
+    schedules: ["12:00 PM", "2:00 PM", "4:00 PM"],
+    highlights: [
+      "Experienced astrologer",
+      "Accurate Predictions",
+      "Affordable"
+    ],
+    creator: {
+      name: "Astro Guru",
+      description: "Helping you navigate through life's challenges using astrology.",
+      followers: {
+        instagram: "0.2M",
+        linkedin: "5K"
+      },
+      socialLinks: {
+        instagram: "#",
+        linkedin: "#"
+      }
+    },
+    faqs: [
+      { question: "Do you teach how to manifest?", answer: "Yes, manifestation is a key part of this service." },
+      { question: "Will I know my future in tarot?", answer: "No, tarot is for guidance, not fortune telling." },
+    ],
+  },
+  // More services...
+];
+
+
+
 
 // Product Lisitng
 
 export const productListings = [
   {
     name: "Product A",
+    id: 1,
+    stars: "★★★★★",
+    reviews: 4.7,
+    noReviews: "1k",
+    description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
+    imageUrl: "/assets/product-img/imgone.png"
+
+  },
+  {
+    name: "Product A",
+    id: 2,
     stars: "★★★★★",
     reviews: 4.7,
     noReviews: "1k",
@@ -933,6 +1013,7 @@ export const productListings = [
   },
   {
     name: "Product A",
+    id: 2,
     stars: "★★★★★",
     reviews: 4.7,
     noReviews: "1k",
@@ -941,6 +1022,7 @@ export const productListings = [
   },
   {
     name: "Product A",
+    id: 2,
     stars: "★★★★★",
     reviews: 4.7,
     noReviews: "1k",
@@ -949,6 +1031,7 @@ export const productListings = [
   },
   {
     name: "Product A",
+    id: 3,
     stars: "★★★★★",
     reviews: 4.7,
     noReviews: "1k",
@@ -957,6 +1040,7 @@ export const productListings = [
   },
   {
     name: "Product A",
+    id: 4,
     stars: "★★★★★",
     reviews: 4.7,
     noReviews: "1k",
@@ -965,6 +1049,7 @@ export const productListings = [
   },
   {
     name: "Product A",
+    id: 5,
     stars: "★★★★★",
     reviews: 4.7,
     noReviews: "1k",
@@ -973,6 +1058,7 @@ export const productListings = [
   },
   {
     name: "Product A",
+    id: 6,
     stars: "★★★★★",
     reviews: 4.7,
     noReviews: "1k",
@@ -981,6 +1067,7 @@ export const productListings = [
   },
   {
     name: "Product A",
+    id: 7,
     stars: "★★★★★",
     reviews: 4.7,
     noReviews: "1k",
@@ -989,6 +1076,7 @@ export const productListings = [
   },
   {
     name: "Product A",
+    id: 8,
     stars: "★★★★★",
     reviews: 4.7,
     noReviews: "1k",
@@ -997,6 +1085,7 @@ export const productListings = [
   },
   {
     name: "Product A",
+    id: 9,
     stars: "★★★★★",
     reviews: 4.7,
     noReviews: "1k",
@@ -1005,14 +1094,7 @@ export const productListings = [
   },
   {
     name: "Product A",
-    stars: "★★★★★",
-    reviews: 4.7,
-    noReviews: "1k",
-    description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
-    imageUrl: "/assets/product-img/imgone.png"
-  },
-  {
-    name: "Product A",
+    id: 10,
     stars: "★★★★★",
     reviews: 4.7,
     noReviews: "1k",

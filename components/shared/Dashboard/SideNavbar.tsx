@@ -73,7 +73,7 @@ export default function SideNavbar({}: Props) {
     },
     {
       title: "Listings",
-      href: "/dashboard/product-listing",
+      href: "/dashboard/listing",
       icon: NotebookTabs,
       variant: "ghost",
     },

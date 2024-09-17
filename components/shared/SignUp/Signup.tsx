@@ -10,10 +10,9 @@ import { setIsLoggedIn } from "@/utils/authSlice";
 import { setCookie } from "cookies-next";
 import { RootState } from "@/Store/store";
 import { setIsCreatorLoggedIn } from "@/utils/creatorSlice";
-
 import { toggleLoginType } from "@/utils/loginTypeSlice";
-import { Switch } from "@/components/ui/switch";
-import useFormErrors from "@/hooks/useFormErrors"; 
+import useFormErrors from "@/hooks/useFormErrors";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"; // shadcn tabs
 
 const SignUp = () => {
   const dispatch = useDispatch();
@@ -32,8 +31,6 @@ const SignUp = () => {
   } = useForm();
 
   const { getErrorMessage } = useFormErrors(errors);
-
-
   const password = watch("password");
 
   const onSubmit = async (data: FieldValues) => {
@@ -58,19 +55,47 @@ const SignUp = () => {
     }
   };
 
+  const handleTabChange = (tabValue: string) => {
+    if (tabValue === "creator") {
+      dispatch(toggleLoginType()); // Toggle signup type to creator
+    } else {
+      dispatch(toggleLoginType()); // Toggle signup type to user
+    }
+  };
+
   return (
     <div className="flex items-center justify-center h-screen w-screen bg-secondary overflow-hidden">
       <div className="w-11/12 sm:w-3/4 md:w-1/2 lg:w-1/3 xl:w-1/4 rounded-lg bg-white p-5">
-        <div className="flex items-center justify-end space-x-2">
-          <Switch
-            checked={isCreatorLogin}
-            className="border-black"
-            onCheckedChange={() => dispatch(toggleLoginType())}
-          />
-        </div>
-        <h1 className="text-center pb-3 text-xl font-bold">
-          {isCreatorLogin ? "Signup as Creator" : "Create Your Account"}
-        </h1>
+
+      <Tabs defaultValue={isCreatorLogin ? "creator" : "signup"} onValueChange={handleTabChange} className="mb-6">
+  <TabsList className="grid w-full grid-cols-2">
+    {/* SignUp Tab */}
+    <TabsTrigger 
+      value="signup" 
+      className={`text-center py-2 px-4 font-semibold transition-colors duration-200 ${
+        !isCreatorLogin
+          ? 'text-yellow-500 border-b-4 border-yellow-500'
+          : 'text-black hover:text-yellow-500 hover:border-b-4 border-transparent'
+      }`}
+    >
+   Create Your Account
+    </TabsTrigger>
+
+    {/* SignUp as Creator Tab */}
+    <TabsTrigger 
+      value="creator" 
+      className={`text-center py-2 px-4 font-semibold transition-colors duration-200 ${
+        isCreatorLogin
+          ? 'text-yellow-500 border-b-4 border-yellow-500'
+          : 'text-black hover:text-yellow-500 hover:border-b-4 border-transparent'
+      }`}
+    >
+      Signup as Creator
+    </TabsTrigger>
+  </TabsList>
+</Tabs>
+
+
 
         <form onSubmit={handleSubmit(onSubmit)} className="mx-6">
           <label className="block text-md py-2 font-semibold">Username*</label>
@@ -122,21 +147,16 @@ const SignUp = () => {
             </button>
           </div>
           {getErrorMessage("password") && (
-            <p className="text-red-500 text-sm">{getErrorMessage("email")}</p>
+            <p className="text-red-500 text-sm">{getErrorMessage("password")}</p>
           )}
 
-
-
-          <label className="block text-md py-2 font-semibold">
-            Confirm Password*
-          </label>
+          <label className="block text-md py-2 font-semibold">Confirm Password*</label>
           <div className="relative mb-2">
             <input
               type={showConfirmPassword ? "text" : "password"}
               {...register("confirmPassword", {
                 required: "Confirm Password is required",
-                validate: (value) =>
-                  value === password || "Passwords do not match",
+                validate: (value) => value === password || "Passwords do not match",
                 minLength: {
                   value: 8,
                   message: "Password must be at least 8 characters",
@@ -161,11 +181,7 @@ const SignUp = () => {
             <p className="text-red-500 text-sm">{getErrorMessage("confirmPassword")}</p>
           )}
 
-
-
-          <label className="block text-md py-2 font-semibold">
-            Do you have a referral code?
-          </label>
+          <label className="block text-md py-2 font-semibold">Do you have a referral code?</label>
           <div className="flex items-center space-x-4 mb-4">
             <label className="flex items-center">
               <input
@@ -191,9 +207,7 @@ const SignUp = () => {
 
           {hasReferralCode && (
             <div>
-              <label className="block text-md py-2 font-semibold">
-                Referral Code
-              </label>
+              <label className="block text-md py-2 font-semibold">Referral Code</label>
               <input
                 type="text"
                 {...register("referralCode")}
@@ -233,7 +247,7 @@ const SignUp = () => {
         <div className="flex gap-10 items-center justify-center cursor-pointer">
           <img className="w-12 h-12" src={FACEBOOK_PNG} alt="Facebook" />
           <img className="w-9 h-9" src={GOOGLE_PNG} alt="Google" />
-          <img className="w-9 h-9" src={INSTAGRAM_PNG} alt="Apple" />
+          <img className="w-9 h-9" src={INSTAGRAM_PNG} alt="Instagram" />
         </div>
       </div>
     </div>

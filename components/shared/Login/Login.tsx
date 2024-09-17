@@ -1,19 +1,18 @@
-'use client'
+'use client';
 import React, { useState } from "react";
 import { useForm, FieldValues } from "react-hook-form";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
-import { FACEBOOK_PNG,GOOGLE_PNG,INSTAGRAM_PNG } from "@/constants/data";
+import { FACEBOOK_PNG, GOOGLE_PNG, INSTAGRAM_PNG } from "@/constants/data";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
-import { useRouter } from "next/navigation"; 
+import { useRouter } from "next/navigation";
 import { setIsLoggedIn } from "@/utils/authSlice";
 import { setCookie } from "cookies-next";
 import { toggleLoginType } from "@/utils/loginTypeSlice";
 import { setIsCreatorLoggedIn } from "@/utils/creatorSlice";
 import { RootState } from "@/Store/store";
-import { Switch } from "@/components/ui/switch";
-import useFormErrors from "@/hooks/useFormErrors"; 
-
+import useFormErrors from "@/hooks/useFormErrors";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"; // shadcn tabs
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -53,23 +52,39 @@ const Login = () => {
     }
   };
 
+  const handleTabChange = (tabValue: string) => {
+    if (tabValue === "creator") {
+      dispatch(toggleLoginType()); // Toggle login type to creator
+    } else {
+      dispatch(toggleLoginType()); // Toggle login type to user
+    }
+  };
+
   return (
     <div className="flex items-center justify-center h-screen w-screen bg-secondary overflow-hidden">
       <div className="w-11/12 sm:w-3/4 md:w-1/2 lg:w-1/3 xl:w-1/4 rounded-lg bg-white p-5">
-      <div className="flex items-center justify-end  space-x-2">
-           <Switch
-              checked={isCreatorLogin}
-              className="border-black"
-              onCheckedChange={() => dispatch(toggleLoginType())}
-            />
-          </div>
-     
-        <h1 className="text-center text-xl font-bold">
-          {isCreatorLogin ? "Login as Creator" : "Login"}
-        </h1>
-        
+
+        {/* Tabs for Login and Login as Creator */}
+        <Tabs defaultValue={isCreatorLogin ? "creator" : "login"} onValueChange={handleTabChange} className="mb-6">
+          <TabsList className="grid w-full grid-cols-2">
+            <TabsTrigger value="login" className={`text-center py-2 px-4 font-semibold transition-colors duration-200 ${
+              !isCreatorLogin
+                ? 'text-yellow-500 border-b-4 border-yellow-500'
+                : 'text-black hover:text-yellow-500 hover:border-b-4 border-transparent'
+            }`}>
+              Login
+            </TabsTrigger>
+            <TabsTrigger value="creator" className={`text-center py-2 px-4 font-semibold transition-colors duration-200 ${
+              isCreatorLogin
+                ? 'text-yellow-500 border-b-4 border-yellow-500'
+                : 'text-black hover:text-yellow-500 hover:border-b-4 border-transparent'
+            }`}>
+              Login as Creator
+            </TabsTrigger>
+          </TabsList>
+        </Tabs>
+
         <form onSubmit={handleSubmit(onSubmit)} className="mx-6">
-          
           <label className="block text-md py-2 font-semibold">Email*</label>
           <input
             type="email"

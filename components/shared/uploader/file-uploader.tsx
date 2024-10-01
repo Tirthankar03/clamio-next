@@ -1,19 +1,26 @@
 "use client"
 
 import * as React from "react"
-import Image from "next/image"
-import { Cross2Icon, FileTextIcon, UploadIcon } from "@radix-ui/react-icons"
 import Dropzone, {
   type DropzoneProps,
   type FileRejection,
 } from "react-dropzone"
 import { toast } from "sonner"
-
-import { cn, formatBytes } from "@/lib/utils"
-import { useControllableState } from "@/hooks/use-controllable-state"
-import { Button } from "@/components/ui/button"
-import { Progress } from "@/components/ui/progress"
 import { ScrollArea } from "@/components/ui/scroll-area"
+import { Button } from "@/components/ui/button"
+import { cn, formatBytes } from "@/lib/utils"
+import { Cross2Icon, FileTextIcon, UploadIcon } from "@radix-ui/react-icons"
+import { useControllableState } from "@/hooks/use-controllable-state"
+import { Progress } from "@/components/ui/progress"
+import Image from "next/image"
+
+interface FileUploaderProps {
+  value?: File[]
+  onValueChange?: (files: File[]) => void
+  maxFileCount?: number
+  maxSize?: number
+  disabled?: boolean
+}
 
 interface FileUploaderProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
@@ -100,6 +107,7 @@ export function FileUploader(props: FileUploaderProps) {
     progresses,
     accept = {
       "image/*": [],
+      "application/pdf": [],
     },
     maxSize = 1024 * 1024 * 2,
     maxFileCount = 1,
@@ -116,74 +124,32 @@ export function FileUploader(props: FileUploaderProps) {
 
   const onDrop = React.useCallback(
     (acceptedFiles: File[], rejectedFiles: FileRejection[]) => {
-      if (!multiple && maxFileCount === 1 && acceptedFiles.length > 1) {
-        toast.error("Cannot upload more than 1 file at a time")
-        return
-      }
-
-      if ((files?.length ?? 0) + acceptedFiles.length > maxFileCount) {
+      if (acceptedFiles.length + files!.length > maxFileCount) {
         toast.error(`Cannot upload more than ${maxFileCount} files`)
         return
       }
 
       const newFiles = acceptedFiles.map((file) =>
-        Object.assign(file, {
-          preview: URL.createObjectURL(file),
-        })
+        Object.assign(file, { preview: URL.createObjectURL(file) })
       )
-
-      const updatedFiles = files ? [...files, ...newFiles] : newFiles
-
+      const updatedFiles = [...files!, ...newFiles]
       setFiles(updatedFiles)
+      onValueChange?.(updatedFiles)
 
       if (rejectedFiles.length > 0) {
         rejectedFiles.forEach(({ file }) => {
           toast.error(`File ${file.name} was rejected`)
         })
       }
-
-      if (
-        onUpload &&
-        updatedFiles.length > 0 &&
-        updatedFiles.length <= maxFileCount
-      ) {
-        const target =
-          updatedFiles.length > 0 ? `${updatedFiles.length} files` : `file`
-
-        toast.promise(onUpload(updatedFiles), {
-          loading: `Uploading ${target}...`,
-          success: () => {
-            setFiles([])
-            return `${target} uploaded`
-          },
-          error: `Failed to upload ${target}`,
-        })
-      }
     },
-
-    [files, maxFileCount, multiple, onUpload, setFiles]
+    [files, maxFileCount, onValueChange]
   )
 
   function onRemove(index: number) {
-    if (!files) return
-    const newFiles = files.filter((_, i) => i !== index)
-    setFiles(newFiles)
-    onValueChange?.(newFiles)
+    const updatedFiles = files!.filter((_, i) => i !== index)
+    setFiles(updatedFiles)
+    onValueChange?.(updatedFiles)
   }
-
-  // Revoke preview url when component unmounts
-  React.useEffect(() => {
-    return () => {
-      if (!files) return
-      files.forEach((file) => {
-        if (isFileWithPreview(file)) {
-          URL.revokeObjectURL(file.preview)
-        }
-      })
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
   const isDisabled = disabled || (files?.length ?? 0) >= maxFileCount
 
   return (
@@ -264,11 +230,13 @@ export function FileUploader(props: FileUploaderProps) {
   )
 }
 
+
 interface FileCardProps {
   file: File
   onRemove: () => void
   progress?: number
 }
+
 
 function FileCard({ file, progress, onRemove }: FileCardProps) {
   return (
@@ -303,9 +271,6 @@ function FileCard({ file, progress, onRemove }: FileCardProps) {
   )
 }
 
-function isFileWithPreview(file: File): file is File & { preview: string } {
-  return "preview" in file && typeof file.preview === "string"
-}
 
 interface FilePreviewProps {
   file: File & { preview: string }
@@ -331,4 +296,9 @@ function FilePreview({ file }: FilePreviewProps) {
       aria-hidden="true"
     />
   )
+}
+
+
+function isFileWithPreview(file: File): file is File & { preview: string } {
+  return "preview" in file && typeof file.preview === "string"
 }

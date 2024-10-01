@@ -9,18 +9,45 @@ import { FancyMultiSelect } from '@/components/shared/FancyMultiSelect';
 import { CATEGORY } from '@/constants/data';
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { FileForm } from './uploader/FileForm';
+import FileSelector from './uploader/FileSelector';
 
 const CreateItem = () => {
   const { register, handleSubmit } = useForm();
   const [activeTab, setActiveTab] = useState("product");
+  const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
 
   const onSubmit = (data: any) => {
-    console.log(data);
-    // Add logic for form submission
+    console.log('Form Data:', data);
+    console.log('Selected Files:', selectedFiles);
+  
+    const formData = new FormData();
+  
+    // Append form fields to FormData
+    Object.keys(data).forEach((key) => {
+      formData.append(key, data[key]);
+    });
+  
+    // Append selected files to FormData
+    selectedFiles.forEach((file, index) => {
+      formData.append(`images[${index}]`, file);
+    });
+  
+    // Log FormData content
+    for (const pair of formData.entries()) {
+      console.log(`${pair[0]}: ${pair[1]}`);
+    }
   };
 
   const handleTabChange = (tabValue: any) => {
     setActiveTab(tabValue);
+  };
+
+
+
+
+  const handleFileSelection = (files: File[]) => {
+    setSelectedFiles(files); // Update the state with selected files
   };
 
   return (
@@ -47,11 +74,13 @@ const CreateItem = () => {
           <TabsContent value="product">
             <form onSubmit={handleSubmit(onSubmit)} className="bg-white p-6 rounded-lg shadow-md">
               <h2 className="text-2xl font-semibold mb-4 text-gray-700">Product Details</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-                <FileUploader name="productImage1" register={register} />
+              <div className="gap-6 mb-6">
+                {/* <FileUploader name="productImage1" register={register} />
                 <FileUploader name="productImage2" register={register} />
                 <FileUploader name="productImage3" register={register} />
-                <FileUploader name="productVideo" register={register} />
+                <FileUploader name="productVideo" register={register} /> */}
+ <FileSelector maxFileCount={4} maxSize={4 * 1024 * 1024} onFilesSelected={handleFileSelection} />
+
               </div>
               <div className="grid grid-cols-1 gap-6 mb-6">
                 <Input label="Product Name" name="productName" register={register} />

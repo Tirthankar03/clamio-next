@@ -224,7 +224,7 @@ export const communityCardsData: CommunityCardsData = {
 // categoryData.js
 
 export const categoryData = [
-  { id: 1, name: "Tarot Card Reading" },
+  { id: 1,name: "Tarot Card Reading" },
   { id: 2, name: "Travel Guide" },
   { id: 3, name: "Food Recipes" },
   { id: 4, name: "Diet Plan" },
@@ -919,12 +919,98 @@ export const payoutData = [
   }
 ]
 
+//Service Listing
+
+// servicesData.ts
+export const services = [
+  {
+    id: 1,
+    title: "Tarot Reading",
+    description: "Tarot will give you insights about every situation in your life...",
+    price: 1299,
+    imageUrl: "/jen-theodore-Yu5fd5paLlc-unsplash.jpg", // Example image path
+    plans: ["Basic Plan", "Premium Plan", "Advanced Plan"],
+    schedules: ["12:00 PM", "2:00 PM", "4:00 PM"],
+    highlights: [
+      "Trusted creator",
+      "Popular Appointment",
+      "Good feedback"
+    ],
+    creator: {
+      name: "The Tarot Girl",
+      description: "Helping you grow and attract truly magical life!",
+      followers: {
+        instagram: "0.1M",
+        linkedin: "1K"
+      },
+      socialLinks: {
+        instagram: "#",
+        linkedin: "#"
+      }
+    },
+    faqs: [
+      { question: "Do you teach how to manifest?", answer: "Yes, manifestation is a key part of this service." },
+      { question: "Will I know my future in tarot?", answer: "No, tarot is for guidance, not fortune telling." },
+    ],
+  },
+  {
+    id: 2,
+    title: "Astrology Consultation",
+    description: "Get insights into your life with a detailed astrology consultation...",
+    price: 1599,
+    imageUrl: "/images/astrology.jpg",
+    plans: ["Basic Astrology", "Advanced Astrology"],
+    schedules: ["12:00 PM", "2:00 PM", "4:00 PM"],
+    highlights: [
+      "Experienced astrologer",
+      "Accurate Predictions",
+      "Affordable"
+    ],
+    creator: {
+      name: "Astro Guru",
+      description: "Helping you navigate through life's challenges using astrology.",
+      followers: {
+        instagram: "0.2M",
+        linkedin: "5K"
+      },
+      socialLinks: {
+        instagram: "#",
+        linkedin: "#"
+      }
+    },
+    faqs: [
+      { question: "Do you teach how to manifest?", answer: "Yes, manifestation is a key part of this service." },
+      { question: "Will I know my future in tarot?", answer: "No, tarot is for guidance, not fortune telling." },
+    ],
+  },
+  // More services...
+];
+
+export const expertiseOptions = [
+  { value: "web-development", label: "Web Development" },
+  { value: "graphic-design", label: "Graphic Design" },
+  { value: "content-writing", label: "Content Writing" },
+  { value: "digital-marketing", label: "Digital Marketing" },
+  { value: "data-analysis", label: "Data Analysis" },
+];
+
 
 // Product Lisitng
 
 export const productListings = [
   {
     name: "Product A",
+    id: 1,
+    stars: "★★★★★",
+    reviews: 4.7,
+    noReviews: "1k",
+    description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
+    imageUrl: "/assets/product-img/imgone.png"
+
+  },
+  {
+    name: "Product A",
+    id: 2,
     stars: "★★★★★",
     reviews: 4.7,
     noReviews: "1k",
@@ -933,6 +1019,7 @@ export const productListings = [
   },
   {
     name: "Product A",
+    id: 2,
     stars: "★★★★★",
     reviews: 4.7,
     noReviews: "1k",
@@ -941,6 +1028,7 @@ export const productListings = [
   },
   {
     name: "Product A",
+    id: 2,
     stars: "★★★★★",
     reviews: 4.7,
     noReviews: "1k",
@@ -949,6 +1037,7 @@ export const productListings = [
   },
   {
     name: "Product A",
+    id: 3,
     stars: "★★★★★",
     reviews: 4.7,
     noReviews: "1k",
@@ -957,6 +1046,7 @@ export const productListings = [
   },
   {
     name: "Product A",
+    id: 4,
     stars: "★★★★★",
     reviews: 4.7,
     noReviews: "1k",
@@ -965,6 +1055,7 @@ export const productListings = [
   },
   {
     name: "Product A",
+    id: 5,
     stars: "★★★★★",
     reviews: 4.7,
     noReviews: "1k",
@@ -973,6 +1064,7 @@ export const productListings = [
   },
   {
     name: "Product A",
+    id: 6,
     stars: "★★★★★",
     reviews: 4.7,
     noReviews: "1k",
@@ -981,6 +1073,7 @@ export const productListings = [
   },
   {
     name: "Product A",
+    id: 7,
     stars: "★★★★★",
     reviews: 4.7,
     noReviews: "1k",
@@ -989,6 +1082,7 @@ export const productListings = [
   },
   {
     name: "Product A",
+    id: 8,
     stars: "★★★★★",
     reviews: 4.7,
     noReviews: "1k",
@@ -997,6 +1091,7 @@ export const productListings = [
   },
   {
     name: "Product A",
+    id: 9,
     stars: "★★★★★",
     reviews: 4.7,
     noReviews: "1k",
@@ -1005,14 +1100,7 @@ export const productListings = [
   },
   {
     name: "Product A",
-    stars: "★★★★★",
-    reviews: 4.7,
-    noReviews: "1k",
-    description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
-    imageUrl: "/assets/product-img/imgone.png"
-  },
-  {
-    name: "Product A",
+    id: 10,
     stars: "★★★★★",
     reviews: 4.7,
     noReviews: "1k",
@@ -1021,6 +1109,100 @@ export const productListings = [
   }
 
 ]
+
+export const listings = [
+  // Product Listings
+  {
+    id: 1,
+    type: "product",
+    name: "Product A",
+    stars: "★★★★★",
+    reviews: 4.7,
+    noReviews: "1k",
+    description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
+    imageUrl: "/assets/product-img/imgone.png",
+    price: "$49.99"
+  },
+  {
+    id: 2,
+    type: "product",
+    name: "Product B",
+    stars: "★★★★☆",
+    reviews: 4.3,
+    noReviews: "800",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    imageUrl: "/assets/product-img/imgone.png",
+    price: "$39.99"
+  },
+  {
+    id: 3,
+    type: "product",
+    name: "Product C",
+    stars: "★★★★★",
+    reviews: 4.9,
+    noReviews: "2k",
+    description: "High-performance product with advanced features",
+    imageUrl: "/assets/product-img/imgone.png",
+    price: "$79.99"
+  },
+  {
+    id: 4,
+    type: "product",
+    name: "Product D",
+    stars: "★★★★☆",
+    reviews: 4.5,
+    noReviews: "500",
+    description: "Budget-friendly product with reliable quality",
+    imageUrl: "/assets/product-img/imgone.png",
+    price: "$29.99"
+  },
+  // Service Listings
+  {
+    id: 5,
+    type: "service",
+    name: "Service A",
+    stars: "★★★★★",
+    reviews: 4.9,
+    noReviews: "1.2k",
+    description: "Offering high-quality service in home maintenance",
+    imageUrl: "/assets/product-img/imgone.png",
+    price: "$99.99"
+  },
+  {
+    id: 6,
+    type: "service",
+    name: "Service B",
+    stars: "★★★★☆",
+    reviews: 4.5,
+    noReviews: "500",
+    description: "Expert consultations for your business needs",
+    imageUrl: "/assets/product-img/imgone.png",
+    price: "$199.99"
+  },
+  {
+    id: 7,
+    type: "service",
+    name: "Service C",
+    stars: "★★★★★",
+    reviews: 4.8,
+    noReviews: "900",
+    description: "Top-notch IT services for small businesses",
+    imageUrl: "/assets/product-img/imgone.png",
+    price: "$299.99"
+  },
+  {
+    id: 8,
+    type: "service",
+    name: "Service D",
+    stars: "★★★★☆",
+    reviews: 4.2,
+    noReviews: "600",
+    description: "Affordable consulting for startups",
+    imageUrl: "/assets/product-img/imgone.png",
+    price: "$149.99"
+  }
+];
+
 
 
 
@@ -1457,74 +1639,50 @@ export const addresses = [
 ];
 export const orders = [
   {
+    userId: "1", 
     date: "25 February 2023",
     total: "₹799.00",
     shipTo: "Anish Aich",
     orderId: "407-7808997-3858710",
     productName: "Paris Travel Guide",
     imgUrl: "/assets/product-img/imgone.png",
-    status: "",
+    // status: "Processing",
     type: "buy-again"
   },
   {
+    userId: "2", 
     date: "25 February 2023",
     total: "₹299.00",
     shipTo: "Anish Aich",
     orderId: "407-6579730-3719549",
-    productName: "Italian Pasta Recipes",
+    productName: "Weight Gain",
     imgUrl: "/assets/product-img/imgone.png",
-    status: "Return window closed on 16-Mar-2023",
-    type: "not-yet-shipped"
-  }, {
+    // status: "Return window closed on 16-Mar-2023",
+    type: "my-bookings" // Updated from "not-yet-shipped" to "my-bookings"
+  },
+  {
+    userId: "2", 
     date: "7 March 2023",
     total: "₹545.00",
     shipTo: "Anish",
     orderId: "407-2287782-8446435",
     productName: "Mystic Tarot Reading",
     imgUrl: "/assets/product-img/imgone.png",
-    status: "Return complete",
+    // status: "Return complete",
     type: "orders"
   },
   {
+    userId: "2", 
     date: "25 February 2023",
     total: "₹799.00",
     shipTo: "Anish Aich",
-    orderId: "407-7808997-3858710",
+    orderId: "407-7808997-3858711",
     productName: "Paris Travel Guide",
     imgUrl: "/assets/product-img/imgone.png",
-    status: "",
-    type: "buy-again"
-  },
-  {
-    date: "25 February 2023",
-    total: "₹299.00",
-    shipTo: "Anish Aich",
-    orderId: "407-6579730-3719549",
-    productName: "Italian Pasta Recipes",
-    imgUrl: "/assets/product-img/imgone.png",
-    status: "Return window closed on 16-Mar-2023",
-    type: "not-yet-shipped"
-  }, {
-    date: "7 March 2023",
-    total: "₹545.00",
-    shipTo: "Anish",
-    orderId: "407-2287782-8446435",
-    productName: "Mystic Tarot Reading",
-    imgUrl: "/assets/product-img/imgone.png",
-    status: "Return complete",
+    // status: "Shipped",
     type: "cancelled"
   },
-  {
-    date: "25 February 2023",
-    total: "₹799.00",
-    shipTo: "Anish Aich",
-    orderId: "407-7808997-3858710",
-    productName: "Paris Travel Guide",
-    imgUrl: "/assets/product-img/imgone.png",
-    status: "",
-    type: "cancelled"
-  },
-  // Add more orders here with the appropriate type
+  // Add more diverse orders as needed
 ];
 
 // constants.ts
@@ -1658,4 +1816,51 @@ export const brandPacks = [
     validity: "Valid for 15 days",
     imageUrl: "/assets/product-img/imgone.png",
   },
+];
+
+
+// src/lib/dummyUserData.ts
+interface UserInfo {
+  userId: string;
+  name: string;
+  weight: string;
+  height: string;
+  age: string;
+  allergyHistory: string;
+  purpose: string;
+  description: string;
+}
+
+export const dummyUserData: UserInfo[] = [
+  {
+    userId: "user001",
+    name: "John Doe",
+    weight: "75kg",
+    height: "180cm",
+    age: "28",
+    allergyHistory: "None",
+    purpose: "General health",
+    description: "No specific conditions."
+  },
+  {
+    userId: "user002",
+    name: "Jane Smith",
+    weight: "62kg",
+    height: "165cm",
+    age: "34",
+    allergyHistory: "Peanuts",
+    purpose: "Weight loss",
+    description: "Allergic to peanuts."
+  },
+  {
+    userId: "user003",
+    name: "Alice Johnson",
+    weight: "68kg",
+    height: "170cm",
+    age: "30",
+    allergyHistory: "None",
+    purpose: "Muscle gain",
+    description: "Works out regularly."
+  },
+  // Add more users as needed
 ];

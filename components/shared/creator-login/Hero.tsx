@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Add from '@/public/assets/creator-login-img/Add.png';
 import Vec from '@/public/assets/creator-login-img/imgone.png';
 
+
 const Hero = ({ onButtonClick, showCreateButtons }: any) => {
     return (
         <div className="text-white p-2 md:p-6 text-left hero-section">
@@ -39,6 +40,7 @@ const Hero = ({ onButtonClick, showCreateButtons }: any) => {
                             {/* <button className="font-bold bg-primary text-secondary px-4 py-2 rounded hover:bg-yellow-600 transition-colors duration-300">BUTTON</button> */}
                         </>
                     )}
+                
                 </div>
             </div>
         </div>

@@ -5,7 +5,7 @@ import { Nav } from "@/components/ui/nav";
 
 type Props = {};
 
-import { LayoutDashboard, UserCheck, ShoppingCart, Settings, UsersRound, Gift, Heart,ChevronRight,CreditCard, Keyboard,NotebookTabs,BarChartBig, BadgePlus } from 'lucide-react';
+import { LayoutDashboard, UserCheck, ShoppingCart, Settings, UsersRound, Gift, Heart,ChevronRight,CreditCard, Keyboard,NotebookTabs,BarChartBig, BadgePlus, NotebookPen, Plus } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
 import { useWindowWidth } from "@react-hook/window-size";
@@ -41,10 +41,16 @@ export default function SideNavbar({}: Props) {
       icon: LayoutDashboard,
       variant: "default",
     },
+    // {
+    //   title: "Product",
+    //   href: "/dashboard/create-product",
+    //   icon: CreditCard,
+    //   variant: "default",
+    // },
     {
-      title: "Product",
-      href: "/dashboard/create-product",
-      icon: CreditCard,
+      title: "Create",
+      href: "/dashboard/create",
+      icon: Plus,
       variant: "default",
     },
     {
@@ -66,8 +72,8 @@ export default function SideNavbar({}: Props) {
       variant: "ghost",
     },
     {
-      title: "Product Listing",
-      href: "/dashboard/product-listing",
+      title: "Listings",
+      href: "/dashboard/listing",
       icon: NotebookTabs,
       variant: "ghost",
     },
@@ -75,6 +81,12 @@ export default function SideNavbar({}: Props) {
       title: "Orders",
       href: "/dashboard/orders",
       icon: ShoppingCart,
+      variant: "ghost",
+    },
+    {
+      title: "Bookings",
+      href: "/dashboard/bookings",
+      icon: NotebookPen,
       variant: "ghost",
     },
     {
@@ -98,6 +110,18 @@ export default function SideNavbar({}: Props) {
     {
       title: "Create Community",
       href: "/dashboard/create-community",
+      icon: BadgePlus,
+      variant: "ghost",
+    },
+    // {
+    //   title: "Create Service",
+    //   href: "/dashboard/create-service",
+    //   icon: BadgePlus,
+    //   variant: "ghost",
+    // },
+    {
+      title: "Service",
+      href: "/dashboard/service",
       icon: BadgePlus,
       variant: "ghost",
     },

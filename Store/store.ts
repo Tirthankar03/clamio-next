@@ -9,9 +9,11 @@ import loginTypeReducer from '@/utils/loginTypeSlice';
 import {thunk} from 'redux-thunk';
 import wishlistReducer from '@/utils/wishlistSlice';
 import addressReducer from '@/utils/addressSlice';
+import userInfoReducer from '@/utils/userInfoSlice'
 // import storage from 'redux-persist/lib/storage';
 import { persistReducer, persistStore } from 'redux-persist';
 import createWebStorage from 'redux-persist/lib/storage/createWebStorage'
+import serviceCalendarReducer from '@/utils/calendarSlice'
 const createNoopStorage = () => {
   return {
     getItem(_key: string) {
@@ -33,7 +35,7 @@ const persistConfig = {
     version: 1,
     storage: storage,
     middleware: [thunk],
-    blacklist: ['cart'], // Exclude cart from persistence
+    blacklist: ['cart','userInfo','serviceCalender'], // Exclude cart from persistence
 };
 
 const rootReducer = combineReducers({
@@ -45,6 +47,8 @@ const rootReducer = combineReducers({
     creator: creatorReducer,
     loginType: loginTypeReducer,
     address: addressReducer,
+    userInfo: userInfoReducer,
+    serviceCalendar: serviceCalendarReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

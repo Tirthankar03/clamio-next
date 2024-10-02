@@ -1,5 +1,5 @@
 'use client';
-import { productListings } from "@/constants/data";
+import {  productListings } from "@/constants/data";
 import Link from 'next/link';
 import Image from 'next/image';
 import { Edit3 } from 'lucide-react';
@@ -8,7 +8,7 @@ const ProductListingPage = () => {
     return (
         <main className="py-10">
             <div className="w-full lg:w-5/6 mx-auto">
-                <h1 className="text-4xl font-bold mb-10 text-center">Product Listing</h1>
+                <h1 className="text-4xl font-bold mb-10">Product Listing</h1>
                 <div className="grid grid-cols-1 mx-5 md:mx-0 sm:mx-5 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-8">
                     {productListings.map((product:any, index) => (
                         <div key={index} className="bg-white border border-gray-200 rounded-lg shadow-lg overflow-hidden relative flex flex-col hover:shadow-xl transition-shadow duration-300">

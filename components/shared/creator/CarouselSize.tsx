@@ -8,9 +8,14 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import CreatorCard from "@/components/shared/creator/CreatorCard";
-import { CreatorData } from "@/constants/data"; // Make sure this import path is correct
+import { getAllCreators } from "@/lib/helper/creator";
+// import { CreatorData } from "@/constants/data"; // Make sure this import path is correct
 
-export default function CarouselSize({ type }: any) {
+export default async function CarouselSize({ type }: any) {
+
+
+  const CreatorData = await getAllCreators()
+
   return (
     <div>
       <Carousel
@@ -20,7 +25,7 @@ export default function CarouselSize({ type }: any) {
         className="lg:w-full w-auto max-w-[1433px] 2xl:mx-auto"
       >
         <CarouselContent>
-          {CreatorData.map((item, index) => (
+          {CreatorData.map((item:any, index:any) => (
             <CarouselItem
               key={index}
               className="basis-full flex sm:basis-1/2 md:basis-1/2 lg:basis-1/3 2xl:basis-1/4 p-2"
@@ -28,10 +33,10 @@ export default function CarouselSize({ type }: any) {
               <CreatorCard
                 idx={index}
                 creator={{
-                  _id: item.id, // Assuming `id` in `CreatorData` corresponds to `_id` in `Creator` type
-                  title: item.name, // Assuming `name` in `CreatorData` corresponds to `title` in `Creator` type
-                  numFollowers: item.followers,
-                  totalSales: item.products,
+                  _id: item._id, // Assuming `id` in `CreatorData` corresponds to `_id` in `Creator` type
+                  title: item.title, // Assuming `name` in `CreatorData` corresponds to `title` in `Creator` type
+                  numFollowers: item.follower,
+                  totalSales: item.total_sales,
                   description: item.description,
                 }}
               />

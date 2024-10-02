@@ -11,6 +11,7 @@ import {
   Keyboard,
   LifeBuoy,
   LogOut,
+  NotebookPen,
   NotebookTabs,
   Plus,
   Settings,
@@ -57,6 +58,13 @@ const headerLinksDashboard = [
     route: '/dashboard/orders',
     icon: <LifeBuoy className="h-4 w-4" />,
   },
+  
+  {
+    label: 'Bookings',
+    route: '/dashboard/bookings',
+    icon: <NotebookPen className="h-4 w-4" />,
+  },
+  
   {
     label: "Analytics",
     route: "/dashboard/analytics",

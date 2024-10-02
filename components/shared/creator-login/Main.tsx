@@ -23,7 +23,7 @@ const MainContent = ({ isCardFocused, hideCreateSection }: any) => {
                             <Image src={Add} alt='add.png' width={60} />
                         </button>
                     </Link>
-                    <Link href="/dashboard/create-product">
+                    <Link href="/dashboard/create">
                         <button className="font-bold bg-primary text-secondary px-4 py-2 rounded mt-6 transition-colors duration-300 text-secondary">
                             Create Your Product
                         </button>

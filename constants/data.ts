@@ -986,7 +986,13 @@ export const services = [
   // More services...
 ];
 
-
+export const expertiseOptions = [
+  { value: "web-development", label: "Web Development" },
+  { value: "graphic-design", label: "Graphic Design" },
+  { value: "content-writing", label: "Content Writing" },
+  { value: "digital-marketing", label: "Digital Marketing" },
+  { value: "data-analysis", label: "Data Analysis" },
+];
 
 
 // Product Lisitng

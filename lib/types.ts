@@ -139,6 +139,7 @@ export type SalesProps = {
 
  export interface OrderDemo {
   date: string;
+  userId: string;
   total: string;
   shipTo: string;
   orderId: string;

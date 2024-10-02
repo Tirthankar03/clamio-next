@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Add from '@/public/assets/creator-login-img/Add.png';
 import Vec from '@/public/assets/creator-login-img/imgone.png';
-import { DialogUploaderDemo } from '../uploader/DialogUploader';
+
 
 const Hero = ({ onButtonClick, showCreateButtons }: any) => {
     return (

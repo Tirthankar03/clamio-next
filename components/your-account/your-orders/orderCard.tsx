@@ -5,6 +5,7 @@ import { OrderDemo } from '@/lib/types';
 interface OrderCardProps {
     order: OrderDemo;
     activeTab: string;
+    userId: string;
 }
 
 const OrderCard: React.FC<OrderCardProps> = ({ order, activeTab }) => {
@@ -38,10 +39,11 @@ const OrderCard: React.FC<OrderCardProps> = ({ order, activeTab }) => {
 
     return (
         <div className="border border-gray-300 rounded-lg p-4 mb-4 bg-white shadow-lg ">
-            <UserInfoDialog 
+             <UserInfoDialog 
                 isOpen={isDialogOpen} 
                 onClose={handleCloseDialog} 
                 onSubmit={handleSubmit} 
+                userId={order.userId} // Add this line
             />
             <div className="flex gap-10 sm:flex-row sm:justify-between mb-4">
                 {/* Other content */}

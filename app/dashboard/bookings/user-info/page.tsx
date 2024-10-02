@@ -1,16 +1,33 @@
-'use client'
-import { DialogUploaderDemo } from "@/components/shared/uploader/DialogUploader";
+'use client';
+
+
+import { FileUploader } from "@/components/shared/uploader/file-uploader";
 import { RootState } from "@/Store/store";
 import React from "react";
 import { useSelector } from "react-redux";
+
+// Ensure the user info structure is properly typed
+interface UserInfo {
+  name?: string;
+  weight?: string;
+  height?: string;
+  age?: string;
+  gender?: 'Male' | 'Female';
+  allergyHistory?: string;
+  purpose?: string;
+  description?: string;
+}
 
 interface UserInfoPageProps {
   id: string;
 }
 
 const UserInfoPage: React.FC<UserInfoPageProps> = () => {
-  const userInfo = useSelector((state: RootState) => state.userInfo);
-  const userFilledInfo = userInfo.name && userInfo.weight && userInfo.height && userInfo.age;
+  // Type RootState properly with optional chaining in case fields are missing
+  const userInfo: UserInfo = useSelector((state: RootState) => state.userInfo);
+  
+  // Check if the user has filled out the necessary fields
+  const userFilledInfo = userInfo?.name && userInfo?.weight && userInfo?.height && userInfo?.age;
 
   return (
     <div className="container mx-auto p-6 max-w-4xl">
@@ -24,7 +41,7 @@ const UserInfoPage: React.FC<UserInfoPageProps> = () => {
               <input
                 type="text"
                 className="w-full p-3 border rounded-lg border-gray-300 bg-gray-100"
-                value={userInfo.name || ""}
+                value={userInfo?.name || ""}
                 disabled
               />
             </div>
@@ -34,11 +51,11 @@ const UserInfoPage: React.FC<UserInfoPageProps> = () => {
             <label className="block text-gray-600 mb-1">Your Gender</label>
             <div className="flex items-center space-x-6">
               <label className="flex items-center">
-                <input type="radio" checked={userInfo.gender === "Male"} disabled className="mr-2" />
+                <input type="radio" checked={userInfo?.gender === "Male"} disabled className="mr-2" />
                 <span className="text-gray-600">Male</span>
               </label>
               <label className="flex items-center">
-                <input type="radio" checked={userInfo.gender === "Female"} disabled className="mr-2" />
+                <input type="radio" checked={userInfo?.gender === "Female"} disabled className="mr-2" />
                 <span className="text-gray-600">Female</span>
               </label>
             </div>
@@ -73,16 +90,16 @@ const UserInfoPage: React.FC<UserInfoPageProps> = () => {
             <h3 className="text-xl font-semibold text-yellow-700">Status: Processing</h3>
             <p className="text-yellow-600">Your information is being processed.</p>
             <div className="mt-6 space-y-4">
-              <p><strong className="text-gray-700">Name:</strong> {userInfo.name}</p>
-              <p><strong className="text-gray-700">Weight:</strong> {userInfo.weight}</p>
-              <p><strong className="text-gray-700">Height:</strong> {userInfo.height}</p>
-              <p><strong className="text-gray-700">Age:</strong> {userInfo.age}</p>
-              <p><strong className="text-gray-700">Allergy History:</strong> {userInfo.allergyHistory}</p>
-              <p><strong className="text-gray-700">Purpose:</strong> {userInfo.purpose}</p>
-              <p><strong className="text-gray-700">Description:</strong> {userInfo.description}</p>
+              <p><strong className="text-gray-700">Name:</strong> {userInfo?.name}</p>
+              <p><strong className="text-gray-700">Weight:</strong> {userInfo?.weight}</p>
+              <p><strong className="text-gray-700">Height:</strong> {userInfo?.height}</p>
+              <p><strong className="text-gray-700">Age:</strong> {userInfo?.age}</p>
+              <p><strong className="text-gray-700">Allergy History:</strong> {userInfo?.allergyHistory}</p>
+              <p><strong className="text-gray-700">Purpose:</strong> {userInfo?.purpose}</p>
+              <p><strong className="text-gray-700">Description:</strong> {userInfo?.description}</p>
             </div>
             <div className="mt-6">
-              <DialogUploaderDemo />
+            <FileUploader/>
             </div>
           </div>
         ) : (

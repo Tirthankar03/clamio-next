@@ -86,7 +86,9 @@ const CreateItem = () => {
                 <Input label="Product Name" name="productName" register={register} />
                 <TextArea label="Product Description" name="productDescription" register={register} />
               </div>
-              <FancyMultiSelect options={CATEGORY} placeholder="Select Category..." className="mb-6" />
+              <div className='mb-6'>
+              <FancyMultiSelect options={CATEGORY} placeholder="Select Category..." />
+              </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
                 {[...Array(8)].map((_, index) => (
                   <Input key={index} label={`Feature ${index + 1}`} name={`feature${index + 1}`} register={register} />
@@ -113,7 +115,9 @@ const CreateItem = () => {
                 <Input label="Service Name" name="serviceName" register={register} />
                 <TextArea label="Service Description" name="serviceDescription" register={register} />
               </div>
-              <FancyMultiSelect options={CATEGORY} placeholder="Select Category..." className="mb-6" />
+              <div className="mb-6">
+              <FancyMultiSelect options={CATEGORY} placeholder="Select Category..."  />
+              </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
                 {[...Array(8)].map((_, index) => (
                   <Input key={index} label={`Feature ${index + 1}`} name={`feature${index + 1}`} register={register} />

@@ -8,6 +8,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSelectedDate, setIsDialogOpen, setCustomEvents, setRange, setPlan1Count, setPlan2Count } from '@/utils/calendarSlice';
+import { RootState } from '@/Store/store';
 const { RangePicker } = DatePicker;
 
 interface EventData {
@@ -58,7 +59,7 @@ const ServiceCalendar: React.FC = () => {
     range,
     plan1Count,
     plan2Count
-  } = useSelector((state) => state.serviceCalendar);
+  } = useSelector((state: RootState) => state.serviceCalendar);
 
   const handleDateClick = (value: Dayjs) => {
     dispatch(setSelectedDate(value));
@@ -73,7 +74,7 @@ const ServiceCalendar: React.FC = () => {
     if (!range[0] || !range[1]) return;
 
     const newEvents: Record<string, EventData[]> = { ...customEvents };
-    let current = range[0];
+    let current: Dayjs = range[0];
 
     while (current.isBefore(range[1]) || current.isSame(range[1])) {
       const dateKey = current.format('YYYY-MM-DD');

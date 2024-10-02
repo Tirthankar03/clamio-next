@@ -23,12 +23,14 @@ export async function getAllCreators() {
               //revalidate:0 to opt out of cache?
           }
       });
+    //   if (!response.ok) {
+    //     throw new Error(`failed to fetch ${response.status}`);
+    //  }
       const data = await response.json();
       return data;
     } catch (e: any) {
-      return {
-        error: e.message,
-      };
+      // console.log(e);
+      return [];
     }
 }
 

@@ -4,6 +4,7 @@ import OrderCard from './orderCard';
 
 interface OrderListProps {
     value: string;
+    activeTab: string;
 }
 
 const OrderList: React.FC<OrderListProps> = ({ value }) => {

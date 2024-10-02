@@ -22,7 +22,8 @@ interface UserInfoPageProps {
   id: string;
 }
 
-const UserInfoPage: React.FC<UserInfoPageProps> = () => {
+// const UserInfoPage: React.FC<UserInfoPageProps> = ({id}) => {
+const UserInfoPage: React.FC = () => {
   // Type RootState properly with optional chaining in case fields are missing
   const userInfo: UserInfo = useSelector((state: RootState) => state.userInfo);
   

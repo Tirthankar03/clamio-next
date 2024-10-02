@@ -224,7 +224,7 @@ export const communityCardsData: CommunityCardsData = {
 // categoryData.js
 
 export const categoryData = [
-  { id: 1, name: "Tarot Card Reading" },
+  { id: 1,name: "Tarot Card Reading" },
   { id: 2, name: "Travel Guide" },
   { id: 3, name: "Food Recipes" },
   { id: 4, name: "Diet Plan" },
@@ -1639,6 +1639,7 @@ export const addresses = [
 ];
 export const orders = [
   {
+    userId: "1", 
     date: "25 February 2023",
     total: "₹799.00",
     shipTo: "Anish Aich",
@@ -1649,6 +1650,7 @@ export const orders = [
     type: "buy-again"
   },
   {
+    userId: "2", 
     date: "25 February 2023",
     total: "₹299.00",
     shipTo: "Anish Aich",
@@ -1659,6 +1661,7 @@ export const orders = [
     type: "my-bookings" // Updated from "not-yet-shipped" to "my-bookings"
   },
   {
+    userId: "2", 
     date: "7 March 2023",
     total: "₹545.00",
     shipTo: "Anish",
@@ -1669,6 +1672,7 @@ export const orders = [
     type: "orders"
   },
   {
+    userId: "2", 
     date: "25 February 2023",
     total: "₹799.00",
     shipTo: "Anish Aich",

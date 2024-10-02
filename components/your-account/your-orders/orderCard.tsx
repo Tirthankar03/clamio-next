@@ -5,7 +5,7 @@ import { OrderDemo } from '@/lib/types';
 interface OrderCardProps {
     order: OrderDemo;
     activeTab: string;
-    userId: string;
+    // userId: string;
 }
 
 const OrderCard: React.FC<OrderCardProps> = ({ order, activeTab }) => {

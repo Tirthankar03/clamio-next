@@ -17,8 +17,8 @@ function CategoryCarousel() {
       <Carousel orientation="horizontal">
    
         <CarouselContent>
-        {categoryData.map((item, index) => (
-            <CarouselItem key={index} className="basis-1/3 my-5  flex sm:basis-1/4 md:basis-1/4 lg:basis-1/5 2xl:basis-1/4 ">
+        {categoryData.map((item, id) => (
+            <CarouselItem key={id} className="basis-1/3 my-5  flex sm:basis-1/4 md:basis-1/4 lg:basis-1/5 2xl:basis-1/4 ">
               <button className='font-semibold w-32 h-10  text-[10px] mt-5 ml-4 mr-1.5  md:w-44 md:px-5 md:text-xs md:py-3 rounded-lg bg-zinc-200 text-black my-3  '>{item.name}</button>
             </CarouselItem>
           ))}

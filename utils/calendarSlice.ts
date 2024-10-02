@@ -1,10 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { Dayjs } from 'dayjs';
 
 const initialState = {
-  selectedDate: null,
+  selectedDate: null as Dayjs | null, 
   isDialogOpen: false,
   customEvents: {},
-  range: [null, null],
+  range: [null, null] as [Dayjs | null, Dayjs | null],
   plan1Count: 0,
   plan2Count: 0,
 };

@@ -25,7 +25,7 @@ export default async function CarouselSize({ type }: any) {
         className="lg:w-full w-auto max-w-[1433px] 2xl:mx-auto"
       >
         <CarouselContent>
-          {CreatorData.map((item, index) => (
+          {CreatorData.map((item:any, index:any) => (
             <CarouselItem
               key={index}
               className="basis-full flex sm:basis-1/2 md:basis-1/2 lg:basis-1/3 2xl:basis-1/4 p-2"

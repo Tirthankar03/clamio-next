@@ -44,9 +44,8 @@ export async function getCreatorById(id:any) {
 
       return data;
     } catch (e: any) {
-      return {
-        error: e.message,
-      };
+      console.log(e)
+      return []
     }
 }
 

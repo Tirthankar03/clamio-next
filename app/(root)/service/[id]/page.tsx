@@ -100,8 +100,8 @@ const ServiceDetail = ({ params }: { params: { id: string } }) => {
           <Image
             src={service.imageUrl} // Replace with actual image path
             alt={service.title}
-            width={1000}
-            height={200}
+            width={700}
+            height={50}
             className="rounded-lg shadow-lg"
           />
         </div>

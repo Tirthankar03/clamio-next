@@ -14,7 +14,8 @@ interface HeaderUserProps {
 
 const HeaderUser: React.FC<HeaderUserProps> = ({ placeholder }) => {
   return (
-    <header className='border-b max-w-7xl mx-auto w-full relative'>
+    <div className='border-b shadow-md'>
+       <header className=' max-w-7xl mx-auto w-full relative'>
       <div className="w-11/12 mx-auto py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="w-36">
@@ -40,6 +41,8 @@ const HeaderUser: React.FC<HeaderUserProps> = ({ placeholder }) => {
         </div>
       </div>
     </header>
+    </div>
+   
   );
 };
 

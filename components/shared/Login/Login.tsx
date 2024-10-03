@@ -97,7 +97,7 @@ const Login = () => {
           >
             LOGIN NOW
           </button>
-          <p className="py-2 font-semibold text-sm text-center">
+          <p className="py-4 font-semibold text-sm text-center">
             Don't have an account?{" "}
             <Link href="/signup">
               <span className="cursor-pointer underline">Register Now</span>

@@ -9,6 +9,7 @@ import { setIsCreatorLoggedIn } from '@/utils/creatorSlice';
 import { deleteCookie } from 'cookies-next';
 import { LogOut, UserRound, ListOrdered, User, BadgePlus, NotebookTabs, HandHeart, UsersRound } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import { handleSignOut } from '@/action/login';
 
 const DropDownMenu = () => {
   const dispatch = useDispatch();
@@ -16,18 +17,8 @@ const DropDownMenu = () => {
   const isLoggedIn = useSelector((store: RootState) => store.user.isLoggedIn);
   const isCreatorLogin = useSelector((store: RootState) => store.creator.isCreatorLoggedIn);
 
-  const handleLogout = () => {
-    if (isLoggedIn) {
-      deleteCookie('user');
-      dispatch(setIsLoggedIn(false));
-      router.push('/');
-    }
-
-    if (isCreatorLogin) {
-      deleteCookie('creator');
-      dispatch(setIsCreatorLoggedIn(false));
-      router.push('/explore');
-    }
+  const handleLogout = async() => {
+    await handleSignOut();
   };
 
   const dropdownLinkMain = [

@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import ReduxProvider from "@/utils/ReduxProvider";
 import { Toaster, toast } from 'sonner'
+import HeaderUser from "@/components/shared/Navbar/HeaderUser";
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -27,6 +28,7 @@ export default function RootLayout({
      
         <body className={poppins.variable}>
           <ReduxProvider> 
+          {/* <HeaderUser placeholder="search products" /> */}
           {children}
           </ReduxProvider>
           </body>

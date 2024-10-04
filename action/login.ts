@@ -27,6 +27,8 @@ export const login = async (values: z.infer<typeof LoginSchema>) => {
       switch (error.type) {
         case "CredentialsSignin":
           return { error: "Invalid credentials!" };
+        case "CallbackRouteError":
+          return { error: "Invalid credentials!" };
         default:
           return { error: "Something went wrong!" };
       }
@@ -37,7 +39,7 @@ export const login = async (values: z.infer<typeof LoginSchema>) => {
 
 
 
-
+//login route to backend
 export async function credentialLogin(input:TLogin) {
   try {
     const response = await axios.post(`${process.env.BASE_API_URL}/api/v1/user-auth/login`,{email:input.email, password: input.password});
@@ -51,10 +53,14 @@ export async function credentialLogin(input:TLogin) {
     
     return {data, userCookie};
 
-  } catch (error:any) {
-    console.error("error in credentialLogin>>>>>>>>:", error.response.data);
-    return error.response.data
-    
+  } catch (error: any) {
+    console.error("error in credentialLogin>>>>>>>>:", error.response?.data);
+
+    // Return error object with the message from the API response
+    return { 
+      error: error.response?.data?.message || "Login failed", 
+      statusCode: error.response?.status || 500 
+    };
   }
 }
 
@@ -62,6 +68,9 @@ export async function credentialLogin(input:TLogin) {
 
 
 
+
+
 export async function handleSignOut() {
+  cookies().delete('user')
   await signOut();
 }

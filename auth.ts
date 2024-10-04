@@ -6,6 +6,7 @@ import { LoginSchema } from "./schemas";
 import { credentialLogin } from "./action/login";
 import { AxiosError } from "axios";
 import { cookies } from "next/headers";
+import { getUserById } from "./lib/helper/user";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
@@ -37,11 +38,13 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         if (validatedFields.success) {
           const { email, password } = validatedFields.data;
 
-          const { data, userCookie }  = await credentialLogin({email,password})
+          //api call to the backend
+          const { data, userCookie, error }  = await credentialLogin({email,password})
 
-          console.log('data in authorize>>>>>>>>>', data);
+          // console.log('data in authorize>>>>>>>>>', data);
+          console.log('data.error? in authorize>>>>>>>>>', data.error);
 
-          if(data.error) return null
+          if(error) return null
 
           //manually setting the user cookie
           if (userCookie) {
@@ -52,7 +55,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             });
           }
 
-
+          console.log("data.user>>>>>>>")
 
           return data.user //return null to throw error, return something to allow the user to login. The logic is yours
 
@@ -65,35 +68,27 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   ],
 
   pages: {
-    signIn: "/test",
+    signIn: "/auth/signin",
     error: "/auth/error",
   },
 
   callbacks: {
     async session({ session, token }) {
-      if (token?.sub && token?.role) {
+      if (token?.sub) {
         session.user.id = token.sub;
         session.user.role = token.role;
         session.user.isCreator = token.isCreator;
       }
+      console.log('session in jwt>>>>>>>>>>>>>>',session);
+
       return session;
     },
 
     async jwt({ token, user }) {
-      // v2
-        // if(!token.sub) return token
-        //const existing User = await getUserById(token.sub);
-        // if (!existingUser) return token;
-        // token.role = existingUser.role;
-        //return token
-        console.log('user in jwt>>>>>>>>>>>>>>',user);
-        console.log('token in jwt>>>>>>>>>>>>>>',token);
-        
-      if (user) {
-        // token.role = user.role;
-        token.isCreator = !!user.creator;
-        token.firstName = user.firstName //user remains undefined and no one knows why
-      }
+        if(!token.sub) return token
+        const existingUser = await getUserById(token.sub);
+        if (!existingUser) return token;
+        token.isCreator = existingUser.creator;
       return token;
     },
 

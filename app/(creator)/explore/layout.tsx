@@ -6,6 +6,7 @@ import Navbar from "@/components/shared/Navbar/navbar";
 import { auth } from "@/auth";
 import { SessionProvider } from "next-auth/react";
 import { SessionDataProvider } from '@/components/wrapper/SessionDataWrapper'
+import HeaderUser from "@/components/shared/Navbar/HeaderUser";
 
 
 
@@ -23,7 +24,8 @@ export default async function RootLayout({
       <div className=" flex min-h-screen flex-col">
         {/* <HeaderMain />
          */}
-      <Navbar/>
+      {/* <Navbar/> */}
+            <HeaderUser placeholder="search creator" />
 
         <main className="flex-1">{children}</main>
         <Footer />

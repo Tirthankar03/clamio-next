@@ -18,8 +18,7 @@ export default async function RootLayout({
 <SessionDataProvider>
 
     <div className="flex min-h-screen flex-col">
-      <Navbar/>
-      {/* <HeaderUser placeholder="search products" /> */}
+      <HeaderUser placeholder="search products" />
       <main className="flex-1">{children}</main>
       <Footer />
     </div>

@@ -1,9 +1,14 @@
 export const publicRoutes = [ '/creator']
 
-
+export const privateRoutes = [
+    '/dashboard',  // Add all your private routes here
+    '/profile',
+    '/settings',
+  ];
+  
 export const authRoutes = [
     '/auth/signin', 
-    '/auth/register', '/auth/error', '/test']
+    '/auth/signup', '/auth/error', '/test']
 
 
 

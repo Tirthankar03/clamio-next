@@ -1,18 +1,45 @@
 // src/components/shared/HeaderUser.tsx
 'use client';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import SearchBar from './SearchBar';
 import NavigationLinks from './NavigationLinks';
 import MobileNav from './MobileNav';
 import PropTypes from 'prop-types';
-
+import { useSessionData } from "@/lib/useSessionData"; 
+import { handleSignOut } from '@/action/login';
 interface HeaderUserProps {
   placeholder: string;
 }
 
 const HeaderUser: React.FC<HeaderUserProps> = ({ placeholder }) => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const { data: session } = useSessionData();
+
+    // Use effect to check the session status on mount
+    useEffect(() => {
+      if (session) {
+        setIsAuthenticated(true);
+      } else {
+        setIsAuthenticated(false);
+      }
+    }, [session]); // Dependency on session
+
+
+
+
+      // Function to handle logout and re-check authentication
+  const handleLogout = async () => {
+    // Perform your logout logic here (API call)
+    await handleSignOut();
+    setIsAuthenticated(false); // Update state to force re-render
+  };
+
+
+
+
+
   return (
     <header className='border-b max-w-7xl mx-auto w-full relative'>
       <div className="w-11/12 mx-auto py-4">
@@ -29,11 +56,11 @@ const HeaderUser: React.FC<HeaderUserProps> = ({ placeholder }) => {
             <SearchBar placeholder={placeholder} />
           </div>
           <div className="hidden md:flex items-center space-x-4">
-            <NavigationLinks />
+            <NavigationLinks isAuthenticated={isAuthenticated} handleLogout={handleLogout} />
           </div>
-          <div className="flex md:hidden items-center space-x-3">
-            <MobileNav />
-          </div>
+        </div>
+        <div className="flex md:hidden items-center space-x-3">
+          <MobileNav />
         </div>
         <div className="md:hidden flex w-full mt-4">
           <SearchBar placeholder={placeholder} />
@@ -42,6 +69,7 @@ const HeaderUser: React.FC<HeaderUserProps> = ({ placeholder }) => {
     </header>
   );
 };
+
 
 HeaderUser.propTypes = {
   placeholder: PropTypes.string.isRequired,

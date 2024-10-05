@@ -10,12 +10,14 @@ import DropDownMenu from '@/components/Reusable Components/DropDown';
 import { LucideShoppingBag } from 'lucide-react';
 import { useSessionData } from "@/lib/useSessionData";
 
-const NavigationLinks = () => {
+
+interface NavigationLinksProps {
+    isAuthenticated: boolean;
+    handleLogout: () => void; // Pass logout function
+  }
+  
+  const NavigationLinks: React.FC<NavigationLinksProps> = ({ isAuthenticated, handleLogout }) => {
     const cartItemCount = useSelector((state: RootState) => state.cart.items.length);
-    const isLoggedIn = useSelector((state: RootState) => state.user.isLoggedIn);
-    const isCreatorLogin = useSelector((store: RootState) => store.creator.isCreatorLoggedIn);
-    const { data: session } = useSessionData();
-    console.log("session>>>>>>>> navbar", session)
 
     return (
         <>
@@ -41,8 +43,8 @@ const NavigationLinks = () => {
                     )}
                 </button>
             </Link>
-            {(session) ? (
-                <DropDownMenu />
+            {isAuthenticated? (
+                <DropDownMenu handleLogout={handleLogout}/>
             ) : (
                 <div className="flex gap-2">
                     <Button className="font-semibold bg-yellow-400 text-black px-4 py-2 rounded-md shadow-md hover:bg-yellow-500 transition duration-300">

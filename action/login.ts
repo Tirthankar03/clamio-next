@@ -3,9 +3,11 @@ import axios, { AxiosError } from 'axios'
 import z from "zod";
 import { LoginSchema, TLogin } from "@/schemas";
 import { DEFAULT_LOGIN_REDIRECT } from "@/routes";
-import { AuthError } from "next-auth";
+import { AuthError, CredentialsSignin } from "next-auth";
 import { cookies} from 'next/headers'
 import { signIn, signOut } from "@/auth";
+import { revalidatePath } from 'next/cache';
+import { redirect } from 'next/navigation';
 export const login = async (values: z.infer<typeof LoginSchema>) => {
   const validatedFields = LoginSchema.safeParse(values);
 
@@ -17,23 +19,34 @@ export const login = async (values: z.infer<typeof LoginSchema>) => {
 
   const { email, password } = validatedFields.data;
   try {
-    await signIn("credentials", {
+   const result = await signIn("credentials", {
       email,
       password,
       redirectTo: DEFAULT_LOGIN_REDIRECT,
     });
+
+    console.log("result>>>>>>>", result);
+
+    return {message: 'user logged in successfully', success: true}
   } catch (error) {
-    if (error instanceof AuthError) {
-      switch (error.type) {
-        case "CredentialsSignin":
-          return { error: "Invalid credentials!" };
-        case "CallbackRouteError":
-          return { error: "Invalid credentials!" };
-        default:
-          return { error: "Something went wrong!" };
-      }
-    }
-    throw error; //to get redirected, mentioned in official authjs docs
+    // if (error instanceof AuthError) {
+    //   switch (error.type) {
+    //     case "CredentialsSignin":
+    //       return { error: "Invalid credentials!" };
+    //     default:
+    //       return { error: "Something went wrong!" };
+    //   }
+    // }
+    // throw error; //to get redirected, mentioned in official authjs docs
+  
+    const someError = error as CredentialsSignin;
+    const errorMessage = someError.cause?.err?.message || "Unknown error occurred";
+    console.log('errorMessage>>>>>>>>', errorMessage);
+    console.log('someError.cause>>>>>>>>', someError.cause);
+    console.log('someError>>>>>>>>', someError);
+    
+  
+    return {message: errorMessage, success: false};
   }
 };
 

@@ -42,9 +42,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           const { data, userCookie, error }  = await credentialLogin({email,password})
 
           // console.log('data in authorize>>>>>>>>>', data);
-          console.log('data.error? in authorize>>>>>>>>>', data.error);
+          // console.log('data.error? in authorize>>>>>>>>>', data.error);
 
-          if(error) return null
+          if(error) throw new Error(error)
 
           //manually setting the user cookie
           if (userCookie) {

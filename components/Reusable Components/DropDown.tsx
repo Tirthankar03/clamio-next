@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
@@ -11,15 +11,13 @@ import { LogOut, UserRound, ListOrdered, User, BadgePlus, NotebookTabs, HandHear
 import { useRouter } from 'next/navigation';
 import { handleSignOut } from '@/action/login';
 
-const DropDownMenu = () => {
+const DropDownMenu = ({ handleLogout }) => {
   const dispatch = useDispatch();
   const router = useRouter();
   const isLoggedIn = useSelector((store: RootState) => store.user.isLoggedIn);
   const isCreatorLogin = useSelector((store: RootState) => store.creator.isCreatorLoggedIn);
+  const [count, setCount] = useState(0)
 
-  const handleLogout = async() => {
-    await handleSignOut();
-  };
 
   const dropdownLinkMain = [
     {
@@ -76,7 +74,7 @@ const DropDownMenu = () => {
             </p>
           </Link>
         )})}
-        <DropdownMenuItem onClick={handleLogout} className='cursor-pointer hover:bg-yellow-300 transition-all duration-200'>
+        <DropdownMenuItem onClick={handleLogout}  className='cursor-pointer hover:bg-yellow-300 transition-all duration-200'>
           <LogOut className="mr-2 h-4 w-4 " />
           <span>Sign out</span>
         </DropdownMenuItem>

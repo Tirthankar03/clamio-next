@@ -6,7 +6,7 @@ import { LoginSchema } from "./schemas";
 import { credentialLogin } from "./action/login";
 import { AxiosError } from "axios";
 import { cookies } from "next/headers";
-import { getUserById } from "./lib/helper/user";
+import { getUserById } from "./lib/getRoutes/user";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [

@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { FileForm } from './uploader/FileForm';
 import FileSelector from './uploader/FileSelector';
+import { FancySingleSelect } from './FancySingleSelect';
 
 const CreateItem = () => {
   const { register, handleSubmit } = useForm();
@@ -87,10 +88,11 @@ const CreateItem = () => {
                 <TextArea label="Product Description" name="productDescription" register={register} />
               </div>
               <div className='mb-6'>
-              <FancyMultiSelect options={CATEGORY} placeholder="Select Category..." />
+              <FancySingleSelect options={CATEGORY} placeholder="Select Category..." />
               </div>
+              <h1 className='text-xl font-semibold py-5 '>Product Highlights</h1>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
-                {[...Array(8)].map((_, index) => (
+                {[...Array(4)].map((_, index) => (
                   <Input key={index} label={`Feature ${index + 1}`} name={`feature${index + 1}`} register={register} />
                 ))}
               </div>
@@ -116,10 +118,12 @@ const CreateItem = () => {
                 <TextArea label="Service Description" name="serviceDescription" register={register} />
               </div>
               <div className="mb-6">
-              <FancyMultiSelect options={CATEGORY} placeholder="Select Category..."  />
+              <FancySingleSelect options={CATEGORY} placeholder="Select Category..."  />
               </div>
+              <h1 className='text-xl font-semibold py-5'>Product Highlights</h1>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
-                {[...Array(8)].map((_, index) => (
+                
+                {[...Array(4)].map((_, index) => (
                   <Input key={index} label={`Feature ${index + 1}`} name={`feature${index + 1}`} register={register} />
                 ))}
               </div>

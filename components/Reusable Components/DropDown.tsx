@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
@@ -9,25 +9,18 @@ import { setIsCreatorLoggedIn } from '@/utils/creatorSlice';
 import { deleteCookie } from 'cookies-next';
 import { LogOut, UserRound, ListOrdered, User, BadgePlus, NotebookTabs, HandHeart, UsersRound } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import { handleSignOut } from '@/action/login';
 
 const DropDownMenu = () => {
   const dispatch = useDispatch();
   const router = useRouter();
   const isLoggedIn = useSelector((store: RootState) => store.user.isLoggedIn);
   const isCreatorLogin = useSelector((store: RootState) => store.creator.isCreatorLoggedIn);
+  const [count, setCount] = useState(0)
 
-  const handleLogout = () => {
-    if (isLoggedIn) {
-      deleteCookie('user');
-      dispatch(setIsLoggedIn(false));
-      router.push('/');
-    }
-
-    if (isCreatorLogin) {
-      deleteCookie('creator');
-      dispatch(setIsCreatorLoggedIn(false));
-      router.push('/explore');
-    }
+  const handleLogout = async() => {
+    await handleSignOut();
+    dispatch(setIsLoggedIn(false))
   };
 
   const dropdownLinkMain = [
@@ -85,7 +78,7 @@ const DropDownMenu = () => {
             </p>
           </Link>
         )})}
-        <DropdownMenuItem onClick={handleLogout} className='cursor-pointer hover:bg-yellow-300 transition-all duration-200'>
+        <DropdownMenuItem onClick={handleLogout}  className='cursor-pointer hover:bg-yellow-300 transition-all duration-200'>
           <LogOut className="mr-2 h-4 w-4 " />
           <span>Sign out</span>
         </DropdownMenuItem>

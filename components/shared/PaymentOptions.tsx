@@ -1,14 +1,64 @@
 // components/PaymentOptions.js
+'use client'
 import React, { useState } from 'react';
 import { RadioGroup, RadioGroupItem } from '../ui/radio-group';
 import { FaCreditCard, FaWallet, FaUniversity, FaMobileAlt, FaCalendarAlt, FaTruck } from 'react-icons/fa';
+import { useSessionData } from "@/lib/useSessionData";
+import { toast } from 'sonner';
+import axios, { AxiosError } from 'axios';
+import initiatePayment from '@/helpers/payment';
+import { useRouter } from 'next/navigation';
 
 const PaymentOptions = () => {
+  const router = useRouter()
   const [selectedOption, setSelectedOption] = useState('');
+  const { data: session } = useSessionData();
 
   const handleOptionChange = (value:any) => {
     setSelectedOption(value);
   };
+
+
+
+  const handleSubmit = async () => {
+    try{
+      if(!session){
+        toast.warning('you need to login to checkout')
+        return;
+      }
+
+  
+      const body = {
+        email: session?.user.email,
+        serviceName: "Dummy service" // this needs to be done by the db
+      }
+  
+      //need to make api call here and populate the options => const res = axios.post('/payment')
+  
+      const res = await axios.post(`${process.env.NEXT_PUBLIC_BASE_API_URL}/api/v1/make-payment`, body, {withCredentials: true} )
+  
+      console.log("res after payment>>>>>>>>>>>>>>>", res)
+      const id = await initiatePayment(res.data);
+
+      // toast.success("Payment successfull");
+      router.push("/payment/success");
+
+
+      // with the new id hit a new route in the backend that saves the id and necessary details
+      // const orderRes = axios.post('/something', id)
+
+      // empty the shopping cart: new backend endpoint
+
+  
+    }catch(err:any){
+      console.error("error in handleSubmit payment>>>>>>>", err)
+      toast.error('payment unsuccessful. please try again later')
+      // if(err.response.data){
+      //   toast.error(err.response.data)
+      // }
+    }
+
+  }
 
   return (
     <div className="w-full border mx-auto p-6 bg-white rounded-lg shadow-md">
@@ -72,7 +122,8 @@ const PaymentOptions = () => {
       </RadioGroup>
       <div className="mt-6">
         <button
-          type="submit"
+          // type="submit"
+          onClick={() => handleSubmit()}
           className="w-full px-4 py-2 bg-secondary text-white rounded-lg hover:bg-gray-800 transition duration-200"
           disabled={!selectedOption}
         >

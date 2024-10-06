@@ -6,7 +6,7 @@ import Card from "@/components/Reusable Components/Card";
 import ToggleText from "@/components/Reusable Components/ToggleText";
 import { cardData } from "@/constants/data";
 import { InstagramIcon, LinkedinIcon, YoutubeIcon } from "lucide-react";
-import { getCreatorById } from "@/lib/helper/creator";
+import { getCreatorById } from "@/lib/getRoutes/creator";
 import { revalidatePath } from "next/cache";
 
 const  ProfilePage = async ({ id }: { id: string }) => {

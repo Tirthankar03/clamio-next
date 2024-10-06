@@ -8,13 +8,17 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import CreatorCard from "@/components/shared/creator/CreatorCard";
-import { getAllCreators } from "@/lib/helper/creator";
+import { getAllCreators } from "@/lib/getRoutes/creator";
 // import { CreatorData } from "@/constants/data"; // Make sure this import path is correct
 
 export default async function CarouselSize({ type }: any) {
 
 
   const CreatorData = await getAllCreators()
+  
+  if (!Array.isArray(CreatorData)) {
+    return <p>No creators available.</p>;
+  }
 
   return (
     <div>

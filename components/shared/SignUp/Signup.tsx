@@ -246,12 +246,18 @@ const SignUp = () => {
                 </div>
               )}
 
+<p className="text-xs text-gray-400 mx-1">
+            By tapping 'Register' you are agreeing to the{" "}
+            <span className="underline cursor-pointer">Terms of Service</span>{" "}
+            and <span className="underline cursor-pointer">Privacy Policy</span>
+          </p>
+
               {/* Next Button */}
               {isCreatorLogin && (
                 <button
                   type="button"
                   onClick={() => setShowCreatorExtraFields(true)}
-                  className="w-full bg-yellow-500 text-white py-3 rounded-lg mt-6"
+                  className="w-full font-bold bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 transition duration-300 ease-in-out py-3 rounded-lg mt-6"
                 >
                   Next
                 </button>
@@ -326,7 +332,7 @@ const SignUp = () => {
                 />
                 <button
                   type="submit"
-                  className="w-full bg-yellow-500 text-white py-3 rounded-lg mt-6"
+                  className="w-full font-bold  bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 transition duration-300 ease-in-out py-3 rounded-lg mt-6"
                 >
                   Signup as Creator
                 </button>
@@ -337,38 +343,34 @@ const SignUp = () => {
           {!isCreatorLogin && (
             <button
               type="submit"
-              className="w-full bg-yellow-500 text-white py-3 rounded-lg mt-6"
+              className="w-full font-bold bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 transition duration-300 ease-in-out py-3 rounded-lg mt-6"
             >
               Create Account
             </button>
           )}
+
+          
         </form>
 
         <div className="flex justify-center mt-4">
           <p className="text-sm">Already have an account?&nbsp;</p>
-          <Link href="/login">
+          <Link href="/auth/signin">
             <p className="text-sm text-yellow-500 underline cursor-pointer">
               Log in
             </p>
           </Link>
         </div>
 
-        <div className="flex justify-center space-x-4 mt-6">
-          <img
-            src={GOOGLE_PNG}
-            className="w-10 h-10 cursor-pointer"
-            alt="Google"
-          />
-          <img
-            src={FACEBOOK_PNG}
-            className="w-10 h-10 cursor-pointer"
-            alt="Facebook"
-          />
-          <img
-            src={INSTAGRAM_PNG}
-            className="w-10 h-10 cursor-pointer"
-            alt="Instagram"
-          />
+        <div className="flex items-center justify-center my-4 w-full">
+            <div className="h-px w-full bg-black"></div>
+            <span className="px-3">or</span>
+            <div className="h-px w-full bg-black"></div>
+          </div>
+
+        <div className="flex gap-10 items-center justify-center cursor-pointer">
+          <img className="w-12 h-12" src={FACEBOOK_PNG} alt="Facebook" />
+          <img className="w-9 h-9" src={GOOGLE_PNG} alt="Google" />
+          <img className="w-9 h-9" src={INSTAGRAM_PNG} alt="Instagram" />
         </div>
       </div>
     </div>

@@ -33,7 +33,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "app/signup",
+    "app/(auth)/auth/signup",
     "components/shared/Followers/TopFans.jsx",
     "components/shared/Followers/Charts.jsx",
     "app/**/*.tsx",

@@ -5,19 +5,24 @@ import HeaderUser from "@/components/shared/Navbar/HeaderUser";
 import { Provider } from "react-redux";
 import { store } from "@/Store/store";
 import ReduxProvider from "@/utils/ReduxProvider";
+import Navbar from "@/components/shared/Navbar/navbar";
+import { SessionDataProvider } from '@/components/wrapper/SessionDataWrapper'
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
-    // <ReduxProvider>
+<SessionDataProvider>
+
     <div className="flex min-h-screen flex-col">
       <HeaderUser placeholder="search products" />
       <main className="flex-1">{children}</main>
       <Footer />
     </div>
-    // </ReduxProvider>
+    </SessionDataProvider>
+
   );
 }

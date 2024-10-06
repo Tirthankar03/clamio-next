@@ -8,7 +8,7 @@ const ServiceCards = () => {
        <h1 className="text-4xl font-bold mb-10 ">Service Listing</h1>
       <div className="grid grid-cols-1 mx-5 md:mx-0 sm:mx-5 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-8">
       {services.map((service) => (
-        <Link key={service.id} href={`/services/${service.id}`}>
+        <Link key={service.id} href={`/service/${service.id}`}>
           <div className="bg-white shadow-md rounded-lg overflow-hidden cursor-pointer hover:shadow-lg transition-shadow duration-200">
             <img
               src={service.imageUrl} // Ensure image URLs are included in your dummy data

@@ -4,6 +4,7 @@ import "./globals.css";
 import ReduxProvider from "@/utils/ReduxProvider";
 import { Toaster, toast } from 'sonner'
 import HeaderUser from "@/components/shared/Navbar/HeaderUser";
+import Providers from '@/components/wrapper/Providers'
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -28,8 +29,12 @@ export default function RootLayout({
      
         <body className={poppins.variable}>
           <ReduxProvider> 
+          <Providers>
+
           {/* <HeaderUser placeholder="search products" /> */}
           {children}
+          </Providers>
+
           </ReduxProvider>
           </body>
       

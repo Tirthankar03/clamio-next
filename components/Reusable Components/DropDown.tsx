@@ -19,6 +19,7 @@ const DropDownMenu = () => {
 
   const handleLogout = async() => {
     await handleSignOut();
+    dispatch(setIsLoggedIn(false))
   };
 
   const dropdownLinkMain = [

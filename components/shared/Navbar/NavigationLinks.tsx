@@ -41,7 +41,7 @@ const NavigationLinks = () => {
                     )}
                 </button>
             </Link>
-            {(session) ? (
+            {isLoggedIn ? (
                 <DropDownMenu />
             ) : (
                 <div className="flex gap-2">

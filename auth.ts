@@ -42,9 +42,12 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           const { data, userCookie, error }  = await credentialLogin({email,password})
 
           // console.log('data in authorize>>>>>>>>>', data);
-          console.log('data.error? in authorize>>>>>>>>>', data.error);
+          // console.log('data.error? in authorize>>>>>>>>>', data.error);
 
+
+          //this function doesn't even run if the error falls in the catch block???????
           if(error) return null
+
 
           //manually setting the user cookie
           if (userCookie) {

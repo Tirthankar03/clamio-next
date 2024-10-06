@@ -150,7 +150,8 @@ import { login } from "@/action/login";
 import { FormError } from "../form-error";
 import { FormSuccess } from "../form-success";
 import { useSearchParams } from "next/navigation";
-
+import { toast } from "sonner";
+import { useMutation } from "@tanstack/react-query"
 // Define the zod schema
 const LoginSchema = z.object({
   email: z.string().email("Invalid email address"),
@@ -187,12 +188,22 @@ const urlError = searchParams.get("error") === "OAuthAccountNotLinked"
     startTransition(async () => {
      const data = await login(values);
 
-     if(data){
-      console.log("erorr in login>>>", data.error);
+    //  if(data){
+    //   console.log("erorr in login>>>", data.error);
 
       
-      setError(data.error)
+
+    //  }
+
+     if(data.success){
+      dispatch(setIsLoggedIn(true))
+      router.replace('/')
+      toast.success(data.message)
+     }else{
+      setError(data.message)
      }
+
+
     })
   };
 
@@ -264,6 +275,8 @@ const urlError = searchParams.get("error") === "OAuthAccountNotLinked"
 
             <Button
               disabled={isPending} 
+              isLoading={isPending}
+              loadingText="LOADING"
               type="submit"
               className="mt-5 h-12 w-full rounded-md bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 transition duration-300 ease-in-out text-center font-bold shadow-sm disabled:bg-gray-500"
             >

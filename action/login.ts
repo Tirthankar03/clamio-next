@@ -3,7 +3,7 @@ import axios, { AxiosError } from 'axios'
 import z from "zod";
 import { LoginSchema, TLogin } from "@/schemas";
 import { DEFAULT_LOGIN_REDIRECT } from "@/routes";
-import { AuthError } from "next-auth";
+import { AuthError, CredentialsSignin } from "next-auth";
 import { cookies} from 'next/headers'
 import { signIn, signOut } from "@/auth";
 export const login = async (values: z.infer<typeof LoginSchema>) => {
@@ -20,20 +20,31 @@ export const login = async (values: z.infer<typeof LoginSchema>) => {
     await signIn("credentials", {
       email,
       password,
-      redirectTo: DEFAULT_LOGIN_REDIRECT,
+      // redirectTo: DEFAULT_LOGIN_REDIRECT,
+      redirect: false
     });
+
+    return {message: "user logged in successfully", success: true}
   } catch (error) {
+    const someError = error as CredentialsSignin;
+    const errorMessage = someError.cause?.err?.message || "Unknown error occurred";
+    //error that we get in this catch block is the one that we throw inside of the functions and CredentialsSignin gets it 
+
+
+    //here if you return something, that will be returned to the frontend after the error has occured
+
     if (error instanceof AuthError) {
+      //from here you can easily return your error
       switch (error.type) {
         case "CredentialsSignin":
           return { error: "Invalid credentials!" };
         case "CallbackRouteError":
-          return { error: "Invalid credentials!" };
+          return { message: errorMessage, success: false };
         default:
           return { error: "Something went wrong!" };
       }
     }
-    throw error; //to get redirected, mentioned in official authjs docs
+    throw error; //you need to positively throw an error or else you will get a redirect error
   }
 };
 
@@ -56,6 +67,7 @@ export async function credentialLogin(input:TLogin) {
   } catch (error: any) {
     console.error("error in credentialLogin>>>>>>>>:", error.response?.data);
 
+    throw new Error(error.response?.data.message)
     // Return error object with the message from the API response
     return { 
       error: error.response?.data?.message || "Login failed", 

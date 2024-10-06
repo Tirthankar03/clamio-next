@@ -172,8 +172,8 @@ export function initiatePayment(order: OrderData): Promise<string> {
         amount: order.data.amount,
         currency: order.data.currency,
         order_receipt: order.data.receipt,
-        name: "test",
-        description: "for testing purpose",
+        name: "Clamio",
+        description: "Thank you!🎉🎉🎉🎉",
         handler: (response: responseType) => {
           console.log("response from razorpay>>>>>>>>>>>", response);
           if (response.razorpay_payment_id) {
@@ -192,7 +192,7 @@ export function initiatePayment(order: OrderData): Promise<string> {
       // Open Razorpay payment window
       const pay = new window.Razorpay(options);
       pay.open();
-    } catch (error) {
+    } catch (error: any) {
       toast.error(error.message || 'Error occurred while loading Razorpay.');
       reject(error);
     }

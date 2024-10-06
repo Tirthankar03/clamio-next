@@ -62,7 +62,7 @@ const NavItems = () => {
      
 
       <li className="hidden lg:block ">
-        <DropDownMenu />
+        <DropDownMenu  />
       </li>
       <li className="hidden md:block lg:hidden ">
         <DropDown />

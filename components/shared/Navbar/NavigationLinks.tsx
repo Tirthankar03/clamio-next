@@ -10,12 +10,14 @@ import DropDownMenu from '@/components/Reusable Components/DropDown';
 import { LucideShoppingBag } from 'lucide-react';
 import { useSessionData } from "@/lib/useSessionData";
 
-const NavigationLinks = () => {
+
+interface NavigationLinksProps {
+    isAuthenticated: boolean;
+    handleLogout: () => void; // Pass logout function
+  }
+  
+  const NavigationLinks: React.FC<NavigationLinksProps> = ({ isAuthenticated, handleLogout }) => {
     const cartItemCount = useSelector((state: RootState) => state.cart.items.length);
-    const isLoggedIn = useSelector((state: RootState) => state.user.isLoggedIn);
-    const isCreatorLogin = useSelector((store: RootState) => store.creator.isCreatorLoggedIn);
-    const { data: session } = useSessionData();
-    console.log("session>>>>>>>> navbar", session)
 
     return (
         <>

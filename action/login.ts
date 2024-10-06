@@ -6,7 +6,6 @@ import { DEFAULT_LOGIN_REDIRECT } from "@/routes";
 import { AuthError, CredentialsSignin } from "next-auth";
 import { cookies} from 'next/headers'
 import { signIn, signOut, auth } from "@/auth";
-import { getSession } from '@/lib/getSession';
 export const login = async (values: z.infer<typeof LoginSchema>) => {
   const validatedFields = LoginSchema.safeParse(values);
 
@@ -18,13 +17,12 @@ export const login = async (values: z.infer<typeof LoginSchema>) => {
 
   const { email, password } = validatedFields.data;
   try {
-    await signIn("credentials", {
+   const result = await signIn("credentials", {
       email,
       password,
       // redirectTo: DEFAULT_LOGIN_REDIRECT,
       redirect: false
     });
-
     return {message: "user logged in successfully", success: true}
   } catch (error) {
     const someError = error as CredentialsSignin;

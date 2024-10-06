@@ -21,6 +21,7 @@ export async function getAllCreators() {
         revalidate: 30,
         tags: ['all-creators'],
       },
+      credentials: 'include'
     });
 
     const data = await response.json();

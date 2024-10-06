@@ -22,7 +22,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { login } from "@/action/login";
+import { login } from "@/action/auth";
 import { FormError } from "../form-error";
 import { FormSuccess } from "../form-success";
 import { useSearchParams } from "next/navigation";

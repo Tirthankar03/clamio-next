@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useSessionData } from "@/lib/useSessionData";
 
-import { handleSignOut } from "@/action/login";
+import { handleSignOut } from "@/action/auth";
 export default function Navbar() {
   //   //server
 //   // const session = await auth();

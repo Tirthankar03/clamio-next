@@ -9,7 +9,7 @@ import { setIsCreatorLoggedIn } from '@/utils/creatorSlice';
 import { deleteCookie } from 'cookies-next';
 import { LogOut, UserRound, ListOrdered, User, BadgePlus, NotebookTabs, HandHeart, UsersRound } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { handleSignOut } from '@/action/login';
+import { handleSignOut } from '@/action/auth';
 
 const DropDownMenu = () => {
   const dispatch = useDispatch();

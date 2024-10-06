@@ -3,7 +3,7 @@ import Credentials from "next-auth/providers/credentials";
 import Github from "next-auth/providers/github";
 import Google from "next-auth/providers/google";
 import { LoginSchema } from "./schemas";
-import { credentialLogin } from "./action/login";
+import { credentialLogin } from "./action/auth";
 import { AxiosError } from "axios";
 import { cookies } from "next/headers";
 import { getUserById } from "./lib/getRoutes/user";

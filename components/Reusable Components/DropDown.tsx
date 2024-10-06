@@ -11,7 +11,7 @@ import { LogOut, UserRound, ListOrdered, User, BadgePlus, NotebookTabs, HandHear
 import { useRouter } from 'next/navigation';
 import { handleSignOut } from '@/action/login';
 
-const DropDownMenu = ({ handleLogout }) => {
+const DropDownMenu = () => {
   const dispatch = useDispatch();
   const router = useRouter();
   const isLoggedIn = useSelector((store: RootState) => store.user.isLoggedIn);

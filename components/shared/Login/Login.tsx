@@ -71,12 +71,12 @@ const urlError = searchParams.get("error") === "OAuthAccountNotLinked"
 
     //  }
 
-     if(data.success){
+     if(result.success){
       dispatch(setIsLoggedIn(true))
       router.replace('/')
-      toast.success(data.message)
+      toast.success(result.message)
      }else{
-      setError(data.message)
+      setError(result.message)
      }
 
 

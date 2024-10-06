@@ -15,6 +15,10 @@ export default async function CarouselSize({ type }: any) {
 
 
   const CreatorData = await getAllCreators()
+  
+  if (!Array.isArray(CreatorData)) {
+    return <p>No creators available.</p>;
+  }
 
   return (
     <div>

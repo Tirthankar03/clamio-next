@@ -57,7 +57,7 @@ const HeaderUser: React.FC<HeaderUserProps> = ({ placeholder }) => {
             <SearchBar placeholder={placeholder} />
           </div>
           <div className="hidden md:flex items-center space-x-4">
-            <NavigationLinks isAuthenticated={isAuthenticated} handleLogout={handleLogout} />
+            <NavigationLinks/>
           </div>
         </div>
         <div className="flex md:hidden items-center space-x-3">

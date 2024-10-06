@@ -11,14 +11,11 @@ import { LucideShoppingBag } from 'lucide-react';
 import { useSessionData } from "@/lib/useSessionData";
 
 
-interface NavigationLinksProps {
-    isAuthenticated: boolean;
-    handleLogout: () => void; // Pass logout function
-  }
-  
-  const NavigationLinks: React.FC<NavigationLinksProps> = ({ isAuthenticated, handleLogout }) => {
-    const cartItemCount = useSelector((state: RootState) => state.cart.items.length);
 
+  
+  const NavigationLinks = () => {
+    const cartItemCount = useSelector((state: RootState) => state.cart.items.length);
+    const isLoggedIn = useSelector((store: RootState) => store.user.isLoggedIn);
     return (
         <>
             <div>

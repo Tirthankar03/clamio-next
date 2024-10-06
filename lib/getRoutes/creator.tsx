@@ -15,24 +15,28 @@
 import { revalidatePath } from "next/cache";
 
 export async function getAllCreators() {
-    try {
-      const response = await fetch(`${process.env.BASE_API_URL}/api/v1/creator`, {
-          next:{
-              revalidate: 30,
-              tags:['all-creators']
-              //revalidate:0 to opt out of cache?
-          }
-      });
-    //   if (!response.ok) {
-    //     throw new Error(`failed to fetch ${response.status}`);
-    //  }
-      const data = await response.json();
+  try {
+    const response = await fetch(`${process.env.BASE_API_URL}/api/v1/creator`, {
+      next: {
+        revalidate: 30,
+        tags: ['all-creators'],
+      },
+    });
+
+    const data = await response.json();
+    // Ensure data is an array
+    if (Array.isArray(data)) {
       return data;
-    } catch (e: any) {
-      // console.log(e);
+    } else {
+      console.error("Data returned is not an array", data);
       return [];
     }
+  } catch (e: any) {
+    console.error("Failed to fetch creators:", e);
+    return [];
+  }
 }
+
 
 //CAUTION: will fix ts after schema is finalized
 

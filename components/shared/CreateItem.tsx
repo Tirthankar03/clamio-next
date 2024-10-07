@@ -91,7 +91,7 @@ const CreateItem = () => {
     const result = await createProduct(formData);
 
     if(result.success){
-      router.replace('/dashboard/listings')
+      router.replace('/dashboard/listing')
       toast.success(result.message)
      }else{
       toast.error(result.message)

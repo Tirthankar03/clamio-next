@@ -23,10 +23,14 @@ export const CreatorRegisterSchema = z.object({
     title: z.string().min(1, "Title is required"),
     description: z.string().min(1, "Description is required"),
     website: z.string().optional(), // Optional since it was commented out
-    social_link: z.record(z.any()),
+    social_link: z.string(),
     expertise: z.string().min(1, "Expertise is required"),
-    bank_account: z.number().nonnegative("Bank account must be a number"),
-    avatar: z.instanceof(File).refine(file => file.size > 0, "Avatar is required"),
+    // bank_account: z.number().nonnegative("Bank account must be a number"),
+    // bank_account: z
+    // .string()
+    // .transform((val) => Number(val)) // Transform string to number
+    // .refine((val) => !isNaN(val), "Invalid bank account number"),
+    // avatar: z.instanceof(File).refine(file => file.size > 0, "Avatar is required"),
 });
     
     

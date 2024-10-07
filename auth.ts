@@ -82,7 +82,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         session.user.role = token.role;
         session.user.isCreator = token.isCreator;
       }
-      console.log('session in jwt>>>>>>>>>>>>>>',session);
+      // console.log('session in jwt>>>>>>>>>>>>>>',session);
 
       return session;
     },
@@ -91,7 +91,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         if(!token.sub) return token
         const existingUser = await getUserById(token.sub);
 
-        console.log("get user by id in the jwt session>>>>>>>>>>>>>", existingUser)
+        // console.log("get user by id in the jwt session>>>>>>>>>>>>>", existingUser)
         if (!existingUser) return token;
         token.isCreator = !!existingUser.creator;
       return token;

@@ -76,6 +76,7 @@ const CreatorRegisterForm = () => {
         // Show success message or handle success logic
         toast.success(result.message)
         dispatch(setIsLoggedIn(true))
+        router.push('/');
       } else {
         setError(result.message);
       }

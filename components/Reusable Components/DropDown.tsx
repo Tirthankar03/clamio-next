@@ -12,6 +12,7 @@ import { LogOut, UserRound, ListOrdered, User, BadgePlus, NotebookTabs, HandHear
 import { useRouter } from 'next/navigation';
 import { handleSignOut } from '@/action/auth';
 import { useSessionData } from "@/lib/useSessionData";
+import { Toaster, toast } from 'sonner'
 
 const DropDownMenu = () => {
   const dispatch = useDispatch();
@@ -28,6 +29,7 @@ const DropDownMenu = () => {
   const handleLogout = async() => {
     await handleSignOut();
     dispatch(setIsLoggedIn(false))
+    toast.success('Logged out successfully')
   };
 
   const dropdownLinkMain = [

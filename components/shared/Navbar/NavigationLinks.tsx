@@ -27,9 +27,9 @@ import { useSessionData } from "@/lib/useSessionData";
                     SELL
                 </Button>
             </Link>
-            <Link href="/favourite">
+            {/* <Link href="/favourite">
                 <button type='button'><FaHeart className="w-6 h-6" /></button>
-            </Link>
+            </Link> */}
             <Link href="/cart">
                 <button type='button' className="relative">
                     <FaShoppingCart className="w-6 h-6 hover:cursor" />

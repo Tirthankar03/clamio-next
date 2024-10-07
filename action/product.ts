@@ -24,7 +24,7 @@ export const createProduct = async (formData: FormData) => {
         const data = response.data;
         console.log("data in product>>>>>>>>>>", data);  
         revalidateTag('product')
-        return {message: "product launched!", success: true}
+        return {message: "product launched!🎉", success: true}
     } catch (error: any) {
         console.error("error in product>>>>>>>>:", error);
         console.error("error.response?.data in product>>>>>>>>:", error.response?.data);

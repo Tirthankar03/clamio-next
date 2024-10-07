@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Input = ({ label, register, name }:any) => (
+const CustomInput = ({ label, register, name }:any) => (
   <div className="mb-4">
     <label className="block text-gray-700 mb-2">{label}</label>
     <input
@@ -10,4 +10,4 @@ const Input = ({ label, register, name }:any) => (
   </div>
 );
 
-export default Input;
+export default CustomInput;

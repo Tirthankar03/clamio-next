@@ -1737,7 +1737,7 @@ export const sidebarlinks = [
   { title: "My Coupons", icon: ClipboardList, href: "#" },
   { title: "My Reviews & Ratings", icon: Star, href: "/your-account/reviews-ratings" },
   { title: "All Notifications", icon: AlertCircle, href: "#" },
-  { title: "My Wishlist", icon: Heart, href: "/your-account/wishlist" },
+  // { title: "My Wishlist", icon: Heart, href: "/your-account/wishlist" },
   { title: "Clamio Coins", icon: CoinsIcon, href: "/your-account/clamio-coins" },
 ];
 
@@ -1754,12 +1754,12 @@ export const colourOptions = [
 ];
 
 export const CATEGORY = [
-  { value: "tarot Card Reading", label: "Tarot Card Reading" },
-  { value: "travel Guide", label: "Travel Guide" },
-  { value: "diet Plan", label: "Diet Plan" },
-  { value: "e-Sports Guide", label: "E-Sports Guide" },
-  { value: "food Recipes", label: "Food Recipes" },
-  { value: "digital Art", label: "Digital Art" },
+  { value: "tarot_reading", label: "Tarot Card Reading" },
+  { value: "travel_guide", label: "Travel Guide" },
+  { value: "diet_plan", label: "Diet Plan" },
+  { value: "esports_guide", label: "E-Sports Guide" },
+  { value: "food_recipe", label: "Food Recipes" },
+  { value: "digital_art", label: "Digital Art" },
 ]
 
 

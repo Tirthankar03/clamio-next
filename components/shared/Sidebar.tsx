@@ -157,7 +157,7 @@ const Sidebar = () => {
               <AlertCircle className="h-5 w-5 text-gray-600" />
               <span className="font-medium">All Notifications</span>
             </Link>
-            <Link
+            {/* <Link
               href="/your-account/wishlist"
               className={cn(
                 "flex items-center gap-3 rounded-lg px-4 py-2 transition-all text-gray-700",
@@ -166,7 +166,7 @@ const Sidebar = () => {
             >
               <Heart className="h-5 w-5 text-gray-600" />
               <span className="font-medium">My Wishlist</span>
-            </Link>
+            </Link> */}
             <Link
               href="/your-account/clamio-coins"
               className={cn(

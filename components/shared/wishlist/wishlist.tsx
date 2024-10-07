@@ -23,7 +23,8 @@ const WishlistPage = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                     {wishlistItems.map((product) => (
                         <div key={product.id}>
-                            <ProductCard key={product.id} {...product} />
+                            {/* <ProductCard key={product.id} {...product} /> */}
+                            <div>ProductCard</div>
                             <button
                                 onClick={() => handleRemoveFromWishlist(product.id)}
                                 className="absolute top-2 right-2 text-gray-600 hover:text-red-500"

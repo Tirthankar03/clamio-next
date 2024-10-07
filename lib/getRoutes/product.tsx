@@ -3,7 +3,7 @@ export async function getTopSellingProduct() {
       const response = await fetch(`${process.env.BASE_API_URL}/api/v1/product/filter/topSellingProduct`, {
         next: {
           revalidate: 30,
-          tags: ['topSellingProduct'],
+          tags: ['product'],
         },
         credentials: 'include'
       });
@@ -31,7 +31,7 @@ export async function getTopSellingProduct() {
       const response = await fetch(`${process.env.BASE_API_URL}/api/v1/product/filter/hotAndNewProduct`, {
         next: {
           revalidate: 30,
-          tags: ['hotAndNewProduct'],
+          tags: ['product'],
         },
         credentials: 'include'
       });

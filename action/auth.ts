@@ -89,16 +89,17 @@ export async function registerUser(input:TUserRegister) {
     const data = response.data;
     console.log("data in registerUser>>>>>>>>>>", data);
 
-    return {data};
+    return {message: "user logged in successfully", success: true}
 
   } catch (error: any) {
     console.error("error in registerUser>>>>>>>>:", error.response?.data);
 
     // Return error object with the message from the API response
-    return { 
-      error: error.response?.data?.message || "Login failed", 
-      statusCode: error.response?.status || 500 
-    };
+    // return { 
+    //   error: error.response?.data?.message || "Login failed", 
+    //   statusCode: error.response?.status || 500 
+    // };
+    return { message: error.response?.data?.message || "Signup failed", success: false }
   }
 }
 

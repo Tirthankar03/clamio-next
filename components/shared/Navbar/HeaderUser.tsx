@@ -8,7 +8,7 @@ import NavigationLinks from './NavigationLinks';
 import MobileNav from './MobileNav';
 import PropTypes from 'prop-types';
 import { useSessionData } from "@/lib/useSessionData"; 
-import { handleSignOut } from '@/action/login';
+import { handleSignOut } from '@/action/auth';
 interface HeaderUserProps {
   placeholder: string;
 }

@@ -21,11 +21,11 @@ const SearchPage = () => {
 
     return (
         <div className="grid gap-4 w-full md:w-5/6 lg:11/12 mx-auto pb-10">
-            {filteredProducts.length > 0 ? (
+            {/* {filteredProducts.length > 0 ? (
                 <ProductList products={filteredProducts} title={`Search Results for "${searchQuery}"`} />
-            ) : (
+            ) : ( */}
                 <div>No products found</div>
-            )}
+            {/* )} */}
         </div>
     );
 };

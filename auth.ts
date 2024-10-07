@@ -3,7 +3,7 @@ import Credentials from "next-auth/providers/credentials";
 import Github from "next-auth/providers/github";
 import Google from "next-auth/providers/google";
 import { LoginSchema } from "./schemas";
-import { credentialLogin } from "./action/login";
+import { credentialLogin } from "./action/auth";
 import { AxiosError } from "axios";
 import { cookies } from "next/headers";
 import { getUserById } from "./lib/getRoutes/user";
@@ -90,8 +90,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     async jwt({ token, user }) {
         if(!token.sub) return token
         const existingUser = await getUserById(token.sub);
+
+        console.log("get user by id in the jwt session>>>>>>>>>>>>>", existingUser)
         if (!existingUser) return token;
-        token.isCreator = existingUser.creator;
+        token.isCreator = !!existingUser.creator;
       return token;
     },
 

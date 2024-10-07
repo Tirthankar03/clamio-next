@@ -5,8 +5,15 @@ import { usePathname } from 'next/navigation';
 import { RootState } from '@/Store/store';
 import ProductList from '@/components/shared/products/ProductList';
 import { TopSellingproductData, HotNewproductData, TopDiscountProduct } from '@/constants/data';
+import { getHotAndNewProduct, getTopSellingProduct } from '@/lib/getRoutes/product';
+import { TProductList } from '@/types/product';
 
-const FilteredProductList = () => {
+
+
+const FilteredProductList = ({filteredTopSellingProducts,filteredHotNewProducts }:  {
+    filteredTopSellingProducts: TProductList;
+    filteredHotNewProducts: TProductList;
+  }) => {
     const searchQuery = useSelector((state: RootState) => state.product.searchQuery);
   
     const pathname = usePathname(); // Get the pathname
@@ -18,8 +25,8 @@ const FilteredProductList = () => {
         );
     };
     
-    const filteredTopSellingProducts = filterProducts(TopSellingproductData);
-    const filteredHotNewProducts = filterProducts(HotNewproductData);
+    // const filteredTopSellingProducts = getTopSellingProduct();
+    // const filteredHotNewProducts = getHotAndNewProduct();
     const filteredTopDiscountProduct = filterProducts(TopDiscountProduct);
 
     return (

@@ -1,12 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    // next.config.js
-
-//   images: {
-//     domains: ['via.placeholder.com'],
-//   },
-};
-
-
-
-export default nextConfig;
+    images: {
+      domains: ['clamio-image.s3.us-east-1.amazonaws.com'],
+    },
+  }
+  
+  export default nextConfig
+  

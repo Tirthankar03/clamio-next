@@ -16,11 +16,13 @@ import { revalidatePath } from "next/cache";
 
 export async function getAllCreators() {
   try {
+
     const response = await fetch(`${process.env.BASE_API_URL}/api/v1/creator`, {
       next: {
         revalidate: 30,
         tags: ['all-creators'],
       },
+      credentials: 'include'
     });
 
     const data = await response.json();
@@ -31,9 +33,9 @@ export async function getAllCreators() {
       console.error("Data returned is not an array", data);
       return [];
     }
-  } catch (e: any) {
-    console.error("Failed to fetch creators:", e);
-    return [];
+  } catch (error: any) {
+        console.error("error in addToCart>>>>>>>>:", error);
+        return { message: error.response?.data?.message || "Unable to add to cart", success: false }
   }
 }
 

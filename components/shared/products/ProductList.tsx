@@ -2,16 +2,10 @@
 import React from 'react';
 import ProductCard from '@/components/shared/cards/ProductCard';
 import ViewButton from '@/components/shared/buttons/ViewButton';
+import { TProductList } from '@/types/product';
 
 interface ProductListProps {
-    products: {
-        id: number;
-        productName: string;
-        name: string;
-        stars: string;
-        price: string;
-        imageUrl: string;
-    }[];
+    products: TProductList
     title: string;
 }
 
@@ -27,13 +21,8 @@ const ProductList: React.FC<ProductListProps> = (  { products, title }) => {
             <div className="grid lg:grid-cols-4 md:grid-cols-2 xs:grid-cols-2 gap-4 w-full mx-auto">
                 {products.map((product) => (
                     <ProductCard
-                        key={product.id}
-                        id={product.id}
-                        productName={product.productName}
-                        name={product.name}
-                        stars={product.stars}
-                        price={product.price}
-                        imageUrl={product.imageUrl}
+                        key={product._id}
+                        product={product}
                     />
                 ))}
             </div>

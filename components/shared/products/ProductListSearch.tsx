@@ -26,7 +26,7 @@ const ProductList: React.FC<ProductListProps> = ({ products, title }) => {
                 </div>
             </div>
             <div className="grid lg:grid-cols-3 md:grid-cols-2 xs:grid-cols-2 gap-4 w-full mx-auto">
-                {products.map((product) => (
+                {/* {products.map((product) => (
                     <ProductCard
                         key={product.id}
                         id={product.id}
@@ -36,7 +36,7 @@ const ProductList: React.FC<ProductListProps> = ({ products, title }) => {
                         price={product.price}
                         imageUrl={product.imageUrl}
                     />
-                ))}
+                ))} */}
             </div>
         </div>
     );

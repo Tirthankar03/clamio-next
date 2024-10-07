@@ -17,7 +17,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {   FormError} from "../form-error";
 import {  FormSuccess } from "../form-success";
-import { login } from "@/action/login";
+import { login } from "@/action/auth";
 import { useState, useTransition } from "react";
 import { useSearchParams } from "next/navigation";
 

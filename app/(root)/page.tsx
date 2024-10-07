@@ -8,7 +8,7 @@ export default async function Home() {
     const filteredTopSellingProducts: TProductList = await getTopSellingProduct();
     const filteredHotNewProducts: TProductList = await getHotAndNewProduct();
 
-    console.log("data in getTopSellingProduct>>>>>>>>", filteredTopSellingProducts)
+    // console.log("data in getTopSellingProduct>>>>>>>>", filteredTopSellingProducts)
 
 
     return (

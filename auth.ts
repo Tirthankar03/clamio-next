@@ -90,8 +90,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     async jwt({ token, user }) {
         if(!token.sub) return token
         const existingUser = await getUserById(token.sub);
+
+        console.log("get user by id in the jwt session>>>>>>>>>>>>>", existingUser)
         if (!existingUser) return token;
-        token.isCreator = existingUser.creator;
+        token.isCreator = !!existingUser.creator;
       return token;
     },
 

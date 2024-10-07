@@ -7,11 +7,18 @@ import { RootState } from "@/Store/store";
 import { Button } from "../ui/button";
 import { setIsLoggedIn } from "@/utils/authSlice";
 import DropDownMenu from "../Reusable Components/DropDown";
+import { useSessionData } from "@/lib/useSessionData";
 
 const NavItems = () => {
   const pathname = usePathname();
-  const isLoggedIn = useSelector((state: RootState) => state.user.isLoggedIn);
-  const isCreatorLogin = useSelector((store: RootState) => store.creator.isCreatorLoggedIn);
+  const { data: isLoggedIn } = useSessionData();
+
+  const isCreatorLogin = isLoggedIn?.user.isCreator
+
+  console.log("isCreatorLogin in NavItems>>>>>>>", isCreatorLogin)
+  
+  // const isLoggedIn = useSelector((state: RootState) => state.user.isLoggedIn);
+  // const isCreatorLogin = useSelector((store: RootState) => store.creator.isCreatorLoggedIn);
   const dispatch = useDispatch();
 
   return (

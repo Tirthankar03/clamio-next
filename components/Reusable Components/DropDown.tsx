@@ -1,3 +1,4 @@
+'use client'
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
@@ -10,12 +11,18 @@ import { deleteCookie } from 'cookies-next';
 import { LogOut, UserRound, ListOrdered, User, BadgePlus, NotebookTabs, HandHeart, UsersRound } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { handleSignOut } from '@/action/auth';
+import { useSessionData } from "@/lib/useSessionData";
 
 const DropDownMenu = () => {
   const dispatch = useDispatch();
   const router = useRouter();
-  const isLoggedIn = useSelector((store: RootState) => store.user.isLoggedIn);
-  const isCreatorLogin = useSelector((store: RootState) => store.creator.isCreatorLoggedIn);
+  const { data: isLoggedIn } = useSessionData();
+
+  const isCreatorLogin = isLoggedIn?.user.isCreator
+
+  console.log("isCreatorLogin in NavItems>>>>>>>", isCreatorLogin)
+  // const isLoggedIn = useSelector((store: RootState) => store.user.isLoggedIn);
+  // const isCreatorLogin = useSelector((store: RootState) => store.creator.isCreatorLoggedIn);
   const [count, setCount] = useState(0)
 
   const handleLogout = async() => {

@@ -6,6 +6,7 @@ import { DEFAULT_LOGIN_REDIRECT } from "@/routes";
 import { AuthError, CredentialsSignin } from "next-auth";
 import { cookies} from 'next/headers'
 import { signIn, signOut, auth } from "@/auth";
+import { getUserCookie } from '@/helpers/auth';
 export const login = async (values: z.infer<typeof LoginSchema>) => {
   const validatedFields = LoginSchema.safeParse(values);
 
@@ -89,7 +90,7 @@ export async function registerUser(input:TUserRegister) {
     const data = response.data;
     console.log("data in registerUser>>>>>>>>>>", data);
 
-    return {message: "user logged in successfully", success: true}
+    return {message: "user registered successfully", success: true}
 
   } catch (error: any) {
     console.error("error in registerUser>>>>>>>>:", error.response?.data);
@@ -107,33 +108,85 @@ export async function registerUser(input:TUserRegister) {
 //creator register
   //step 1: user register onClick next
   //step 2: creator register and redirect to login
-export async function registerCreator(input:TCreatorRegister) {
-  try {
-  const session = await auth();
-  const user = session?.user;
+  export async function registerCreator(input: FormData) {
+    const cookie = getUserCookie()
 
-  if(user?.isCreator){
-    throw new Error("You are already a creator. Please login to continue")
+    console.log("cookie>>>>>>>>", cookie)
+
+    try {
+      for (let pair of input.entries()) {
+        console.log(pair[0] + ': ' + pair[1]);
+      }
+      //   of destructuring, you access the form data entries
+      const response = await axios.post(
+        `${process.env.BASE_API_URL}/api/v1/creator`,
+        input, // Passing FormData directly
+        {
+          headers: {
+            "Content-Type": "multipart/form-data", // Important for handling file uploads
+            Cookie: `user=${cookie}`,
+          },
+          withCredentials: true,
+        },
+
+      );
+  
+      const data = response.data;
+      console.log("data in creatorRegister>>>>>>>>>>", data);
+  
+      return { message: "creator registered successfully", success: true };
+    } catch (error: any) {
+      console.error("error in creatorRegister>>>>>>>>:", error);
+      console.error("error in creatorRegister>>>>>>>>:", error.response?.data);
+  
+      return {
+        message: error.response?.data?.message || "Creator Signup failed",
+        success: false,
+      };
+    }
   }
-
-  const { title, description, website, social_link, expertise, bank_account, avatar} = input
-
-    const response = await axios.post(`${process.env.BASE_API_URL}/api/v1/user-auth/login`,{title, description, website, social_link, expertise, bank_account, avatar});
-    const data = response.data;
-    console.log("data in registerUser>>>>>>>>>>", data);
-
-    return {data};
-
-  } catch (error: any) {
-    console.error("error in registerUser>>>>>>>>:", error.response?.data);
-
-    // Return error object with the message from the API response
-    return { 
-      error: error.response?.data?.message || "Login failed", 
-      statusCode: error.response?.status || 500 
-    };
-  }
-}
+  
+  // export async function registerCreator(input: FormData) {
+  //   const cookie = getUserCookie(); // Retrieve the user cookie
+  
+  //   console.log("cookie>>>>>>>>", cookie);
+  
+  //   try {
+  //     // Log the FormData entries for debugging
+  //     for (let pair of input.entries()) {
+  //       console.log(pair[0] + ": " + pair[1]);
+  //     }
+  
+  //     // Make the API call using fetch
+  //     const response = await fetch(`${process.env.BASE_API_URL}/api/v1/creator`, {
+  //       method: "POST",
+  //       body: input, // Directly pass FormData as the body
+  //       headers: {
+  //         // Do not specify 'Content-Type', fetch will automatically set the boundary for FormData
+  //         Cookie: `user=${cookie}`, // Pass the cookie in the headers
+  //       },
+  //       credentials: "include", // Include cookies in the request (important for cross-origin requests)
+  //     });
+  
+  //     // Handle the response
+  //     if (!response.ok) {
+  //       const errorData = await response.json(); // Parse the error response
+  //       throw new Error(errorData.message || "Creator Signup failed");
+  //     }
+  
+  //     const data = await response.json(); // Parse the response data
+  //     console.log("data in creatorRegister>>>>>>>>>>", data);
+  
+  //     return { message: "creator registered successfully", success: true };
+  //   } catch (error: any) {
+  //     console.error("error in creatorRegister>>>>>>>>:", error);
+  
+  //     return {
+  //       message: error.message || "Creator Signup failed",
+  //       success: false,
+  //     };
+  //   }
+  // }
 
 
 

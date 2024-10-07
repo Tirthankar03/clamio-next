@@ -5,6 +5,7 @@ import { TCart, TCartProduct } from '@/types/cart';
 import Checkout from '@/components/shared/checkout';
 import { redirect } from 'next/navigation';
 import CartItem from '@/components/shared/cart/cartItem';
+import { PaymentButton } from '@/components/shared/Payouts/payment-button';
 
 const page = async () => {
   const userCartDetails = await getAllCart()
@@ -12,6 +13,12 @@ const page = async () => {
   if (userCartDetails.success && userCartDetails.data) {
   const cart: TCart = userCartDetails.data
 
+  console.log("cart>>>>>>>>>>", cart.products);
+  
+  
+  const productIds = cart.products.map(item => item.product_id);
+
+  console.log(productIds)
 
   return (
     <div className="flex justify-center">
@@ -46,6 +53,9 @@ const page = async () => {
             <span className="text-gray-800 text-lg">Total Payable</span>
             <span className="text-gray-800 text-lg">${(cart.total_amount + 5.00).toFixed(2)}</span>
           </div>
+
+
+          <PaymentButton productIds={productIds} />
         </div>
       </div>
     </div>

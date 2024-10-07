@@ -1,4 +1,4 @@
-export const publicRoutes = [ '/creator']
+export const publicRoutes = [ '/creator', '/auth/signup']
 
 export const privateRoutes = [
     '/dashboard',  // Add all your private routes here
@@ -8,7 +8,7 @@ export const privateRoutes = [
   
 export const authRoutes = [
     '/auth/signin', 
-    '/auth/signup', '/auth/error', '/test']
+    , '/auth/error', '/test']
 
 
 

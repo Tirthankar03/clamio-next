@@ -173,7 +173,7 @@ export function initiatePayment(order: OrderData): Promise<string> {
         currency: order.data.currency,
         order_receipt: order.data.receipt,
         name: "Clamio",
-        description: "Thank you!🎉🎉🎉🎉",
+        description: "",
         handler: (response: responseType) => {
           console.log("response from razorpay>>>>>>>>>>>", response);
           if (response.razorpay_payment_id) {

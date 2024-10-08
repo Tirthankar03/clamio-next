@@ -8,18 +8,19 @@ import axios from 'axios';
 interface OrderListProps {
     value: string;
     activeTab: string;
+    filteredOrders: TItem[];
 }
 
-const OrderList: React.FC<OrderListProps> = async ({ value }) => {
+const OrderList: React.FC<OrderListProps> =  ({ value, filteredOrders }) => {
 
     // const filteredOrders = orders.filter(order => order.type === value);
 
-    const res = await axios.get(`${process.env.NEXT_PUBLIC_BASE_API_URL}/api/v1/order/getAllOrders`, {withCredentials: true} )
+    // const res = await axios.get(`${process.env.NEXT_PUBLIC_BASE_API_URL}/api/v1/order/getAllOrders`, {withCredentials: true} )
     
 
-    const  data: TOrderList = res.data
+    // const  data: TOrderList = res.data
 
-    const filteredOrders = data[0].items
+    // const filteredOrders = data[0].items
   
     if (!Array.isArray(filteredOrders)) {
       return <p>No Orders available.</p>;
@@ -29,6 +30,7 @@ const OrderList: React.FC<OrderListProps> = async ({ value }) => {
             {filteredOrders.map((order, index) => (
                 <OrderCard key={index} order={order} activeTab={value} />
             ))}
+            {/* <h1>asidufasdf</h1> */}
         </main>
     );
 }

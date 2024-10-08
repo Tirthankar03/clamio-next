@@ -17,7 +17,7 @@ interface OrderCardProps {
 const OrderCard: React.FC<OrderCardProps> = ({ order, activeTab }) => {
     const [isPending, startTransition] = useTransition();
 
-    const downloadUrl = `https://clamio-backend-vt4d.onrender.com/downloadable/download/${order.product_id}`
+    const downloadUrl = `https://clamio-backend-vt4d.onrender.com/api/v1/downloadable/download/${order.product_id}`
 
     const handleSubmit = () => {
         // Open the download link in a new tab

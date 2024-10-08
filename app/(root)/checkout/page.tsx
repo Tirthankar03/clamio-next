@@ -38,20 +38,20 @@ const page = async () => {
         <h2 className="text-2xl font-semibold mb-6">Price Details</h2>
         <div className="flex flex-col space-y-4">
           <div className="flex justify-between items-center border-b border-gray-200 pb-2">
-            <span className="text-gray-600 text-lg">Price {cart.products.length}:</span>
-            <span className="text-gray-800 text-lg font-medium">Rs{cart.total_amount}</span>
+            <span className="text-gray-600 text-lg">Price ( {cart.products.length} ):</span>
+            <span className="text-gray-800 text-lg font-medium">Rs {cart.total_amount}</span>
           </div>
           <div className="flex justify-between items-center border-b border-gray-200 pb-2">
             <span className="text-gray-600 text-lg">Delivery Charges</span>
-            <span className="text-green-500 text-lg font-medium">$70 FREE</span>
+            <span className="text-green-500 text-lg font-medium">Rs 70 FREE</span>
           </div>
           <div className="flex justify-between items-center border-b border-gray-200 pb-2">
             <span className="text-gray-600 text-lg">Packaging Charge</span>
-            <span className="text-gray-800 text-lg font-medium">$5</span>
+            <span className="text-gray-800 text-lg font-medium">Rs 5</span>
           </div>
           <div className="flex justify-between items-center border-b border-gray-200 pb-2 font-semibold">
             <span className="text-gray-800 text-lg">Total Payable</span>
-            <span className="text-gray-800 text-lg">${(cart.total_amount + 5.00).toFixed(2)}</span>
+            <span className="text-gray-800 text-lg">Rs {(cart.total_amount + 5.00).toFixed(2)}</span>
           </div>
 
 

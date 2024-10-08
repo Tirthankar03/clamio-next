@@ -30,7 +30,7 @@ export const addToCart = async (id: string) => {
         }
       );
         const data = response.data;
-        console.log("data in registerUser>>>>>>>>>>", data);  
+        // console.log("data in registerUser>>>>>>>>>>", data);  
         revalidateTag('cart')
         return {message: "added to cart successfully", success: true}
     } catch (error: any) {
@@ -66,7 +66,7 @@ export const deleteFromCartById = async (id: string) => {
       }
     );
       const data = response.data;
-      console.log("data in registerUser>>>>>>>>>>", data);  
+      // console.log("data in registerUser>>>>>>>>>>", data);  
       revalidateTag('cart')
       return {message: "removed successfully", success: true}
   } catch (error: any) {

@@ -3,8 +3,13 @@ import React, { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import OrderList from '@/components/your-account/your-orders/orderList';
 import { FaSearch } from 'react-icons/fa';
+import { TItem, TOrderList } from '@/types/order';
 
-export default function YourOrder() {
+interface YourOrderProps {
+    filteredOrders: TItem[];
+  }
+  
+  export default function YourOrder({ filteredOrders }: YourOrderProps) {
     const [activeTab, setActiveTab] = useState("orders");
 
     const handleTabChange = (tabValue:any) => {
@@ -54,13 +59,13 @@ export default function YourOrder() {
                             <OrderList value="orders" activeTab={activeTab} />
                         </TabsContent>
                         <TabsContent value="buy-again">
-                            <OrderList value="buy-again" activeTab={activeTab} />
+                            {/* <OrderList value="buy-again" activeTab={activeTab} /> */}
                         </TabsContent>
                         <TabsContent value="my-bookings">
-                            <OrderList value="my-bookings" activeTab={activeTab} />
+                            {/* <OrderList value="my-bookings" activeTab={activeTab} /> */}
                         </TabsContent>
                         <TabsContent value="cancelled">
-                            <OrderList value="cancelled" activeTab={activeTab} />
+                            {/* <OrderList value="cancelled" activeTab={activeTab} /> */}
                         </TabsContent>
                     </Tabs>
                 </div>

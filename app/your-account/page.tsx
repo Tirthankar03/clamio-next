@@ -1,10 +1,14 @@
 import React from 'react'
 import YourOrder from './my-orders/page'
+import { getAllOrders } from '@/lib/getRoutes/order'
+import { TItem, TOrderList } from '@/types/order'
 
-function page() {
+async function page() {
+  const filteredOrders: TItem[]  = await getAllOrders()
+
   return (
     <div>
-      <YourOrder/>
+      <YourOrder filteredOrders={filteredOrders}/>
     </div>
   )
 }

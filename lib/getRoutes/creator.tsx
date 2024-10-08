@@ -12,16 +12,25 @@
     do parallel data fetching when required
 */
 
+import { getUserCookie } from "@/helpers/auth";
 import { revalidatePath } from "next/cache";
 
 export async function getAllCreators() {
   try {
 
+    const cookie = getUserCookie()
+
+
     const response = await fetch(`${process.env.BASE_API_URL}/api/v1/creator`, {
+      headers: {
+                // Do not specify 'Content-Type', fetch will automatically set the boundary for FormData
+                Cookie: `user=${cookie}`, // Pass the cookie in the headers
+              },
       next: {
         revalidate: 30,
         tags: ['all-creators'],
       },
+      
       credentials: 'include'
     });
 

@@ -23,6 +23,9 @@ export async function getAllCart(): Promise<GetAllCartResponse> {
     });
 
     const data: TCartList = await response.json();
+
+
+    console.log("data in cart>>>>>>>>>>>", data)
     
     if (Array.isArray(data) && data.length > 0) {
       return { data: data[0], success: true };  // Ensure that you return { data, success }

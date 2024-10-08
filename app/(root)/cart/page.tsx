@@ -18,6 +18,9 @@ export default async function CartPage() {
 
         const cart: TCart = userCartDetails.data
 
+        console.log("cart>>>>>>>>>>", cart)
+        console.log("cart images>>>>>>>>>>", cart.products)
+
 
 
         return (

@@ -5,7 +5,8 @@
     product_id: string;
     creator_id: string;
     creator_name?: string; // Optional, since it's not required
-    thumbnail_url: string;
+    product_url: string;
+    images_url: string[];
     title:string;
   }
   

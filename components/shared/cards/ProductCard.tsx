@@ -38,13 +38,14 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         {/* <LikeBtn product={product} /> */}
       </div>
       <Link href={`/product/${product._id}`}>
-        <Image
-          src={product.thumbnail_url}
+      {Array.isArray(product.images_url) &&        <Image
+          src={product.images_url[0]}
           alt="product card"
           width={1000}
           height={1000}
           className="cursor-pointer object-cover h-64 w-full p-4 pb-0"
-        />
+        /> }
+
       </Link>
       <div className="p-4 flex flex-col justify-between flex-grow">
         <div>

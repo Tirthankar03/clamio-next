@@ -88,7 +88,7 @@ export async function registerUser(input:TUserRegister) {
   try {
     const response = await axios.post(`${process.env.BASE_API_URL}/api/v1/user-auth/register`,{email:input.email, password: input.password, username: input.username});
     const data = response.data;
-    console.log("data in registerUser>>>>>>>>>>", data);
+    // console.log("data in registerUser>>>>>>>>>>", data);
 
     return {message: "user registered successfully", success: true}
 

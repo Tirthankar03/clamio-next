@@ -6,8 +6,8 @@ export type TProduct = {
     updatedon: string; // Assuming format is ISO 8601
     category: string;
     price: number;
-    thumbnail_url: string;
-    file_url: string;
+    images_url: string[];
+    product_url: string;
     content_type: string;
     creator_id: string;
     total_purchase: number;

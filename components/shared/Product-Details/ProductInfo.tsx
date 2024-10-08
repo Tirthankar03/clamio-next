@@ -35,13 +35,13 @@ const ProductDetail = ({product}: {product: TProduct}) => {
         <div className="container mx-auto p-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                 <div className="relative h-96 w-full rounded-lg overflow-hidden">
-                    <Image
-                        src={product.thumbnail_url}
-                        alt="product card"
-                        layout="fill"
-                        objectFit="cover"
-                        className="cursor-pointer"
-                    />
+                {Array.isArray(product.images_url) &&        <Image
+          src={product.images_url[0]}
+          alt="product card"
+          width={1000}
+          height={1000}
+          className="cursor-pointer object-cover h-64 w-full p-4 pb-0"
+        /> }
                 </div>
                 <div className="flex flex-col justify-between">
                     <div>

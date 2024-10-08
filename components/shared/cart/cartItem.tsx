@@ -40,7 +40,7 @@ type Props = {
         <div className="grid grid-cols-4 gap-3 items-center border-b py-4">
             <div className="col-span-1 flex justify-center">
                 <Image
-                    src={item.thumbnail_url}
+                    src={item.images_url[0]}
                     alt={item.title}
                     width={80}
                     height={80}

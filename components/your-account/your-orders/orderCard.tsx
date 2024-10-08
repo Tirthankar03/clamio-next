@@ -2,6 +2,11 @@ import React, { useState } from 'react';
 import UserInfoDialog from '@/components/shared/UserInfoDialogProps';
 import { OrderDemo } from '@/lib/types';
 import { TItem, TOrder } from '@/types/order';
+import { downloadFile } from '@/action/order';
+import { Button } from '@/components/ui/button';
+import { toast } from 'sonner';
+import { useTransition } from "react";
+import Link from 'next/link';
 
 interface OrderCardProps {
     order: TItem;
@@ -10,6 +15,14 @@ interface OrderCardProps {
 }
 
 const OrderCard: React.FC<OrderCardProps> = ({ order, activeTab }) => {
+    const [isPending, startTransition] = useTransition();
+
+    const downloadUrl = `https://clamio-backend-vt4d.onrender.com/downloadable/download/${order.product_id}`
+
+    const handleSubmit = () => {
+        // Open the download link in a new tab
+        window.open(downloadUrl, '_blank');
+    };
     const [isDialogOpen, setIsDialogOpen] = useState(false);
     const [status, setStatus] = useState('Processing');
 
@@ -21,10 +34,10 @@ const OrderCard: React.FC<OrderCardProps> = ({ order, activeTab }) => {
         setIsDialogOpen(false);
     };
 
-    const handleSubmit = () => {
-        setStatus('Processing');
-        handleCloseDialog();
-    };
+    // const handleSubmit = () => {
+    //     setStatus('Processing');
+    //     handleCloseDialog();
+    // };
 
     const getStatusClass = () => {
         let statusClass = '';
@@ -40,12 +53,11 @@ const OrderCard: React.FC<OrderCardProps> = ({ order, activeTab }) => {
 
     return (
         <div className="border border-gray-300 rounded-lg p-4 mb-4 bg-white shadow-lg ">
-             <UserInfoDialog 
+             {/* <UserInfoDialog 
                 isOpen={isDialogOpen} 
                 onClose={handleCloseDialog} 
-                onSubmit={handleSubmit} 
                 userId={order.product_id} // Add this line
-            />
+            /> */}
             <div className="flex gap-10 sm:flex-row sm:justify-between mb-4">
                 {/* Other content */}
             </div>
@@ -55,26 +67,23 @@ const OrderCard: React.FC<OrderCardProps> = ({ order, activeTab }) => {
                     <p className="font-medium text-gray-800 text-lg">{order.title}</p>
                     
                     <div className="flex flex-wrap gap-2 mt-2">
-                        <button className="bg-yellow-500 text-white px-4 py-2 rounded-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-400">Buy it again</button>
-                        {activeTab === 'my-bookings' ? (
-                            <button className="bg-gray-100 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-300" onClick={handleOpenDialog}>User Info</button>
-                        ) : (
-                            <button className="bg-gray-100 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-300">View your item</button>
-                        )}
+                    <Button onClick={handleSubmit}  className="text-white bg-black mt-2" >Download</Button>
+
+                            {/* <button className="bg-gray-100 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-300" onClick={handleOpenDialog}>User Info</button> */}
                     </div>
                 </div>
             </div>
             <div className="flex flex-col justify-between sm:flex-row gap-2 mt-4">
-                {activeTab === 'my-bookings' ? (
+                {/* {activeTab === 'my-bookings' ? (
                     <div className={`text-sm mt-1 p-2 rounded ${getStatusClass()}`}>
                         {status}
                     </div>
                 ) : (
                     <button className="text-blue-600 hover:underline text-sm">View Return/Refund Status</button>
-                )}
-                <button className="text-blue-600 hover:underline text-sm">Write a product review</button>
+                )} */}
+                {/* <button className="text-blue-600 hover:underline text-sm">Write a product review</button> */}
             </div>
-            <button className="text-blue-600 hover:underline text-sm mt-4 block">Archive order</button>
+            {/* <button className="text-blue-600 hover:underline text-sm mt-4 block">Archive order</button> */}
         </div>
     );
 };

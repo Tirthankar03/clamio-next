@@ -53,19 +53,14 @@ const HeaderUser: React.FC<HeaderUserProps> = ({ placeholder }) => {
               alt="Clamio logo"
             />
           </Link>
-          <div className="flex-grow hidden md:flex justify-center">
-            <SearchBar placeholder={placeholder} />
-          </div>
           <div className="hidden md:flex items-center space-x-4">
             <NavigationLinks/>
           </div>
-        </div>
-        <div className="flex md:hidden items-center space-x-3">
+          <div className="flex md:hidden items-center space-x-3">
           <MobileNav />
         </div>
-        <div className="md:hidden flex w-full mt-4">
-          <SearchBar placeholder={placeholder} />
         </div>
+
       </div>
     </header>
     </div>

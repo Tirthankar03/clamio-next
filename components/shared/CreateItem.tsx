@@ -148,9 +148,9 @@ const CreateItem = () => {
               <div className="grid grid-cols-1 gap-6 mb-6">
                 <CustomInput label="Title" name="title" register={register} />
                 <TextArea label="Description" name="description" register={register} />
-                <CustomInput label="creator id(this should come from backend. Add creator_id FK to user?)" name="creator_id" register={register} />
-                <CustomInput label="content type(why FE and why required?)" name="content_type" register={register} />
-                <CustomInput label="creator name(why FE and why required?)" name="creator_name" register={register} />
+                <CustomInput label="creator id" name="creator_id" register={register} />
+                <CustomInput label="content type" name="content_type" register={register} />
+                <CustomInput label="creator name" name="creator_name" register={register} />
 
               </div>
                 <div className="mb-4">

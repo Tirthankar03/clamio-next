@@ -9,7 +9,7 @@ export async function getTopSellingProduct() {
       });
   
       const data = await response.json();
-      // console.log("data in getTopSellingProduct>>>>>>>>", data)
+      console.log("data in getTopSellingProduct>>>>>>>>", data)
 
       // Ensure data is an array
       if (Array.isArray(data)) {

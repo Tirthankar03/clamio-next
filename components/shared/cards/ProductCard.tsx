@@ -71,7 +71,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             <div className="text-sm">★ 4.5 (1k)</div>
           </div>
         </div>
-        <div className="text-lg font-bold mt-2">{product.price}</div>
+        <div className="text-lg font-bold mt-2">₹ {product.price}</div>
       </div>
     </div>
   );

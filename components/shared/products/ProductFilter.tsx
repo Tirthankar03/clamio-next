@@ -37,9 +37,6 @@ const FilteredProductList = ({filteredTopSellingProducts,filteredHotNewProducts 
             {filteredHotNewProducts.length > 0 && (
                 <ProductList products={filteredHotNewProducts} title="Hot and New Products" />
             )}
-            {filteredTopDiscountProduct.length > 0 && (
-                <ProductList products={filteredTopDiscountProduct} title="Top Discount Products" />
-            )}
             {filteredTopSellingProducts.length === 0 && filteredHotNewProducts.length === 0 && filteredTopDiscountProduct.length === 0 && (
                 <div>No products found</div>
             )}

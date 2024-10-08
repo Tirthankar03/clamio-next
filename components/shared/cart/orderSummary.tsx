@@ -33,7 +33,7 @@ function OrderSummary({ totalItems, totalCost }: any) {
         } else {
             toast.warning('You need to log in first');
             setTimeout(() => {
-                router.push('/login');
+                router.push('/auth/signin');
             }, 2000);
         }
     };

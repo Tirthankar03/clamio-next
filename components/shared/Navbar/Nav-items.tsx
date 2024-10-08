@@ -51,12 +51,12 @@ const NavItems = () => {
                 <ul className="flex gap-2">
                     <li>
                         <Button className="font-semibold hover:bg-yellow-400 px-4 py-2 rounded-md shadow-md">
-                            <Link href="/login">Login</Link>
+                            <Link href="/auth/signin">Login</Link>
                         </Button>
                     </li>
                     <li>
                         <Button className="font-semibold hover:bg-yellow-400 px-4 py-2 rounded-md shadow-md">
-                            <Link href="/signup">Signup</Link>
+                            <Link href="/auth/signup">Signup</Link>
                         </Button>
                     </li>
                 </ul>

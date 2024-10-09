@@ -59,8 +59,8 @@ export const PaymentButton = ({productIds}: {productIds: string[]}) => {
         console.log("res after payment confirmation>>>>>>>>>>>>>>>", orderRes);
   
         // Optionally display success message and navigate
-        // toast.success("Payment successful");
-        // router.push("/payment/success");
+        toast.success("Payment successful. Redirecting");
+        router.replace("/your-account");
   
         // TODO: Empty the shopping cart by hitting a backend endpoint
   

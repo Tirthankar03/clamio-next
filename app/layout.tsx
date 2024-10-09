@@ -5,6 +5,8 @@ import ReduxProvider from "@/utils/ReduxProvider";
 import { Toaster, toast } from 'sonner'
 import HeaderUser from "@/components/shared/Navbar/HeaderUser";
 import Providers from '@/components/wrapper/Providers'
+import { SessionDataProvider } from '@/components/wrapper/SessionDataWrapper'
+
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -29,11 +31,13 @@ export default function RootLayout({
      
         <body className={poppins.variable}>
           <ReduxProvider> 
+<SessionDataProvider>
           <Providers>
 
           {/* <HeaderUser placeholder="search products" /> */}
           {children}
           </Providers>
+          </SessionDataProvider>
 
           </ReduxProvider>
           </body>

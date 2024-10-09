@@ -9,12 +9,25 @@ import { RootState } from '@/Store/store';
 import DropDownMenu from '@/components/Reusable Components/DropDown';
 import { LucideShoppingBag } from 'lucide-react';
 import { useSessionData } from "@/lib/useSessionData";
+import { getAllCart } from '@/lib/getRoutes/cart';
 
+
+    interface Props {
+        cartItemCount: number
+      }
 
 
   
-  const NavigationLinks = () => {
-    const cartItemCount = useSelector((state: RootState) => state.cart.items.length);
+  const NavigationLinks: React.FC<Props>  = ({cartItemCount}) => {
+
+
+    console.log("cartItemCount>>>>>", cartItemCount)
+
+
+
+
+
+
     const isLoggedIn = useSelector((store: RootState) => store.user.isLoggedIn);
     return (
         <>

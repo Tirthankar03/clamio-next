@@ -20,7 +20,7 @@ function OrderSummary({ totalItems, totalCost }: any) {
         const coupon = COUPONS.find(c => c.code === couponCode.toUpperCase() || c.code === selectedCoupon);
         if (coupon) {
             setDiscount(coupon.value);
-            toast.success(`Coupon applied! You got $${coupon.value} off`);
+            toast.success(`Coupon applied! You got ₹${coupon.value} off`);
         } else {
             toast.error('Invalid coupon code');
         }
@@ -43,16 +43,16 @@ function OrderSummary({ totalItems, totalCost }: any) {
             <h2 className="text-xl font-semibold mb-4">Order Summary</h2>
             <div className="flex justify-between mb-2">
                 <span>Items ({totalItems}):</span>
-                <span>${totalCost.toFixed(2)}</span>
+                <span>₹ {totalCost.toFixed(2)}</span>
             </div>
             <div className="flex justify-between mb-2">
                 <span>Shipping:</span>
-                <span>$5.00</span>
+                <span>₹5.00</span>
             </div>
             {discount > 0 && (
                 <div className="flex justify-between mb-2 text-green-500">
                     <span>Coupon Discount:</span>
-                    <span>-${discount.toFixed(2)}</span>
+                    <span>-₹ {discount.toFixed(2)}</span>
                 </div>
             )}
             <div className="flex mb-4 space-x-4">
@@ -90,7 +90,7 @@ function OrderSummary({ totalItems, totalCost }: any) {
             </div>
             <div className="flex justify-between font-bold">
                 <span>Total:</span>
-                <span>${(totalCost + 5.00 - discount).toFixed(2)}</span>
+                <span>₹ {(totalCost + 5.00 - discount).toFixed(2)}</span>
             </div>
             <button
                 className="w-full bg-primary text-white py-2 mt-4 rounded-lg hover:bg-primary-dark transition duration-300"

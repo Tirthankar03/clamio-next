@@ -22,7 +22,7 @@ const OrderList: React.FC<OrderListProps> =  ({ value, filteredOrders }) => {
 
     // const filteredOrders = data[0].items
   
-    if (!Array.isArray(filteredOrders)) {
+    if (!Array.isArray(filteredOrders) || filteredOrders.length == 0) {
       return <p>No Orders available.</p>;
     }
     return (

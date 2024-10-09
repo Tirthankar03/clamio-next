@@ -11,9 +11,10 @@ import { useSessionData } from "@/lib/useSessionData";
 import { handleSignOut } from '@/action/auth';
 interface HeaderUserProps {
   placeholder: string;
+  cartItemCount: number
 }
 
-const HeaderUser: React.FC<HeaderUserProps> = ({ placeholder }) => {
+const HeaderUser: React.FC<HeaderUserProps> = ({ placeholder, cartItemCount }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const { data: session } = useSessionData();
 
@@ -54,10 +55,10 @@ const HeaderUser: React.FC<HeaderUserProps> = ({ placeholder }) => {
             />
           </Link>
           <div className="hidden md:flex items-center space-x-4">
-            <NavigationLinks/>
+            <NavigationLinks cartItemCount={cartItemCount}/>
           </div>
           <div className="flex md:hidden items-center space-x-3">
-          <MobileNav />
+          <MobileNav cartItemCount={cartItemCount} />
         </div>
         </div>
 

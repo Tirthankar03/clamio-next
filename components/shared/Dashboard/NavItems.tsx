@@ -52,7 +52,7 @@ const NavItems = () => {
           <TooltipContent className="p-0">
             <Link href={"/your-account/clamio-coins"}>
               <p className="bg-gradient-to-r rounded-sm w-full p-1 font-semibold from-yellow-300 via-yellow-400 to-yellow-500 hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 transition duration-300 ease-in-out">
-                $2,83,969
+              ₹2,83,969
               </p>
             </Link>
           </TooltipContent>

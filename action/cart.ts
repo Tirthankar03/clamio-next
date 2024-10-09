@@ -34,6 +34,8 @@ export const addToCart = async (id: string) => {
         revalidateTag('cart')
         return {message: "added to cart successfully", success: true}
     } catch (error: any) {
+        console.error("error.response?.data in addToCart>>>>>>>>:", error.response?.data);
+        console.error("error?.response in addToCart>>>>>>>>:", error?.response);
         console.error("error in addToCart>>>>>>>>:", error);
     return { message: error.response?.data?.message || "Unable to add to cart", success: false }
         

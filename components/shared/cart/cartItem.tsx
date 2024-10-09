@@ -8,6 +8,7 @@ import { TCartProduct } from '@/types/cart';
 import { Button } from '@/components/ui/button';
 import { useTransition } from "react";
 import { deleteFromCartById } from '@/action/cart';
+import Link from 'next/link';
 
 type Props = {
     item: TCartProduct;
@@ -35,17 +36,18 @@ type Props = {
             }
         })
     };
-
     return (
         <div className="grid grid-cols-4 gap-3 items-center border-b py-4">
             <div className="col-span-1 flex justify-center">
-                <Image
-                    src={item.images_url[0]}
-                    alt={item.title}
-                    width={80}
-                    height={80}
-                    className="object-cover"
-                />
+            <Link href={`/product/${item.product_id}`}>
+                    <Image
+                        src={item.images_url[0]}
+                        alt={item.title}
+                        width={80}
+                        height={80}
+                        className="object-cover"
+                    />
+                </Link>
             </div>
             <div className="col-span-1">
                 <h2 className="text-lg font-medium truncate"></h2>

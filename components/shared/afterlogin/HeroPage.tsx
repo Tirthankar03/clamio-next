@@ -1,4 +1,5 @@
 import { CUATE_PNG } from '@/constants/data';
+import Link from 'next/link';
 import React from 'react';
 
 
@@ -11,7 +12,9 @@ const Hero = () => {
         </div>
         <div className="text-center lg:text-left">
           <h2 className="text-5xl font-bold mb-7">Be a <span className="text-yellow-500">CLAMIO</span> Creator Now!</h2>
+          <Link href='/auth/signup'>
           <button className="bg-gray-300 font-semibold text-black py-2 px-4 md:py-3 md:px-6 rounded text-lg">START SELLING</button>
+          </Link>
         </div>
       </div>
     </section>

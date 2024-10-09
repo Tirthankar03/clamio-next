@@ -1,5 +1,6 @@
 import React from 'react';
 import { pricingData } from '@/constants/data';
+import Link from 'next/link';
 
 const Pricing = () => {
   return (
@@ -21,7 +22,10 @@ const Pricing = () => {
           </div>
         ))}
       </div>
+      <Link href='/auth/signup'>
       <button className="mt-10 bg-primary font-semibold text-black py-3 px-6 rounded md:text-lg w-56 md:w-2/3 lg:w-96 mx-auto">START SELLING</button>
+      </Link>
+
     </section>
   );
 }

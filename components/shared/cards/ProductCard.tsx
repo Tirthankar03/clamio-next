@@ -26,7 +26,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         if(result.success){
          toast.success(result.message)
         }else{
-         toast.error(result.message)
+         toast.info(result.message)
         }
     })
 };

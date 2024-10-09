@@ -8,12 +8,17 @@ import { RootState } from '@/Store/store';
 
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
-
-const NavItems = () => {
+import { useSessionData } from '@/lib/useSessionData';
+interface Props {
+    cartItemCount: number
+  }
+const NavItems: React.FC<Props>  = ({cartItemCount}) => {
     const pathname = usePathname();
-    const isLoggedIn = useSelector((state: RootState) => state.user.isLoggedIn);
-    const isCreatorLogin = useSelector((store: RootState) => store.creator.isCreatorLoggedIn);
-    const cartItemCount = useSelector((state: RootState) => state.cart.items.length);
+    const { data: isLoggedIn } = useSessionData();
+
+    const isCreatorLogin = isLoggedIn?.user.isCreator
+  
+    // const cartItemCount = useSelector((state: RootState) => state.cart.items.length);
 
     return (
         <ul className="md:flex-between flex w-full flex-col items-start gap-5 md:flex-row">

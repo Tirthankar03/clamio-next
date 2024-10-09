@@ -14,7 +14,7 @@ export default function page() {
   useEffect(() => {
     // In a real application, you would fetch these details from your backend
     setOrderNumber('ORD-' + Math.random().toString(36).substr(2, 9).toUpperCase())
-    setAmount('$' + (Math.random() * 100).toFixed(2))
+    setAmount('₹' + (Math.random() * 100).toFixed(2))
   }, [])
 
   return (

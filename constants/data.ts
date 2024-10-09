@@ -1276,18 +1276,18 @@ export const headerLinksThree = [
     label: 'Sell Your Product',
     route: '/explore',
   },
-  {
-    label: 'Wishlist',
-    route: '/favourite',
-  },
+  // {
+  //   label: 'Wishlist',
+  //   route: '/favourite',
+  // },
   {
     label: 'Cart',
     route: '/cart',
   },
-  {
-    label: 'Community',
-    route: '/community',
-  },
+  // {
+  //   label: 'Community',
+  //   route: '/community',
+  // },
   {
     label: 'Creators',
     route: '/creator',

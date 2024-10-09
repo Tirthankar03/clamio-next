@@ -28,7 +28,7 @@ const Hero = ({ onButtonClick, showCreateButtons }: any) => {
                                     <Image src={Add} alt="add.png" width={40} />
                                 </button>
                             </Link>
-                            <Link href="/dashboard/create-product">
+                            <Link href="/dashboard/create">
                                 <button className="font-bold bg-primary text-secondary px-4 py-2 rounded transition-colors duration-300">
                                     Create Your Product
                                 </button>

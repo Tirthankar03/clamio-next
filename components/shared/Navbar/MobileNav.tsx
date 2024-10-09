@@ -18,13 +18,20 @@ import { BG_IMAGE } from "@/constants/data";
 import { deleteCookie } from "cookies-next";
 import { setIsCreatorLoggedIn } from "@/utils/creatorSlice";
 import { useRouter } from "next/navigation";
+import { useSessionData } from "@/lib/useSessionData";
 
-const MobileNav = () => {
+interface Props {
+  cartItemCount: number
+}
+const MobileNav: React.FC<Props> = ({cartItemCount}) => {
+  const { data: isLoggedIn } = useSessionData();
+
+  const isCreatorLogin = isLoggedIn?.user.isCreator
+
   const dispatch = useDispatch();
   const router = useRouter();
-  const isLoggedIn = useSelector((store: RootState) => store.user.isLoggedIn);
-  const isCreatorLogin = useSelector((store: RootState) => store.creator.isCreatorLoggedIn);
-  const cartItemCount = useSelector((state: RootState) => state.cart.items.length);
+  // const isLoggedIn = useSelector((store: RootState) => store.user.isLoggedIn);
+  // const isCreatorLogin = useSelector((store: RootState) => store.creator.isCreatorLoggedIn);
 
   const handleLogout = () => {
     if (isLoggedIn) {
@@ -90,7 +97,7 @@ const MobileNav = () => {
                 </div>
               </div>
               <div className="p-4 flex flex-col items-start">
-                <NavItems />
+                <NavItems cartItemCount={cartItemCount}/>
                 <button
                   onClick={handleLogout}
                   className="flex items-center my-5 gap-2 bg-red-500 text-white px-4 py-2 rounded-lg shadow hover:bg-red-600 transition"
@@ -103,7 +110,7 @@ const MobileNav = () => {
           )}
           <Separator />
           <div className="p-6">
-            {!isLoggedIn && !isCreatorLogin && <NavItems />}
+            {!isLoggedIn && !isCreatorLogin && <NavItems cartItemCount={cartItemCount} />}
           </div>
         </SheetContent>
       </Sheet>
